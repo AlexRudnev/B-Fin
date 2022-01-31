@@ -1,0 +1,79 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faFacebookF, faGooglePlusG, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { useState } from 'react';
+
+import './forma-auth.css';
+
+function FormAuth() {
+   const [isActive, setActive] = useState(false);
+
+   const signUp = (e) => {
+      e.preventDefault();
+      setActive(!isActive);
+   }
+   return (
+      <div>
+         <h2>Форма регистрации B-Fin</h2>
+         <div className={isActive ? "container right-panel-active" : "container"} id="container">
+            <div className="form-container sign-up-container">
+               <form action="#">
+                  <h1>Создать аккаунт</h1>
+                  <div className="social-container">
+                     <a href="/#" className="social">
+                        <FontAwesomeIcon icon={faFacebookF} />
+                     </a>
+                     <a href="/#" className="social">
+                        <FontAwesomeIcon icon={faGooglePlusG} />
+                     </a>
+                     <a href="/#" className="social">
+                        <FontAwesomeIcon icon={faLinkedinIn} />
+                     </a>
+                  </div>
+                  <span>или используйте почту для входа</span>
+                  <input type="text" name="login" placeholder="Логин" />
+                  <input type="email" name="email" placeholder="Почта" />
+                  <input type="password" name="pass" placeholder="Пароль" />
+                  <button>Зарегистрироваться</button>
+               </form>
+            </div>
+            <div className="form-container sign-in-container">
+               <form action="#">
+                  <h1>Войти</h1>
+                  <div className="social-container">
+                     <a href="/#" className="social">
+                        <FontAwesomeIcon icon={faFacebookF} />
+                     </a>
+                     <a href="/#" className="social">
+                        <FontAwesomeIcon icon={faGooglePlusG} />
+                     </a>
+                     <a href="/#" className="social">
+                        <FontAwesomeIcon icon={faLinkedinIn} />
+                     </a>
+                  </div>
+                  <span>или используйте свою почту</span>
+                  <input type="email" name="email" placeholder="Почта" />
+                  <input type="password" name="pass" placeholder="Пароль" />
+                  <a href="/#">Забыли пароль?</a>
+                  <button>Войти</button>
+               </form>
+            </div>
+            <div className="overlay-container">
+               <div className="overlay">
+                  <div className="overlay-panel overlay-left">
+                     <h1>Привет!</h1>
+                     <p>Если у Вас уже есть аккаунт, пожалуйста, войдите под своей личной информацией</p>
+                     <button className="ghost" id="signIn" onClick={signUp}>Войти</button>
+                  </div>
+                  <div className="overlay-panel overlay-right">
+                     <h1>Привет, Друг!</h1>
+                     <p>Введите свои личные данные и начните путешествие с нами</p>
+                     <button className="ghost" id="signUp" onClick={signUp}>Зарегистрироваться</button>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   );
+}
+
+export default FormAuth;
