@@ -1,10 +1,12 @@
-import './App.css';
-import FormAuth from './form-auth/FormAuth';
+// import './App.css';
+// import FormAuth from './form-auth/FormAuth';
+import Sidebar from './sidebar/sidebar';
 
 function App() {
   return (
-    <div >
-      <FormAuth />
+    <div>
+      <Sidebar />
+      {/* <FormAuth /> */}
     </div>
   );
 }
