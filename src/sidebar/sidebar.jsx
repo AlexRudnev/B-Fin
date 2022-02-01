@@ -17,7 +17,6 @@ export default function Sidebar() {
    const [isDrop, setDrop] = useState(false);
 
    const dropDown = () => {
-
       setDrop(!isDrop);
    }
 
@@ -27,119 +26,124 @@ export default function Sidebar() {
    }
    return (
       <>
-         <div className={isActive ? "sidebar close" : "sidebar"}>
-
-            <div class="logo-details">
-               <i class="fas fa-wallet"></i>
-               <span class="logo_name">B-Fin</span>
+         <div className={isActive ? "sidebar close" : "sidebar"} >
+            <i className={isActive ? "bx bxs-chevrons-right bx-md " : "bx bxs-chevrons-right bx-md  active"} onClick={signUp}></i>
+            <div className="logo-details">
+               <i className="fas fa-wallet"></i>
+               <span className="logo_name">B-Fin</span>
             </div>
             <ul className="nav-links">
                <li>
                   <a href="/#">
-                     <i class='bx bx-grid-alt'></i>
-                     <span className="link_name">Начало</span>
+                     <i class='bx bxs-dashboard'></i>
+                     <span className="link_name">Показатели</span>
                   </a>
                   <ul className="sub-menu blank">
-                     <li><a className="link_name" href="/#">Начало</a></li>
+                     <li><a className="link_name" href="/#">Показатели</a></li>
                   </ul>
                </li>
-               <li className={isDrop ? "showMenu" : ''}>
-                  <div className="iocn-link">
-                     <a href="/#">
-                        <i className='bx bx-collection'></i>
-                        <span className="link_name">Быстрые действия</span>
-                     </a>
-                     <i className='bx bxs-chevron-down arrow' onClick={dropDown}></i>
-                  </div>
-                  <ul className="sub-menu">
-                     <li><a className="link_name" href="/#">Быстрые действия</a></li>
-                     <li><a href="/#">Продать</a></li>
-                     <li><a href="/#">Купить</a></li>
-                     <li><a href="/#">Оплатить</a></li>
+               <li>
+                  <a href="/#">
+                     <i class='bx bx-list-ul'></i>
+                     <span className="link_name">Все движения</span>
+                  </a>
+                  <ul className="sub-menu blank">
+                     <li><a className="link_name" href="/#">Все движения</a></li>
                   </ul>
                </li>
+               <li>
+                  <a href="/#">
+                     <i class='bx bx-package'></i>
+                     <span className="link_name">Товары и услуги</span>
+                  </a>
+                  <ul className="sub-menu blank">
+                     <li><a className="link_name" href="/#">Товары и услуги</a></li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="/#">
+                     <i class='bx bx-group'></i>
+                     <span className="link_name">Клиенты</span>
+                  </a>
+                  <ul className="sub-menu blank">
+                     <li><a className="link_name" href="/#">Клиенты</a></li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="/#">
+                     <i class='bx bx-cart' ></i>
+                     <span className="link_name">Заказы и продажи</span>
+                  </a>
+                  <ul className="sub-menu blank">
+                     <li><a className="link_name" href="/#">Заказы и продажи</a></li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="/#">
+                     <i class='bx bx-money'></i>
+                     <span className="link_name">Деньги</span>
+                  </a>
+                  <ul className="sub-menu blank">
+                     <li><a className="link_name" href="/#">Деньги</a></li>
+                  </ul>
+               </li>
+               <li>
+                  <a href="/#">
+                     <i className='bx bx-grid-alt'></i>
+                     <span className="link_name">Закупки и склад</span>
+                  </a>
+                  <ul className="sub-menu blank">
+                     <li><a className="link_name" href="/#">Закупки и склад</a></li>
+                  </ul>
+               </li>
+
+
+
                <li className={isDrop ? "showMenu" : ''}>
                   <div className="iocn-link">
                      <a href="/#">
                         <i className='bx bx-book-alt'></i>
-                        <span className="link_name">Склад</span>
+                        <span className="link_name">Отчеты</span>
                      </a>
-                     <i className='bx bxs-chevron-down arrow'></i>
+                     <i className='bx bxs-chevron-down arrow' onClick={dropDown}></i>
                   </div>
                   <ul className="sub-menu">
-                     <li><a className="link_name" href="/#">Склад</a></li>
-                     <li><a href="/#">Web Design</a></li>
-                     <li><a href="/#">Login Form</a></li>
-                     <li><a href="/#">Card Design</a></li>
+                     <li><a className="link_name" href="/#">Отчеты</a></li>
+                     <li><a href="/#">Заказы и продажи</a></li>
+                     <li><a href="/#">Закупки и приходы</a></li>
+                     <li><a href="/#">Товары</a></li>
+                     <li><a href="/#">Долги</a></li>
+                     <li><a href="/#">Деньги</a></li>
+                     <li><a href="/#">Доходы</a></li>
+                     <li><a href="/#">Расходы</a></li>
+                     <li><a href="/#">Фин. Результат</a></li>
+                     <li><a href="/#">Акты сверки</a></li>
+                     <li><a href="/#">Прайс листы</a></li>
                   </ul>
                </li>
-               <li>
-                  <a href="/#">
-                     <i className='bx bx-pie-chart-alt-2'></i>
-                     <span className="link_name">Analytics</span>
-                  </a>
-                  <ul className="sub-menu blank">
-                     <li><a className="link_name" href="/#">Analytics</a></li>
-                  </ul>
-               </li>
-               <li>
-                  <a href="/#">
-                     <i className='bx bx-line-chart'></i>
-                     <span className="link_name">Chart</span>
-                  </a>
-                  <ul className="sub-menu blank">
-                     <li><a className="link_name" href="/#">Chart</a></li>
-                  </ul>
-               </li>
-               <li className={isDrop ? "showMenu" : ''}>
-                  <div className="iocn-link">
-                     <a href="/#">
-                        <i className='bx bx-plug'></i>
-                        <span className="link_name">Plugins</span>
-                     </a>
-                     <i className='bx bxs-chevron-down arrow'></i>
-                  </div>
-                  <ul className="sub-menu">
-                     <li><a className="link_name" href="/#">Plugins</a></li>
-                     <li><a href="/#">UI Face</a></li>
-                     <li><a href="/#">Pigments</a></li>
-                     <li><a href="/#">Box Icons</a></li>
-                  </ul>
-               </li>
-               <li>
-                  <a href="/#">
-                     <i className='bx bx-compass'></i>
-                     <span className="link_name">Explore</span>
-                  </a>
-                  <ul className="sub-menu blank">
-                     <li><a className="link_name" href="/#">Explore</a></li>
-                  </ul>
-               </li>
+
+
                <li>
                   <a href="/#">
                      <i className='bx bx-history'></i>
-                     <span className="link_name">History</span>
+                     <span className="link_name">История изменений</span>
                   </a>
                   <ul className="sub-menu blank">
-                     <li><a className="link_name" href="/#">History</a></li>
+                     <li><a className="link_name" href="/#">История изменений</a></li>
                   </ul>
                </li>
                <li>
                   <a href="/#">
                      <i className='bx bx-cog'></i>
-                     <span className="link_name">Setting</span>
+                     <span className="link_name">Настройки</span>
                   </a>
                   <ul className="sub-menu blank">
-                     <li><a className="link_name" href="/#">Setting</a></li>
+                     <li><a className="link_name" href="/#">Настройки</a></li>
                   </ul>
                </li>
             </ul>
          </div>
-         <section className="home-section">
-            <div className="home-content">
-               <i class='bx bx-menu' onClick={signUp}></i>
-            </div>
-         </section>
+
       </>
    )
 }
