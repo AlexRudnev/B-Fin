@@ -22,31 +22,31 @@ import DeleteIcon from '@mui/icons-material/Delete';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import { TextField } from '@mui/material';
+import { Button } from '@mui/material';
 
-function createData(name, mobile, fat, carbs, protein) {
+function createData(name, mobile, duty) {
    return {
       name,
       mobile,
-      fat,
-      carbs,
-      protein,
+      duty,
+
    };
 }
 
 const rows = [
-   createData('Cupcake', 305, 3.7, 67, 4.3),
-   createData('Donut', 452, 25.0, 51, 4.9),
-   createData('Eclair', 262, 16.0, 24, 6.0),
-   createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
-   createData('Gingerbread', 356, 16.0, 49, 3.9),
-   createData('Honeycomb', 408, 3.2, 87, 6.5),
-   createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
-   createData('Jelly Bean', 375, 0.0, 94, 0.0),
-   createData('KitKat', 518, 26.0, 65, 7.0),
-   createData('Lollipop', 392, 0.2, 98, 0.0),
-   createData('Marshmallow', 318, 0, 81, 2.0),
-   createData('Nougat', 360, 19.0, 9, 37.0),
-   createData('Oreo', 437, 18.0, 63, 4.0),
+   createData('Дівчинка, вул. Богатирська 30, ', 38635674521, 400),
+   createData('Валерій Іванович, Русанівські Сади, 11 Лінія, буд. 42', 38635674521, 0),
+   createData('Андрій, Осокорки, Садова 56, уч. 92 ', 38635674521, 160),
+   createData('Олександр, Русанівські Сади, ', 38635674521, 0),
+   createData('Максим, вул. Університетська 3', 38635674521, 0),
+   createData('Ольга,Івана Кочерги 9', 38635674521, 2),
+   createData('Ice cream sandwich', 38635674521, 0),
+   createData('Jelly Bean', 38635674521, 0),
+   createData('KitKat', 38635674521, 2600),
+   createData('Lollipop', 38635674521, 0),
+   createData('Marshmallow', 38635674521, 0),
+   createData('Nougat', 38635674521, 1900, 9),
+   createData('Oreo', 38635674521, 0, 63),
 ];
 
 function descendingComparator(a, b, orderBy) {
@@ -93,22 +93,10 @@ const headCells = [
       label: 'Телефон',
    },
    {
-      id: 'fat',
+      id: 'duty',
       numeric: true,
       disablePadding: false,
-      label: 'Fat (g)',
-   },
-   {
-      id: 'carbs',
-      numeric: true,
-      disablePadding: false,
-      label: 'Carbs (g)',
-   },
-   {
-      id: 'protein',
-      numeric: true,
-      disablePadding: false,
-      label: 'Protein (g)',
+      label: 'Долг',
    },
 ];
 
@@ -198,8 +186,10 @@ const EnhancedTableToolbar = (props) => {
                id="tableTitle"
                component="div"
             >
-               Клиенты
+               <Button variant="contained">Создать</Button>
+
             </Typography>
+
          )}
 
          {numSelected > 0 ? (
@@ -216,6 +206,7 @@ const EnhancedTableToolbar = (props) => {
             </Tooltip>
          )}
       </Toolbar>
+
    );
 };
 
@@ -228,8 +219,8 @@ export default function EnhancedTable() {
    const [orderBy, setOrderBy] = React.useState('mobile');
    const [selected, setSelected] = React.useState([]);
    const [page, setPage] = React.useState(0);
-   const [dense, setDense] = React.useState(false);
-   const [rowsPerPage, setRowsPerPage] = React.useState(5);
+   const [dense, setDense] = React.useState(true);
+   const [rowsPerPage, setRowsPerPage] = React.useState(10);
 
    const handleRequestSort = (event, property) => {
       const isAsc = orderBy === property && order === 'asc';
@@ -343,9 +334,9 @@ export default function EnhancedTable() {
                                        {row.name}
                                     </TableCell>
                                     <TableCell align="right">{row.mobile}</TableCell>
-                                    <TableCell align="right">{row.fat}</TableCell>
-                                    <TableCell align="right">{row.carbs}</TableCell>
-                                    <TableCell align="right">{row.protein}</TableCell>
+                                    <TableCell align="right">{row.duty}</TableCell>
+                                    {/* <TableCell align="right">{row.carbs}</TableCell> */}
+                                    {/* <TableCell align="right">{row.protein}</TableCell> */}
                                  </TableRow>
                               );
                            })}

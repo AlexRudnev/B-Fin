@@ -9,8 +9,8 @@
 }
 
 .sidebar.close~.home-section {
-    left: 78px;
-    width: calc(100% - 78px);
+    left: 87px;
+    width: calc(100% - 100px);
     top: 73px;
 }
 

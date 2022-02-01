@@ -6,8 +6,10 @@ import EnhancedTable from './clients/Clients';
 function App() {
   return (
     <div>
+
       <Sidebar />
       {/* <FormAuth /> */}
+
       <section class="home-section">
         <div class="home-content">
           <EnhancedTable />

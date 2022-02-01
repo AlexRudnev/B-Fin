@@ -28,6 +28,7 @@ export default function Sidebar() {
       <>
          <div className={isActive ? "sidebar close" : "sidebar"} >
             <i className={isActive ? "bx bxs-chevrons-right bx-md " : "bx bxs-chevrons-right bx-md  active"} onClick={signUp}></i>
+
             <div className="logo-details">
                <i className="fas fa-wallet"></i>
                <span className="logo_name">B-Fin</span>
