@@ -1,5 +1,16 @@
-function Settings() {
-    return <h1>Настройки</h1>;
-  }
+import Sidebar from '../sidebar/Sidebar';
 
-  export default Settings;
+
+function Settings() {
+  return <>
+    <Sidebar />
+    <section className="home-section">
+      <div className="home-content">
+        Настройки
+      </div>
+    </section>
+  </>
+}
+
+export default Settings;
+

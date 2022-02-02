@@ -1,5 +1,16 @@
-function History() {
-    return <h1>История</h1>;
-  }
+import Sidebar from "../sidebar/Sidebar";
 
-  export default History;
+function History() {
+  return (
+    <>
+      <Sidebar />
+      <section className="home-section">
+        <div className="home-content">
+          История
+        </div>
+      </section>
+    </>
+  )
+}
+
+export default History;

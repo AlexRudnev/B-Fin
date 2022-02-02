@@ -1,5 +1,15 @@
+import Sidebar from '../sidebar/Sidebar';
 function Dashboard() {
-    return <h1>Привет, показатели</h1>;
-  }
+  return (
+    <>
+      <Sidebar />
+      <section className="home-section">
+        <div className="home-content">
+          Показатели
+        </div>
+      </section>
+    </>
+  )
+}
 
-  export default Dashboard;
+export default Dashboard;

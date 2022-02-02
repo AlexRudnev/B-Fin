@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faGooglePlusG, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { useState } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 import './forma-auth.css';
 
@@ -13,6 +13,7 @@ function FormAuth() {
       setActive(!isActive);
    }
    return (
+
       <div>
          <h2>Форма регистрации B-Fin</h2>
          <div className={isActive ? "container right-panel-active" : "container"} id="container">
@@ -55,7 +56,7 @@ function FormAuth() {
                   <input type="email" name="email" placeholder="Почта" />
                   <input type="password" name="pass" placeholder="Пароль" />
                   <a href="/#">Забыли пароль?</a>
-                  <Link to="/"><button>Войти</button></Link>
+                  <Link to="/dashboard"><button>Войти</button></Link>
                </form>
             </div>
             <div className="overlay-container">
@@ -74,6 +75,7 @@ function FormAuth() {
             </div>
          </div>
       </div>
+
    );
 }
 

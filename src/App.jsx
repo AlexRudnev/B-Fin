@@ -2,7 +2,6 @@ import './App.css';
 import FormAuth from './form-auth/FormAuth';
 import Landing from './landing/Landing';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Sidebar from './sidebar/sidebar';
 import EnhancedTable from './clients/Clients';
 import Dashboard from './dashboard/Dashboard';
 import AllMoves from './allMoves/AllMoves';
@@ -18,22 +17,12 @@ function App() {
   return (
     <div>
       <Router>
-        <Landing />
         <Routes>
-          <Route path="/registration" element={<FormAuth /> } />
-          <Route path="/home" element={<Landing /> } />
-          <Route path="/" element={<Sidebar /> } />
-      </Routes>
-      </Router>
-      
-      
-      {/* <FormAuth /> */}
-      <Router>
-        <Sidebar />
-        <Routes>
-          <Route path="/dashboard" element={<Dashboard/>} />
-          <Route path="/allMoves" element={<AllMoves/>} />
-          <Route path="/productsAndService" element={<ProductsAndServices/>} />
+          <Route path="/registration" element={<FormAuth />} />
+          <Route path="/" element={<Landing />} />
+          <Route path="/dashboard" element={<Dashboard />} />
+          <Route path="/allMoves" element={<AllMoves />} />
+          <Route path="/productsAndService" element={<ProductsAndServices />} />
           <Route path="/clients" element={<EnhancedTable />} />
           <Route path="/ordersAndSales" element={<OrdersAndSales />} />
           <Route path="/money" element={<Money />} />
@@ -42,17 +31,10 @@ function App() {
           <Route path="/history" element={<History />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="/settings" element={<Settings />} />
-          
+
         </Routes>
       </Router>
-      {/*<section class="home-section">
-        <div class="home-content">
-          <EnhancedTable />
-        </div>
-    </section>*/}
-
     </div>
   );
 }
-/*<Route path="" element={ } />*/
 export default App;

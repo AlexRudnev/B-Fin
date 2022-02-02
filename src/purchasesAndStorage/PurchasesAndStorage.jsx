@@ -1,5 +1,17 @@
-function PurchasesAndStorage() {
-    return <h1>Закупки и  склад</h1>;
-  }
+import Sidebar from '../sidebar/Sidebar';
 
-  export default PurchasesAndStorage;
+
+function PurchasesAndStorage() {
+  return <>
+    <Sidebar />
+    <section className="home-section">
+      <div className="home-content">
+        Закупки и склад
+      </div>
+    </section>
+  </>
+}
+
+export default PurchasesAndStorage;
+
+

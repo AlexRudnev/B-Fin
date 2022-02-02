@@ -1,5 +1,16 @@
-function AllMoves() {
-    return <h1>Все движения</h1>;
-  }
+import Sidebar from '../sidebar/Sidebar';
 
-  export default AllMoves;
+function AllMoves() {
+  return (
+    <>
+      <Sidebar />
+      <section className="home-section">
+        <div className="home-content">
+          все движения
+        </div>
+      </section>
+    </>
+  )
+}
+
+export default AllMoves;

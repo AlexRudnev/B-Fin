@@ -1,5 +1,15 @@
-function Money() {
-    return <h1>Деньги</h1>;
-  }
+import Sidebar from '../sidebar/Sidebar';
 
-  export default Money;
+
+function Money() {
+  return <>
+    <Sidebar />
+    <section className="home-section">
+      <div className="home-content">
+        Движения денег
+      </div>
+    </section>
+  </>
+}
+
+export default Money;

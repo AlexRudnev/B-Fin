@@ -1,5 +1,16 @@
-function Reports() {
-    return <h1>Отчеты</h1>;
-  }
+import Sidebar from '../sidebar/Sidebar';
 
-  export default Reports;
+
+function Reports() {
+  return <>
+    <Sidebar />
+    <section className="home-section">
+      <div className="home-content">
+        Отчеты
+      </div>
+    </section>
+  </>
+}
+
+export default Reports;
+

@@ -1,5 +1,16 @@
-function ProductsAndServices() {
-    return <h1>Привет,Товары и услуги</h1>;
-  }
+import Sidebar from '../sidebar/Sidebar';
 
-  export default ProductsAndServices;
+
+function ProductsAndServices() {
+  return <>
+    <Sidebar />
+    <section className="home-section">
+      <div className="home-content">
+        Товары и услуги
+      </div>
+    </section>
+  </>
+}
+
+export default ProductsAndServices;
+

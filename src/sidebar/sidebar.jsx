@@ -2,15 +2,6 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './sidebar.css'
 
-// const arrow = document.querySelectorAll(".arrow");
-// for (var i = 0; i < arrow.length; i++) {
-//     arrow[i].addEventListener("click", (e) => {
-//         const arrowParent = e.target.parentElement.parentElement; //selecting main parent of arrow
-//         arrowParent.classList.toggle("showMenu");
-//     });
-// }
-
-
 
 export default function Sidebar() {
    const [isActive, setActive] = useState(true);
@@ -40,7 +31,7 @@ export default function Sidebar() {
                      <span className="link_name">Показатели</span>
                   </Link>
                   <ul className="sub-menu blank">
-                     <li><a className="link_name" href="/#">Показатели</a></li>
+                     <li><Link className="link_name" to="/dashboard">Показатели</Link></li>
                   </ul>
                </li>
                <li>
@@ -49,7 +40,7 @@ export default function Sidebar() {
                      <span className="link_name">Все движения</span>
                   </Link>
                   <ul className="sub-menu blank">
-                     <li><a className="link_name" href="/#">Все движения</a></li>
+                     <li><Link className="link_name" to="/allMoves">Все движения</Link></li>
                   </ul>
                </li>
                <li>
@@ -58,7 +49,7 @@ export default function Sidebar() {
                      <span className="link_name">Товары и услуги</span>
                   </Link>
                   <ul className="sub-menu blank">
-                     <li><a className="link_name" href="/#">Товары и услуги</a></li>
+                     <li><Link className="link_name" to="/productsAndService">Товары и услуги</Link></li>
                   </ul>
                </li>
                <li>
@@ -67,7 +58,7 @@ export default function Sidebar() {
                      <span className="link_name">Клиенты</span>
                   </Link>
                   <ul className="sub-menu blank">
-                     <li><a className="link_name" href="/#">Клиенты</a></li>
+                     <li><Link className="link_name" to="/clients">Клиенты</Link></li>
                   </ul>
                </li>
                <li>
@@ -76,7 +67,7 @@ export default function Sidebar() {
                      <span className="link_name">Заказы и продажи</span>
                   </Link>
                   <ul className="sub-menu blank">
-                     <li><a className="link_name" href="/#">Заказы и продажи</a></li>
+                     <li><Link className="link_name" to="/ordersAndSales">Заказы и продажи</Link></li>
                   </ul>
                </li>
                <li>
@@ -85,7 +76,7 @@ export default function Sidebar() {
                      <span className="link_name">Деньги</span>
                   </Link>
                   <ul className="sub-menu blank">
-                     <li><a className="link_name" href="/#">Деньги</a></li>
+                     <li><Link className="link_name" to="/money">Деньги</Link></li>
                   </ul>
                </li>
                <li>
@@ -94,7 +85,7 @@ export default function Sidebar() {
                      <span className="link_name">Закупки и склад</span>
                   </Link>
                   <ul className="sub-menu blank">
-                     <li><a className="link_name" href="/#">Закупки и склад</a></li>
+                     <li><Link className="link_name" to="/purchasesAndStorage">Закупки и склад</Link></li>
                   </ul>
                </li>
 
@@ -109,7 +100,7 @@ export default function Sidebar() {
                      <i className='bx bxs-chevron-down arrow' onClick={dropDown}></i>
                   </div>
                   <ul className="sub-menu">
-                     <li><a className="link_name" href="/#">Отчеты</a></li>
+                     <li><Link className="link_name" to="/reports">Отчеты</Link></li>
                      <li><a href="/#">Заказы и продажи</a></li>
                      <li><a href="/#">Закупки и приходы</a></li>
                      <li><a href="/#">Товары</a></li>
@@ -130,16 +121,16 @@ export default function Sidebar() {
                      <span className="link_name">История изменений</span>
                   </Link>
                   <ul className="sub-menu blank">
-                     <li><a className="link_name" href="/#">История изменений</a></li>
+                     <li><Link className="link_name" to="/history">История изменений</Link></li>
                   </ul>
                </li>
                <li>
-                  <Link to="settings">
+                  <Link to="/settings">
                      <i className='bx bx-cog'></i>
                      <span className="link_name">Настройки</span>
                   </Link>
                   <ul className="sub-menu blank">
-                     <li><a className="link_name" href="/#">Настройки</a></li>
+                     <li><Link className="link_name" to="/settings">Настройки</Link></li>
                   </ul>
                </li>
             </ul>
