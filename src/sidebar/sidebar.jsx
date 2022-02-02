@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { Link } from 'react-router-dom';
 import './sidebar.css'
 
 // const arrow = document.querySelectorAll(".arrow");
@@ -35,64 +35,64 @@ export default function Sidebar() {
             </div>
             <ul className="nav-links">
                <li>
-                  <a href="/#">
+                  <Link to="/dashboard">
                      <i class='bx bxs-dashboard'></i>
                      <span className="link_name">Показатели</span>
-                  </a>
+                  </Link>
                   <ul className="sub-menu blank">
                      <li><a className="link_name" href="/#">Показатели</a></li>
                   </ul>
                </li>
                <li>
-                  <a href="/#">
+                  <Link to="/allMoves">
                      <i class='bx bx-list-ul'></i>
                      <span className="link_name">Все движения</span>
-                  </a>
+                  </Link>
                   <ul className="sub-menu blank">
                      <li><a className="link_name" href="/#">Все движения</a></li>
                   </ul>
                </li>
                <li>
-                  <a href="/#">
+                  <Link to="/productsAndService">
                      <i class='bx bx-package'></i>
                      <span className="link_name">Товары и услуги</span>
-                  </a>
+                  </Link>
                   <ul className="sub-menu blank">
                      <li><a className="link_name" href="/#">Товары и услуги</a></li>
                   </ul>
                </li>
                <li>
-                  <a href="/#">
+                  <Link to="/clients">
                      <i class='bx bx-group'></i>
                      <span className="link_name">Клиенты</span>
-                  </a>
+                  </Link>
                   <ul className="sub-menu blank">
                      <li><a className="link_name" href="/#">Клиенты</a></li>
                   </ul>
                </li>
                <li>
-                  <a href="/#">
+                  <Link to="/ordersAndSales">
                      <i class='bx bx-cart' ></i>
                      <span className="link_name">Заказы и продажи</span>
-                  </a>
+                  </Link>
                   <ul className="sub-menu blank">
                      <li><a className="link_name" href="/#">Заказы и продажи</a></li>
                   </ul>
                </li>
                <li>
-                  <a href="/#">
+                  <Link to="/money">
                      <i class='bx bx-money'></i>
                      <span className="link_name">Деньги</span>
-                  </a>
+                  </Link>
                   <ul className="sub-menu blank">
                      <li><a className="link_name" href="/#">Деньги</a></li>
                   </ul>
                </li>
                <li>
-                  <a href="/#">
+                  <Link to="/purchasesAndStorage">
                      <i className='bx bx-grid-alt'></i>
                      <span className="link_name">Закупки и склад</span>
-                  </a>
+                  </Link>
                   <ul className="sub-menu blank">
                      <li><a className="link_name" href="/#">Закупки и склад</a></li>
                   </ul>
@@ -102,10 +102,10 @@ export default function Sidebar() {
 
                <li className={isDrop ? "showMenu" : ''}>
                   <div className="iocn-link">
-                     <a href="/#">
+                     <Link to="/reports">
                         <i className='bx bx-book-alt'></i>
                         <span className="link_name">Отчеты</span>
-                     </a>
+                     </Link>
                      <i className='bx bxs-chevron-down arrow' onClick={dropDown}></i>
                   </div>
                   <ul className="sub-menu">
@@ -125,19 +125,19 @@ export default function Sidebar() {
 
 
                <li>
-                  <a href="/#">
+                  <Link to="/history">
                      <i className='bx bx-history'></i>
                      <span className="link_name">История изменений</span>
-                  </a>
+                  </Link>
                   <ul className="sub-menu blank">
                      <li><a className="link_name" href="/#">История изменений</a></li>
                   </ul>
                </li>
                <li>
-                  <a href="/#">
+                  <Link to="settings">
                      <i className='bx bx-cog'></i>
                      <span className="link_name">Настройки</span>
-                  </a>
+                  </Link>
                   <ul className="sub-menu blank">
                      <li><a className="link_name" href="/#">Настройки</a></li>
                   </ul>
