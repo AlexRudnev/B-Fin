@@ -27,7 +27,7 @@ export default function Sidebar() {
             <ul className="nav-links">
                <li>
                   <Link to="/dashboard">
-                     <i class='bx bxs-dashboard'></i>
+                     <i className='bx bxs-dashboard'></i>
                      <span className="link_name">Показатели</span>
                   </Link>
                   <ul className="sub-menu blank">
@@ -36,7 +36,7 @@ export default function Sidebar() {
                </li>
                <li>
                   <Link to="/allMoves">
-                     <i class='bx bx-list-ul'></i>
+                     <i className='bx bx-list-ul'></i>
                      <span className="link_name">Все движения</span>
                   </Link>
                   <ul className="sub-menu blank">
@@ -45,7 +45,7 @@ export default function Sidebar() {
                </li>
                <li>
                   <Link to="/productsAndService">
-                     <i class='bx bx-package'></i>
+                     <i className='bx bx-package'></i>
                      <span className="link_name">Товары и услуги</span>
                   </Link>
                   <ul className="sub-menu blank">
@@ -54,7 +54,7 @@ export default function Sidebar() {
                </li>
                <li>
                   <Link to="/clients">
-                     <i class='bx bx-group'></i>
+                     <i className='bx bx-group'></i>
                      <span className="link_name">Клиенты</span>
                   </Link>
                   <ul className="sub-menu blank">
@@ -63,7 +63,7 @@ export default function Sidebar() {
                </li>
                <li>
                   <Link to="/ordersAndSales">
-                     <i class='bx bx-cart' ></i>
+                     <i className='bx bx-cart' ></i>
                      <span className="link_name">Заказы и продажи</span>
                   </Link>
                   <ul className="sub-menu blank">
@@ -72,7 +72,7 @@ export default function Sidebar() {
                </li>
                <li>
                   <Link to="/money">
-                     <i class='bx bx-money'></i>
+                     <i className='bx bx-money'></i>
                      <span className="link_name">Деньги</span>
                   </Link>
                   <ul className="sub-menu blank">
