@@ -91,7 +91,7 @@ function FormAuth() {
                      </DialogContent>
                      <DialogActions>
                         <Button onClick={handleClose}>Отмена</Button>
-                        <Button onClick={handleClose}><Link to="/password-recovery"><button>Восстановить</button></Link></Button>
+                        <Button onClick={handleClose}><Link to="/password-recovery">Восстановить</Link></Button>
                      </DialogActions>
                   </Dialog>
                   <Link to="/dashboard"><button>Войти</button></Link>

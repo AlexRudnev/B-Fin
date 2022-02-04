@@ -6,14 +6,8 @@ import { Link } from 'react-router-dom';
 import './forma-auth.css';
 
 function FormpPasswordRecovery() {
-   // const [isActive, setActive] = useState(false);
 
-   // const signUp = (e) => {
-   //    e.preventDefault();
-   //    setActive(!isActive);
-   // }
    return (
-
       <div>
          <h2>Форма восстановления пароля B-Fin</h2>
          <div className="container" id="container">
