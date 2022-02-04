@@ -12,6 +12,7 @@ import PurchasesAndStorage from './purchasesAndStorage/PurchasesAndStorage';
 import Reports from './reports/Reports';
 import History from './history/History';
 import Settings from './settings/Settings';
+import FormpPasswordRecovery from './form-auth/FormpPasswordRecovery';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/registration" element={<FormAuth />} />
+          <Route path="/password-recovery" element={<FormpPasswordRecovery />} />
           <Route path="/" element={<Landing />} />
           <Route path="/dashboard" element={<Dashboard />} />
           <Route path="/allMoves" element={<AllMoves />} />
