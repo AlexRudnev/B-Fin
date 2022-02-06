@@ -15,7 +15,7 @@ import Settings from './settings/Settings';
 import PageUserEditing from './pages/PageUserEditing';
 import './App.css';
 
-// import FormpPasswordRecovery from './form-auth/FormpPasswordRecovery';
+import FormpPasswordRecovery from './form-auth/FormpPasswordRecovery';
 
 
 function App() {
