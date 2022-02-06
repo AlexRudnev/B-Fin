@@ -8,7 +8,7 @@ import Menu from '@mui/material/Menu';
 import MenuIcon from '@mui/icons-material/Menu';
 import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
+// import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import { Link } from 'react-router-dom';
@@ -42,7 +42,7 @@ const Header = () => {
   };
 
   return (
-    <AppBar position="static" style={{padding: '0 30px', display: 'flex', justifyContent: 'space-between'}}>
+    <AppBar position="static" style={{ padding: '0 30px', display: 'flex', justifyContent: 'space-between' }}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Box sx={{ flexGrow: 1, display: { xs: 'flex', lg: 'none' } }}>
@@ -75,62 +75,62 @@ const Header = () => {
               }}
             >
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link to='' style={{color: '#000'}}>
+                <Link to='' style={{ color: '#000' }}>
                   <Typography textAlign="center">
-                      <IconButton className={styles.nav__button} style={{background: '#fff', height: '47px', width: '47px', marginRight: '10px'}} sx={{ p: 0 }}>
-                        <img className={styles.nav__img} src={SellImg} alt="" />
-                      </IconButton>
-                      <span className={styles.wrapper__text}>Продать</span>  
-                  </Typography>
-                </Link> 
-              </MenuItem>
-              <MenuItem onClick={handleCloseNavMenu}>
-                <Link to='' style={{color: '#000'}}>
-                  <Typography textAlign="center">
-                      <IconButton className={styles.nav__button} style={{background: '#fff', height: '47px', width: '47px', marginRight: '10px'}} sx={{ p: 0 }}>
-                        <img className={styles.nav__img} src={BuyImg} alt="" />
-                      </IconButton>
-                      <span className={styles.wrapper__text}>Купить</span>  
+                    <IconButton className={styles.nav__button} style={{ background: '#fff', height: '47px', width: '47px', marginRight: '10px' }} sx={{ p: 0 }}>
+                      <img className={styles.nav__img} src={SellImg} alt="" />
+                    </IconButton>
+                    <span className={styles.wrapper__text}>Продать</span>
                   </Typography>
                 </Link>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link to='' style={{color: '#000'}}>
+                <Link to='' style={{ color: '#000' }}>
                   <Typography textAlign="center">
-                      <IconButton className={styles.nav__button} style={{background: '#fff', height: '47px', width: '47px', marginRight: '10px'}} sx={{ p: 0 }}>
-                        <img className={styles.nav__img} src={PayImg} alt="" />
-                      </IconButton>
-                      <span className={styles.wrapper__text}>Оплатить</span>  
+                    <IconButton className={styles.nav__button} style={{ background: '#fff', height: '47px', width: '47px', marginRight: '10px' }} sx={{ p: 0 }}>
+                      <img className={styles.nav__img} src={BuyImg} alt="" />
+                    </IconButton>
+                    <span className={styles.wrapper__text}>Купить</span>
                   </Typography>
-                  </Link>
+                </Link>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link to='' style={{color: '#000'}}>
+                <Link to='' style={{ color: '#000' }}>
                   <Typography textAlign="center">
-                      <IconButton className={styles.nav__button} style={{background: '#fff', height: '47px', width: '47px', marginRight: '10px'}} sx={{ p: 0 }}>
-                        <img className={styles.nav__img} src={AcceptImg} alt="" />
-                      </IconButton>
-                      <span className={styles.wrapper__text}>Принять</span>  
+                    <IconButton className={styles.nav__button} style={{ background: '#fff', height: '47px', width: '47px', marginRight: '10px' }} sx={{ p: 0 }}>
+                      <img className={styles.nav__img} src={PayImg} alt="" />
+                    </IconButton>
+                    <span className={styles.wrapper__text}>Оплатить</span>
                   </Typography>
-                  </Link>
+                </Link>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link to='' style={{color: '#000'}}>
+                <Link to='' style={{ color: '#000' }}>
                   <Typography textAlign="center">
-                      <IconButton className={styles.nav__button} style={{background: '#fff', height: '47px', width: '47px', marginRight: '10px'}} sx={{ p: 0 }}>
-                        <img className={styles.nav__img} src={ReturnImg} alt="" />
-                      </IconButton>
-                      <span className={styles.wrapper__text}>Возврат</span>  
+                    <IconButton className={styles.nav__button} style={{ background: '#fff', height: '47px', width: '47px', marginRight: '10px' }} sx={{ p: 0 }}>
+                      <img className={styles.nav__img} src={AcceptImg} alt="" />
+                    </IconButton>
+                    <span className={styles.wrapper__text}>Принять</span>
                   </Typography>
-                  </Link>
+                </Link>
               </MenuItem>
               <MenuItem onClick={handleCloseNavMenu}>
-                <Link to='' style={{color: '#000'}}>
+                <Link to='' style={{ color: '#000' }}>
                   <Typography textAlign="center">
-                      <IconButton className={styles.nav__button} style={{background: '#fff', height: '47px', width: '47px', marginRight: '10px'}} sx={{ p: 0 }}>
-                        <img className={styles.nav__img} src={IntervezationImg} alt="" />
-                      </IconButton>
-                      <span className={styles.wrapper__text}>Интарвизация</span>  
+                    <IconButton className={styles.nav__button} style={{ background: '#fff', height: '47px', width: '47px', marginRight: '10px' }} sx={{ p: 0 }}>
+                      <img className={styles.nav__img} src={ReturnImg} alt="" />
+                    </IconButton>
+                    <span className={styles.wrapper__text}>Возврат</span>
+                  </Typography>
+                </Link>
+              </MenuItem>
+              <MenuItem onClick={handleCloseNavMenu}>
+                <Link to='' style={{ color: '#000' }}>
+                  <Typography textAlign="center">
+                    <IconButton className={styles.nav__button} style={{ background: '#fff', height: '47px', width: '47px', marginRight: '10px' }} sx={{ p: 0 }}>
+                      <img className={styles.nav__img} src={IntervezationImg} alt="" />
+                    </IconButton>
+                    <span className={styles.wrapper__text}>Интарвизация</span>
                   </Typography>
                 </Link>
               </MenuItem>
@@ -140,7 +140,7 @@ const Header = () => {
           <Box className={styles.container} sx={{ flexGrow: 1, display: { xs: 'none', lg: 'flex' } }}>
             <Link to=''>
               <div className={styles.wrapper}>
-                <IconButton className={styles.nav__button} style={{background: '#fff', height: '47px', width: '47px'}} sx={{ p: 0 }}>
+                <IconButton className={styles.nav__button} style={{ background: '#fff', height: '47px', width: '47px' }} sx={{ p: 0 }}>
                   <img className={styles.nav__img} src={SellImg} alt="" />
                 </IconButton>
                 <span className={styles.wrapper__text}>Продать</span>
@@ -148,15 +148,15 @@ const Header = () => {
             </Link>
             <Link to=''>
               <div className={styles.wrapper}>
-                <IconButton className={styles.nav__button} style={{background: '#fff', height: '47px', width: '47px'}} sx={{ p: 0 }}>
+                <IconButton className={styles.nav__button} style={{ background: '#fff', height: '47px', width: '47px' }} sx={{ p: 0 }}>
                   <img className={styles.nav__img} src={BuyImg} alt="" />
-                </IconButton> 
+                </IconButton>
                 <span className={styles.wrapper__text}>Купить</span>
               </div>
             </Link>
             <Link to=''>
               <div className={styles.wrapper}>
-                <IconButton className={styles.nav__button} style={{background: '#fff', height: '47px', width: '47px'}} sx={{ p: 0 }}>
+                <IconButton className={styles.nav__button} style={{ background: '#fff', height: '47px', width: '47px' }} sx={{ p: 0 }}>
                   <img className={styles.nav__img} src={PayImg} alt="" />
                 </IconButton>
                 <span className={styles.wrapper__text}>Оплатить</span>
@@ -164,7 +164,7 @@ const Header = () => {
             </Link>
             <Link to=''>
               <div className={styles.wrapper}>
-                <IconButton className={styles.nav__button} style={{background: '#fff', height: '47px', width: '47px'}} sx={{ p: 0 }}>
+                <IconButton className={styles.nav__button} style={{ background: '#fff', height: '47px', width: '47px' }} sx={{ p: 0 }}>
                   <img className={styles.nav__img} src={AcceptImg} alt="" />
                 </IconButton>
                 <span className={styles.wrapper__text}>Принять</span>
@@ -172,7 +172,7 @@ const Header = () => {
             </Link>
             <Link to=''>
               <div className={styles.wrapper}>
-                <IconButton className={styles.nav__button} style={{background: '#fff', height: '47px', width: '47px'}} sx={{ p: 0 }}>
+                <IconButton className={styles.nav__button} style={{ background: '#fff', height: '47px', width: '47px' }} sx={{ p: 0 }}>
                   <img className={styles.nav__img} src={ReturnImg} alt="" />
                 </IconButton>
                 <span className={styles.wrapper__text}>Возврат</span>
@@ -180,7 +180,7 @@ const Header = () => {
             </Link>
             <Link to=''>
               <div className={styles.wrapper}>
-                <IconButton className={styles.nav__button} style={{background: '#fff', height: '47px', width: '47px'}} sx={{ p: 0 }}>
+                <IconButton className={styles.nav__button} style={{ background: '#fff', height: '47px', width: '47px' }} sx={{ p: 0 }}>
                   <img className={styles.nav__img} src={IntervezationImg} alt="" />
                 </IconButton>
                 <span className={styles.wrapper__text}>Интарвизация</span>
@@ -188,10 +188,10 @@ const Header = () => {
             </Link>
           </Box>
 
-          <Box sx={{ flexGrow: 0 }} style={{marginRight: '-20px'}}> 
-            <div style={{display: 'flex', alignItems: 'center'}}>
-              <div className={styles.mail__wide}>example@mail.ru</div>     
-              <Tooltip title="Open settings" style={{marginLeft: '10px'}}>
+          <Box sx={{ flexGrow: 0 }} style={{ marginRight: '-20px' }}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <div className={styles.mail__wide}>example@mail.ru</div>
+              <Tooltip title="Open settings" style={{ marginLeft: '10px' }}>
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar alt="User" src="https://w7.pngwing.com/pngs/68/342/png-transparent-computer-icons-user-profile-priest-miscellaneous-avatar-user.png" />
                 </IconButton>
