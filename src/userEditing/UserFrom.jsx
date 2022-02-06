@@ -22,7 +22,7 @@ function UserForm ({name, setName, phone, setPhone, mail, setMail, company, setC
       <TextField 
         sx={{marginBottom: '15px'}} id="standard-multiline-flexible" label="Группа:" multiline maxRows={2} value={group || ''} 
         onChange={(e) => setGroup(e.target.value)} variant="standard"
-      />
+      /> 
     </>
   )
 }
