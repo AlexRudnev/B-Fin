@@ -24,7 +24,7 @@ export default function Sidebar() {
                <Header />
             </div>
 
-            <div className="logo-details">
+            <div className="logo-details"> 
                <i className="fas fa-wallet"></i>
                <span className="logo_name">B-Fin</span>
             </div>
@@ -37,7 +37,7 @@ export default function Sidebar() {
                   <ul className="sub-menu blank">
                      <li><Link className="link_name" to="/dashboard">Показатели</Link></li>
                   </ul>
-               </li>
+               </li> 
                <li>
                   <Link to="/allMoves">
                      <i className='bx bx-list-ul'></i>
