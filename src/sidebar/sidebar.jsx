@@ -1,3 +1,4 @@
+import Header from '../header/Header';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import './sidebar.css'
@@ -19,6 +20,9 @@ export default function Sidebar() {
       <>
          <div className={isActive ? "sidebar close" : "sidebar"} >
             <i className={isActive ? "bx bxs-chevrons-right bx-md " : "bx bxs-chevrons-right bx-md  active"} onClick={signUp}></i>
+            <div className={isActive ? "header-wide" : "header-narrow"}>
+               <Header />
+            </div>
 
             <div className="logo-details">
                <i className="fas fa-wallet"></i>
@@ -135,7 +139,6 @@ export default function Sidebar() {
                </li>
             </ul>
          </div>
-
       </>
    )
 }

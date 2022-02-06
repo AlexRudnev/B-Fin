@@ -1,6 +1,5 @@
 import OrdersAndSales from './ordersAndSales/OrdersAndSales';
 
-
 const PageOrdersAndSales = () => {
     return (
        <div >
