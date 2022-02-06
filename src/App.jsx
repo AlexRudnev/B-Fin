@@ -1,4 +1,3 @@
-import './App.css';
 import FormAuth from './form-auth/FormAuth';
 import Landing from './landing/Landing';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -12,7 +11,12 @@ import PurchasesAndStorage from './purchasesAndStorage/PurchasesAndStorage';
 import Reports from './reports/Reports';
 import History from './history/History';
 import Settings from './settings/Settings';
-import FormpPasswordRecovery from './form-auth/FormpPasswordRecovery';
+
+import PageUserEditing from './pages/PageUserEditing';
+import './App.css';
+
+// import FormpPasswordRecovery from './form-auth/FormpPasswordRecovery';
+
 
 function App() {
   return (
@@ -33,7 +37,7 @@ function App() {
           <Route path="/history" element={<History />} />
           <Route path="/reports" element={<Reports />} />
           <Route path="/settings" element={<Settings />} />
-
+          <Route path="/editing" element={<PageUserEditing />} />
         </Routes>
       </Router>
     </div>

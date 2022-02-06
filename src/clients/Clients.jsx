@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useNavigate } from 'react-router-dom'
 import PropTypes from 'prop-types';
 import { alpha } from '@mui/material/styles';
 import Box from '@mui/material/Box';
@@ -24,31 +25,7 @@ import { visuallyHidden } from '@mui/utils';
 import { TextField } from '@mui/material';
 import { Button } from '@mui/material';
 import Sidebar from '../sidebar/Sidebar';
-
-function createData(name, mobile, duty) {
-   return {
-      name,
-      mobile,
-      duty,
-
-   };
-}
-
-const rows = [
-   createData('Дівчинка, вул. Богатирська 30, ', 38635674521, 400),
-   createData('Валерій Іванович, Русанівські Сади, 11 Лінія, буд. 42', 38635674521, 0),
-   createData('Андрій, Осокорки, Садова 56, уч. 92 ', 38635674521, 160),
-   createData('Олександр, Русанівські Сади, ', 38635674521, 0),
-   createData('Максим, вул. Університетська 3', 38635674521, 0),
-   createData('Ольга,Івана Кочерги 9', 38635674521, 2),
-   createData('Ice cream sandwich', 38635674521, 0),
-   createData('Jelly Bean', 38635674521, 0),
-   createData('KitKat', 38635674521, 2600),
-   createData('Lollipop', 38635674521, 0),
-   createData('Marshmallow', 38635674521, 0),
-   createData('Nougat', 38635674521, 1900, 9),
-   createData('Oreo', 38635674521, 0, 63),
-];
+import { useSelector } from 'react-redux';
 
 function descendingComparator(a, b, orderBy) {
    if (b[orderBy] < a[orderBy]) {
@@ -79,6 +56,7 @@ function stableSort(array, comparator) {
    });
    return stabilizedThis.map((el) => el[0]);
 }
+
 
 const headCells = [
    {
@@ -112,7 +90,7 @@ function EnhancedTableHead(props) {
       <TableHead>
          <TableRow>
             <TableCell padding="checkbox">
-               <Checkbox
+               {/* <Checkbox
                   color="primary"
                   indeterminate={numSelected > 0 && numSelected < rowCount}
                   checked={rowCount > 0 && numSelected === rowCount}
@@ -120,7 +98,7 @@ function EnhancedTableHead(props) {
                   inputProps={{
                      'aria-label': 'select all desserts',
                   }}
-               />
+               /> */}
             </TableCell>
             {headCells.map((headCell) => (
                <TableCell
@@ -157,7 +135,21 @@ EnhancedTableHead.propTypes = {
    rowCount: PropTypes.number.isRequired,
 };
 
+
 const EnhancedTableToolbar = (props) => {
+   const [isRedirect, setIsRedirect] = React.useState(false);
+   const [selectedUserId, setSelectedUserId] = React.useState(null)
+   const handleAdd = () => {
+      setSelectedUserId('Add')
+      setIsRedirect(true)   
+   }
+   const navigate = useNavigate()
+   React.useEffect(() => {
+      if(isRedirect){
+         navigate('/editing', {state: {id: selectedUserId}}) 
+      }
+   }, [isRedirect])
+   
    const { numSelected } = props;
 
    return (
@@ -187,7 +179,7 @@ const EnhancedTableToolbar = (props) => {
                id="tableTitle"
                component="div"
             >
-               <Button variant="contained">Создать</Button>
+               <Button onClick={handleAdd} variant="contained">Создать</Button>
 
             </Typography>
 
@@ -222,6 +214,21 @@ export default function EnhancedTable() {
    const [page, setPage] = React.useState(0);
    const [dense, setDense] = React.useState(true);
    const [rowsPerPage, setRowsPerPage] = React.useState(10);
+   const [isRedirect, setIsRedirect] = React.useState(false);
+   const [selectedUserId, setSelectedUserId] = React.useState(null)
+
+   // All users array rendering here
+   const storeData = useSelector(state => state.userReducer)
+   const rows = []
+   storeData.map((el, idx) => {
+      Object.keys(el).forEach((key) => {
+         const values = el[key]
+         rows.push({id: key, name: values.name, mobile: values.mobile, duty: values.duty})
+      })
+   })
+
+
+   const navigate = useNavigate()
 
    const handleRequestSort = (event, property) => {
       const isAsc = orderBy === property && order === 'asc';
@@ -277,6 +284,16 @@ export default function EnhancedTable() {
    const emptyRows =
       page > 0 ? Math.max(0, (1 + page) * rowsPerPage - rows.length) : 0;
 
+ 
+   const handleRedirect = (id) => {
+      setSelectedUserId(id)
+      setIsRedirect(true)  
+   }
+   React.useEffect(() => {
+      if(isRedirect){
+         navigate('/editing', {state: {id: selectedUserId}}) 
+      }
+   }, [isRedirect])
    return (
       <>
          <Sidebar />
@@ -298,7 +315,7 @@ export default function EnhancedTable() {
                               orderBy={orderBy}
                               onSelectAllClick={handleSelectAllClick}
                               onRequestSort={handleRequestSort}
-                              rowCount={rows.length}
+                              rowCount={rows.length} 
                            />
                            <TableBody>
                               {/* if you don't need to support IE11, you can replace the `stableSort` call with:
@@ -312,21 +329,19 @@ export default function EnhancedTable() {
                                     return (
                                        <TableRow
                                           hover
-                                          onClick={(event) => handleClick(event, row.name)}
+                                          // onClick={(event) => handleClick(event, row.name)}
                                           role="checkbox"
                                           aria-checked={isItemSelected}
                                           tabIndex={-1}
                                           key={row.name}
-                                          selected={isItemSelected}
                                        >
-                                          <TableCell padding="checkbox">
-                                             <Checkbox
-                                                color="primary"
-                                                checked={isItemSelected}
-                                                inputProps={{
-                                                   'aria-labelledby': labelId,
-                                                }}
-                                             />
+                                          <TableCell padding="checkbox"> 
+                                             <i 
+                                                className="fas fa-pen" 
+                                                style={{cursor: 'pointer'}}
+                                                onClick={() => handleRedirect(row.id)} 
+
+                                             ></i>
                                           </TableCell>
                                           <TableCell
                                              component="th"
