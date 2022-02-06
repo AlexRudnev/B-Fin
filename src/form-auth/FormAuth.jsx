@@ -2,11 +2,28 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookF, faGooglePlusG, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import Button from '@mui/material/Button';
+import TextField from '@mui/material/TextField';
+import Dialog from '@mui/material/Dialog';
+import DialogActions from '@mui/material/DialogActions';
+import DialogContent from '@mui/material/DialogContent';
+import DialogContentText from '@mui/material/DialogContentText';
+import DialogTitle from '@mui/material/DialogTitle';
+
 
 import './forma-auth.css';
 
 function FormAuth() {
    const [isActive, setActive] = useState(false);
+   const [open, setOpen] = useState(false);
+
+   const handleClickOpen = () => {
+      setOpen(true);
+   };
+
+   const handleClose = () => {
+      setOpen(false);
+   };
 
    const signUp = (e) => {
       e.preventDefault();
@@ -55,7 +72,28 @@ function FormAuth() {
                   <span>или используйте свою почту</span>
                   <input type="email" name="email" placeholder="Почта" />
                   <input type="password" name="pass" placeholder="Пароль" />
-                  <a href="/#">Забыли пароль?</a>
+                  <Button variant="text" onClick={handleClickOpen}>Забыли пароль?</Button>
+                  <Dialog open={open} onClose={handleClose}>
+                     <DialogTitle>Восстановлдение пароля</DialogTitle>
+                     <DialogContent>
+                        <DialogContentText>
+                           Для восстановления пароля оставьте свою почту
+                        </DialogContentText>
+                        <TextField
+                           autoFocus
+                           margin="dense"
+                           id="name"
+                           label="Email Address"
+                           type="email"
+                           fullWidth
+                           variant="standard"
+                        />
+                     </DialogContent>
+                     <DialogActions>
+                        <Button onClick={handleClose}>Отмена</Button>
+                        <Button onClick={handleClose}><Link to="/password-recovery">Восстановить</Link></Button>
+                     </DialogActions>
+                  </Dialog>
                   <Link to="/dashboard"><button>Войти</button></Link>
                </form>
             </div>

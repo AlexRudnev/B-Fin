@@ -110,6 +110,12 @@ input {
     z-index: 2;
 }
 
+.sign-in-container1 {
+    left: 0;
+    width: 100%;
+    z-index: 2;
+}
+
 .container.right-panel-active .sign-in-container {
     transform: translateX(100%);
 }
