@@ -26,4 +26,4 @@ function UserForm ({name, setName, phone, setPhone, mail, setMail, company, setC
     </>
   )
 }
-export default UserForm
+export default UserForm 
