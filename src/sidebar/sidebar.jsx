@@ -13,7 +13,7 @@ export default function Sidebar() {
    }
 
    const signUp = (e) => {
-      e.preventDefault();
+      e.preventDefault();   
       setActive(!isActive);
    }
    return (
