@@ -1,12 +1,12 @@
 
-function Debts() {
+function Inventory() {
   return <>
     <section className="home-section">
       <div className="home-content">
-        Долги
+        Инвентаризация
       </div>
     </section>
   </>
 }
 
-export default Debts;
+export default Inventory;

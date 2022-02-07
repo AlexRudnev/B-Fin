@@ -1,16 +1,16 @@
 import DocumentTitle from 'react-document-title'
 import Sidebar from "../../sidebar/Sidebar";
-import Income from "../../reports/linksOfReports/Income";
+import Retrieve from "../../header/headersButtons/Retrieve";
 
 
-const PageIncome  = () => {
+const PageRetrieve= () => {
     return (
-      <DocumentTitle title = 'Доходы'>
+      <DocumentTitle title = 'Возврат'>
        <div >
          <Sidebar />
-         <Income />
+         <Retrieve/>
        </div>
        </DocumentTitle>
     )
  }
- export default PageIncome ;
+ export default PageRetrieve;

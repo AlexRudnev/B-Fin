@@ -1,10 +1,15 @@
+import DocumentTitle from 'react-document-title'
+import Sidebar from "../sidebar/Sidebar";
 import OrdersAndSales from '../ordersAndSales/OrdersAndSales';
 
 const PageOrdersAndSales = () => {
     return (
+      <DocumentTitle title = 'Заказы и продажи'>
        <div >
-          <OrdersAndSales/>
+         <Sidebar />
+         <OrdersAndSales/>
        </div>
+       </DocumentTitle>
     )
  }
  export default PageOrdersAndSales;

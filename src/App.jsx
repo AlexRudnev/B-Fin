@@ -24,6 +24,12 @@ import PageSalesAndOrders from './pages/pagesOfReports/PageSalesAndOrders';
 import PageHistory from './pages/PageHistory';
 import PageSettings from './pages/PageSettings';
 
+import PageAccept from './pages/pagesOfHeader/PageAccept';
+import PageBuy from './pages/pagesOfHeader/PageBuy';
+import PageInventory from './pages/pagesOfHeader/PageInventory';
+import PagePay from './pages/pagesOfHeader/PagePay';
+import PageRetrieve from './pages/pagesOfHeader/PageRetrieve';
+import PageSell from './pages/pagesOfHeader/PageSell';
 
 import PageUserEditing from './pages/PageUserEditing';
 import './App.css';
@@ -63,6 +69,13 @@ function App() {
 
           <Route path="/settings" element={<PageSettings />} />
           <Route path="/editing" element={<PageUserEditing />} />
+
+          <Route path="/accept" element={<PageAccept />} />
+          <Route path="/buy" element={<PageBuy />} />
+          <Route path="/inventory" element={<PageInventory />} />
+          <Route path="/pay" element={<PagePay />} />
+          <Route path="/retrieve" element={<PageRetrieve />} />
+          <Route path="/sell" element={<PageSell />} />
         </Routes>
       </Router>
     </div>

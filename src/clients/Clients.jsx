@@ -24,7 +24,6 @@ import FilterListIcon from '@mui/icons-material/FilterList';
 import { visuallyHidden } from '@mui/utils';
 import { TextField } from '@mui/material';
 import { Button } from '@mui/material';
-import Sidebar from '../sidebar/Sidebar';
 import { useSelector } from 'react-redux';
 
 function descendingComparator(a, b, orderBy) {
@@ -296,7 +295,6 @@ export default function EnhancedTable() {
    }, [isRedirect])
    return (
       <>
-         <Sidebar />
          <section className="home-section">
             <div className="home-content">
                <Box sx={{ width: '100%' }}>

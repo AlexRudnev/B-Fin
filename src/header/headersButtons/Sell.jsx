@@ -1,12 +1,12 @@
 
-function Debts() {
+function Sell() {
   return <>
     <section className="home-section">
       <div className="home-content">
-        Долги
+          Продать
       </div>
     </section>
   </>
 }
 
-export default Debts;
+export default Sell;

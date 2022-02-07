@@ -1,12 +1,13 @@
 
-function Debts() {
+
+function Accept() {
   return <>
     <section className="home-section">
       <div className="home-content">
-        Долги
+        Принять
       </div>
     </section>
   </>
 }
 
-export default Debts;
+export default Accept;

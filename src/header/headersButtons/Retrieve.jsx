@@ -1,12 +1,12 @@
 
-function Debts() {
+function Retrieve() {
   return <>
     <section className="home-section">
       <div className="home-content">
-        Долги
+        Возврат
       </div>
     </section>
   </>
 }
 
-export default Debts;
+export default Retrieve;

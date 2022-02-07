@@ -138,7 +138,7 @@ const Header = () => {
           </Box>
 
           <Box className={styles.container} sx={{ flexGrow: 1, display: { xs: 'none', lg: 'flex' } }}>
-            <Link to=''>
+            <Link to='/sell'>
               <div className={styles.wrapper}>
                 <IconButton className={styles.nav__button} style={{ background: '#fff', height: '47px', width: '47px' }} sx={{ p: 0 }}>
                   <img className={styles.nav__img} src={SellImg} alt="" />
@@ -146,7 +146,7 @@ const Header = () => {
                 <span className={styles.wrapper__text}>Продать</span>
               </div>
             </Link>
-            <Link to=''>
+            <Link to='/buy'>
               <div className={styles.wrapper}>
                 <IconButton className={styles.nav__button} style={{ background: '#fff', height: '47px', width: '47px' }} sx={{ p: 0 }}>
                   <img className={styles.nav__img} src={BuyImg} alt="" />
@@ -154,7 +154,7 @@ const Header = () => {
                 <span className={styles.wrapper__text}>Купить</span>
               </div>
             </Link>
-            <Link to=''>
+            <Link to='/pay'>
               <div className={styles.wrapper}>
                 <IconButton className={styles.nav__button} style={{ background: '#fff', height: '47px', width: '47px' }} sx={{ p: 0 }}>
                   <img className={styles.nav__img} src={PayImg} alt="" />
@@ -162,7 +162,7 @@ const Header = () => {
                 <span className={styles.wrapper__text}>Оплатить</span>
               </div>
             </Link>
-            <Link to=''>
+            <Link to='/accept'>
               <div className={styles.wrapper}>
                 <IconButton className={styles.nav__button} style={{ background: '#fff', height: '47px', width: '47px' }} sx={{ p: 0 }}>
                   <img className={styles.nav__img} src={AcceptImg} alt="" />
@@ -170,7 +170,7 @@ const Header = () => {
                 <span className={styles.wrapper__text}>Принять</span>
               </div>
             </Link>
-            <Link to=''>
+            <Link to='/retrieve'>
               <div className={styles.wrapper}>
                 <IconButton className={styles.nav__button} style={{ background: '#fff', height: '47px', width: '47px' }} sx={{ p: 0 }}>
                   <img className={styles.nav__img} src={ReturnImg} alt="" />
@@ -178,7 +178,7 @@ const Header = () => {
                 <span className={styles.wrapper__text}>Возврат</span>
               </div>
             </Link>
-            <Link to=''>
+            <Link to='/inventory'>
               <div className={styles.wrapper}>
                 <IconButton className={styles.nav__button} style={{ background: '#fff', height: '47px', width: '47px' }} sx={{ p: 0 }}>
                   <img className={styles.nav__img} src={IntervezationImg} alt="" />
