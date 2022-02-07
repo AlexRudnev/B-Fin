@@ -1,4 +1,4 @@
-import AllMoves from './allMoves/AllMoves';
+import AllMoves from '../allMoves/AllMoves';
 
 
 const PageAllMoves = () => {

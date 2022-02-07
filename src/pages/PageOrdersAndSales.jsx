@@ -1,4 +1,4 @@
-import OrdersAndSales from './ordersAndSales/OrdersAndSales';
+import OrdersAndSales from '../ordersAndSales/OrdersAndSales';
 
 const PageOrdersAndSales = () => {
     return (

@@ -1,4 +1,4 @@
-import History from './history/History';
+import History from '../history/History';
 
 
 const PageHistory = () => {

@@ -1,4 +1,4 @@
-import ProductsAndServices from './productsAndServices/ProductsAndServices';
+import ProductsAndServices from '../productsAndServices/ProductsAndServices';
 
 
 const PageProductsAndServices = () => {

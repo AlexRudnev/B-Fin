@@ -1,4 +1,4 @@
-import Reports from './reports/Reports';
+import Reports from '../reports/Reports';
 
 
 const PageReports = () => {

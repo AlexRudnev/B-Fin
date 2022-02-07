@@ -1,11 +1,11 @@
-import EnhancedTable from './clients/Clients';
+import EnhancedTable from '../clients/Clients';
 
 
-const PageAllMoves = () => {
+const PageClients = () => {
     return (
        <div >
           <EnhancedTable/>
        </div>
     )
  }
- export default PageAllMoves;
+ export default PageClients;

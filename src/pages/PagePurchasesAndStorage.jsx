@@ -1,4 +1,4 @@
-import PurchasesAndStorage from './purchasesAndStorage/PurchasesAndStorage';
+import PurchasesAndStorage from '../purchasesAndStorage/PurchasesAndStorage';
 
 
 const PagePurchasesAndStorage = () => {
