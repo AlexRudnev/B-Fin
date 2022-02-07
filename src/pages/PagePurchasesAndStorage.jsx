@@ -1,11 +1,16 @@
-import PurchasesAndStorage from './purchasesAndStorage/PurchasesAndStorage';
+import DocumentTitle from 'react-document-title'
+import Sidebar from "../sidebar/Sidebar";
+import PurchasesAndStorage from '../purchasesAndStorage/PurchasesAndStorage';
 
 
 const PagePurchasesAndStorage = () => {
     return (
+      <DocumentTitle title = 'Закупки и склад'>
        <div >
-          <PurchasesAndStorage/>
+         <Sidebar />
+         <PurchasesAndStorage/>
        </div>
+       </DocumentTitle>
     )
  }
  export default PagePurchasesAndStorage;

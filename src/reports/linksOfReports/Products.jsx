@@ -1,14 +1,12 @@
 
-
-function Reports() {
+function Products() {
   return <>
     <section className="home-section">
       <div className="home-content">
-        Отчеты
+        Товары
       </div>
     </section>
   </>
 }
 
-export default Reports;
-
+export default Products;

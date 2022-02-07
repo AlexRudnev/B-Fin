@@ -1,14 +1,13 @@
 
 
-function Reports() {
+function Accept() {
   return <>
     <section className="home-section">
       <div className="home-content">
-        Отчеты
+        Принять
       </div>
     </section>
   </>
 }
 
-export default Reports;
-
+export default Accept;

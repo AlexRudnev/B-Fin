@@ -105,16 +105,16 @@ export default function Sidebar() {
                   </div>
                   <ul className="sub-menu">
                      <li><Link className="link_name" to="/reports">Отчеты</Link></li>
-                     <li><a href="/#">Заказы и продажи</a></li>
-                     <li><a href="/#">Закупки и приходы</a></li>
-                     <li><a href="/#">Товары</a></li>
-                     <li><a href="/#">Долги</a></li>
-                     <li><a href="/#">Деньги</a></li>
-                     <li><a href="/#">Доходы</a></li>
-                     <li><a href="/#">Расходы</a></li>
-                     <li><a href="/#">Фин. Результат</a></li>
-                     <li><a href="/#">Акты сверки</a></li>
-                     <li><a href="/#">Прайс листы</a></li>
+                     <li><Link to="/sales-and-orders">Заказы и продажи</Link></li>
+                     <li><Link to="/purchases-and-receipts">Закупки и приходы</Link></li>
+                     <li><Link to="/products">Товары</Link></li>
+                     <li><Link to="/debts">Долги</Link></li>
+                     <li><Link to="/report-money">Деньги</Link></li>
+                     <li><Link to="/income">Доходы</Link></li>
+                     <li><Link to="/costs">Расходы</Link></li>
+                     <li><Link to="/financial-result">Фин. Результат</Link></li>
+                     <li><Link to="/reconciliation-acts">Акты сверки</Link></li>
+                     <li><Link to="/price-list">Прайс листы</Link></li>
                   </ul>
                </li>
 

@@ -1,14 +1,12 @@
 
-
-function Reports() {
+function Retrieve() {
   return <>
     <section className="home-section">
       <div className="home-content">
-        Отчеты
+        Возврат
       </div>
     </section>
   </>
 }
 
-export default Reports;
-
+export default Retrieve;

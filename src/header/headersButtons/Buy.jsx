@@ -1,14 +1,12 @@
 
-
-function Reports() {
+function Buy() {
   return <>
     <section className="home-section">
       <div className="home-content">
-        Отчеты
+        Купить
       </div>
     </section>
   </>
 }
 
-export default Reports;
-
+export default Buy;

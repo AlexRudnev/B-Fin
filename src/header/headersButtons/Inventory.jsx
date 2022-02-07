@@ -1,14 +1,12 @@
 
-
-function Reports() {
+function Inventory() {
   return <>
     <section className="home-section">
       <div className="home-content">
-        Отчеты
+        Инвентаризация
       </div>
     </section>
   </>
 }
 
-export default Reports;
-
+export default Inventory;

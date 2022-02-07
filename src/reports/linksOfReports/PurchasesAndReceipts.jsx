@@ -1,14 +1,12 @@
 
-
-function Reports() {
+function PurchasesAndReceipts() {
   return <>
     <section className="home-section">
       <div className="home-content">
-        Отчеты
+        Закупки и приходы
       </div>
     </section>
   </>
 }
 
-export default Reports;
-
+export default PurchasesAndReceipts;

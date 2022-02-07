@@ -1,14 +1,12 @@
 
-
-function Reports() {
+function ReconciliationActs() {
   return <>
     <section className="home-section">
       <div className="home-content">
-        Отчеты
+        Акты сверки
       </div>
     </section>
   </>
 }
 
-export default Reports;
-
+export default ReconciliationActs;

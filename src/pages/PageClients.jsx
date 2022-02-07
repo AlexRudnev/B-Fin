@@ -1,11 +1,16 @@
-import EnhancedTable from './clients/Clients';
+import DocumentTitle from 'react-document-title'
+import Sidebar from '../sidebar/Sidebar';
+import EnhancedTable from '../clients/Clients';
 
 
-const PageAllMoves = () => {
+const PageClients = () => {
     return (
+      <DocumentTitle title = 'Клиенты'>
        <div >
-          <EnhancedTable/>
+         <Sidebar />
+         <EnhancedTable/>
        </div>
+       </DocumentTitle>
     )
  }
- export default PageAllMoves;
+ export default PageClients;

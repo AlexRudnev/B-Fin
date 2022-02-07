@@ -1,14 +1,12 @@
 
-
-function Reports() {
+function SalesAndOrders() {
   return <>
     <section className="home-section">
       <div className="home-content">
-        Отчеты
+        Продажи и заказы
       </div>
     </section>
   </>
 }
 
-export default Reports;
-
+export default SalesAndOrders;
