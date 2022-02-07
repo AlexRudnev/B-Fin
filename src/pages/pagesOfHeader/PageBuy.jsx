@@ -4,13 +4,13 @@ import Buy from "../../header/headersButtons/Buy";
 
 
 const PageBuy = () => {
-    return (
-      <DocumentTitle title = 'Купить'>
-       <div >
-         <Sidebar />
-         <Buy/>
-       </div>
-       </DocumentTitle>
-    )
- }
- export default PageBuy;
+  return (
+    <DocumentTitle title='B-Fin: Купить'>
+      <div >
+        <Sidebar />
+        <Buy />
+      </div>
+    </DocumentTitle>
+  )
+}
+export default PageBuy;

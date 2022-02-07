@@ -3,14 +3,14 @@ import Sidebar from "../../sidebar/Sidebar";
 import PurchasesAndReceipts from "../../reports/linksOfReports/PurchasesAndReceipts";
 
 
-const PagePurchasesAndReceipts  = () => {
-    return (
-      <DocumentTitle title = 'Закупки и приходы'>
-       <div >
-         <Sidebar />
-         <PurchasesAndReceipts />
-       </div>
-       </DocumentTitle>
-    )
- }
- export default PagePurchasesAndReceipts ;
+const PagePurchasesAndReceipts = () => {
+  return (
+    <DocumentTitle title='B-Fin: Закупки и приходы'>
+      <div >
+        <Sidebar />
+        <PurchasesAndReceipts />
+      </div>
+    </DocumentTitle>
+  )
+}
+export default PagePurchasesAndReceipts;

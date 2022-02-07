@@ -4,13 +4,13 @@ import EnhancedTable from '../clients/Clients';
 
 
 const PageClients = () => {
-    return (
-      <DocumentTitle title = 'Клиенты'>
-       <div >
-         <Sidebar />
-         <EnhancedTable/>
-       </div>
-       </DocumentTitle>
-    )
- }
- export default PageClients;
+  return (
+    <DocumentTitle title='B-Fin: Клиенты'>
+      <div >
+        <Sidebar />
+        <EnhancedTable />
+      </div>
+    </DocumentTitle>
+  )
+}
+export default PageClients;

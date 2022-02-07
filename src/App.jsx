@@ -20,10 +20,8 @@ import PagePurchasesAndReceipts from './pages/pagesOfReports/PagePurchasesAndRec
 import PageReconciliationActs from './pages/pagesOfReports/PageReconciliationActs';
 import PageReportMoney from './pages/pagesOfReports/PageReportMoney';
 import PageSalesAndOrders from './pages/pagesOfReports/PageSalesAndOrders';
-
 import PageHistory from './pages/PageHistory';
 import PageSettings from './pages/PageSettings';
-
 import PageAccept from './pages/pagesOfHeader/PageAccept';
 import PageBuy from './pages/pagesOfHeader/PageBuy';
 import PageInventory from './pages/pagesOfHeader/PageInventory';

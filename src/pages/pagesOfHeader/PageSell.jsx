@@ -4,13 +4,13 @@ import Sell from "../../header/headersButtons/Sell";
 
 
 const PageSell = () => {
-    return (
-      <DocumentTitle title = 'Продать'>
-       <div >
-         <Sidebar />
-         <Sell/>
-       </div>
-       </DocumentTitle>
-    )
- }
- export default PageSell;
+  return (
+    <DocumentTitle title='B-Fin: Продать'>
+      <div >
+        <Sidebar />
+        <Sell />
+      </div>
+    </DocumentTitle>
+  )
+}
+export default PageSell;

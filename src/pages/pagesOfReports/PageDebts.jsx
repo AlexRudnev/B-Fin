@@ -4,13 +4,13 @@ import Debts from "../../reports/linksOfReports/Debts";
 
 
 const PageDebts = () => {
-    return (
-      <DocumentTitle title = 'Долги'>
-       <div >
-         <Sidebar />
-         <Debts/>
-       </div>
-       </DocumentTitle>
-    )
- }
- export default PageDebts;
+  return (
+    <DocumentTitle title='B-Fin: Долги'>
+      <div >
+        <Sidebar />
+        <Debts />
+      </div>
+    </DocumentTitle>
+  )
+}
+export default PageDebts;

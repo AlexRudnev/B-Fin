@@ -4,13 +4,13 @@ import Money from '../money/Money';
 
 
 const PageMoney = () => {
-    return (
-      <DocumentTitle title = 'Деньги'>
-       <div >
-         <Sidebar />
-         <Money/>
-       </div>
-       </DocumentTitle>
-    )
- }
- export default PageMoney;
+  return (
+    <DocumentTitle title='B-Fin: Деньги'>
+      <div >
+        <Sidebar />
+        <Money />
+      </div>
+    </DocumentTitle>
+  )
+}
+export default PageMoney;

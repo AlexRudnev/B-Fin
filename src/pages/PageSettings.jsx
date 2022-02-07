@@ -5,11 +5,11 @@ import Settings from '../settings/Settings';
 
 const PageSettings = () => {
    return (
-      <DocumentTitle title = 'Настройки'>
-      <div >
-         <Sidebar />
-         <Settings />
-      </div>
+      <DocumentTitle title='B-Fin: Настройки'>
+         <div >
+            <Sidebar />
+            <Settings />
+         </div>
       </DocumentTitle>
    )
 }

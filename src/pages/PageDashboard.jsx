@@ -5,11 +5,11 @@ import Dashboard from "../dashboard/Dashboard";
 const PageDashboard = () => {
 
    return (
-      <DocumentTitle title = 'Показатели'>
-      <div >
-         <Sidebar />
-         <Dashboard />
-      </div>
+      <DocumentTitle title='B-Fin: Показатели'>
+         <div >
+            <Sidebar />
+            <Dashboard />
+         </div>
       </DocumentTitle>
    )
 }

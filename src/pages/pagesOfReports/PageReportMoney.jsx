@@ -3,14 +3,14 @@ import Sidebar from "../../sidebar/Sidebar";
 import ReportMoney from "../../reports/linksOfReports/ReportMoney";
 
 
-const PageReportMoney  = () => {
-    return (
-      <DocumentTitle title = 'Отчеты Деньги'>
-       <div >
-         <Sidebar />
-         <ReportMoney />
-       </div>
-       </DocumentTitle>
-    )
- }
- export default PageReportMoney ;
+const PageReportMoney = () => {
+  return (
+    <DocumentTitle title='B-Fin: Отчеты Деньги'>
+      <div >
+        <Sidebar />
+        <ReportMoney />
+      </div>
+    </DocumentTitle>
+  )
+}
+export default PageReportMoney;

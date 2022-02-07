@@ -130,7 +130,7 @@ const Header = () => {
                     <IconButton className={styles.nav__button} style={{ background: '#fff', height: '47px', width: '47px', marginRight: '10px' }} sx={{ p: 0 }}>
                       <img className={styles.nav__img} src={IntervezationImg} alt="" />
                     </IconButton>
-                    <span className={styles.wrapper__text}>Интарвизация</span>
+                    <span className={styles.wrapper__text}>Инвентаризация</span>
                   </Typography>
                 </Link>
               </MenuItem>
@@ -183,7 +183,7 @@ const Header = () => {
                 <IconButton className={styles.nav__button} style={{ background: '#fff', height: '47px', width: '47px' }} sx={{ p: 0 }}>
                   <img className={styles.nav__img} src={IntervezationImg} alt="" />
                 </IconButton>
-                <span className={styles.wrapper__text}>Интарвизация</span>
+                <span className={styles.wrapper__text}>Инвентаризация</span>
               </div>
             </Link>
           </Box>

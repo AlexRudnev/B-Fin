@@ -1,9 +1,12 @@
 import UserEditing from "../userEditing/UserEditing";
+import DocumentTitle from 'react-document-title'
+
 function PageUserEditing() {
   return (
-    <div>
+    <DocumentTitle title='B-Fin: Изменить клиента'><div>
       <UserEditing />
-    </div>
+    </div></DocumentTitle>
+
   )
 }
 

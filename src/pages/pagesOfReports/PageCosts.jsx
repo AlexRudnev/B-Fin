@@ -4,13 +4,13 @@ import Costs from "../../reports/linksOfReports/Costs";
 
 
 const PageCosts = () => {
-    return (
-      <DocumentTitle title = 'Расходы'>
-       <div >
-         <Sidebar />
-         <Costs/>
-       </div>
-       </DocumentTitle>
-    )
- }
- export default PageCosts;
+  return (
+    <DocumentTitle title='B-Fin: Расходы'>
+      <div >
+        <Sidebar />
+        <Costs />
+      </div>
+    </DocumentTitle>
+  )
+}
+export default PageCosts;

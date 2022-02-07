@@ -4,13 +4,13 @@ import ProductsAndServices from '../productsAndServices/ProductsAndServices';
 
 
 const PageProductsAndServices = () => {
-    return (
-      <DocumentTitle title = 'Товары и услуги'>
-       <div >
-         <Sidebar />
-         <ProductsAndServices/>
-       </div>
-       </DocumentTitle>
-    )
- }
- export default PageProductsAndServices;
+  return (
+    <DocumentTitle title='B-Fin: Товары и услуги'>
+      <div >
+        <Sidebar />
+        <ProductsAndServices />
+      </div>
+    </DocumentTitle>
+  )
+}
+export default PageProductsAndServices;
