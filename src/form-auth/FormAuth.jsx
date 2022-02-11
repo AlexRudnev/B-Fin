@@ -31,7 +31,7 @@ function FormAuth() {
    }
    return (
 
-      <div>
+      <div> 
          <h2>Форма регистрации B-Fin</h2>
          <div className={isActive ? "container right-panel-active" : "container"} id="container">
             <div className="form-container sign-up-container">

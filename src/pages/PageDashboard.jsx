@@ -3,7 +3,6 @@ import Sidebar from "../sidebar/Sidebar";
 import Dashboard from "../dashboard/Dashboard";
 
 const PageDashboard = () => {
-
    return (
       <DocumentTitle title='B-Fin: Показатели'>
          <div >

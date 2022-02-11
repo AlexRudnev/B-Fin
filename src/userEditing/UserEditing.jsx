@@ -1,8 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'
-import { useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import TextField from '@mui/material/TextField';
+import useUserId from '../hooks/useUserId';
 
 import { useDispatch } from 'react-redux';
 import { addUser, removeUser, changeUser } from '../store/actions/index'; 
@@ -17,20 +16,20 @@ import styles from './UserEditing.module.css'
 
 
 function UserEditing() {
+  const { userId } = useUserId();
   const storeData = useSelector(state => state.userReducer)
-  const {state} = useLocation()
   const [isSuccess, setIsSuccess] = React.useState(null)
   let currentUser;
-  storeData.map((elem) => {
+  storeData.forEach((elem) => {
     const data = Object.entries(elem)
     const id = Number(data[0][0])
-    if(id === Number(state.id)){
+    if(id === Number(userId)){
       currentUser = elem 
     } 
   })
   const [isRedirect, setIsRedirect] = React.useState(false)
   const dispatch = useDispatch()
-  let isAdd = state.id === 'Add'
+  let isAdd = userId === 'Add'
 
   // User`s data 
   const [name, setName] = React.useState('');
@@ -53,9 +52,10 @@ function UserEditing() {
     if(isRedirect){
       navigate('/clients')
     }
+    // eslint-disable-next-line
   }, [isRedirect])
 
-  React.useEffect(() => {
+  React.useEffect(() => { 
     if(!isAdd && currentUser){
       Object.keys(currentUser).forEach((key) => {
         const values = currentUser[key]
@@ -71,10 +71,11 @@ function UserEditing() {
         setNotes(notes)
       })  
     }
+    // eslint-disable-next-line
   }, [storeData])
 
   const handleAdd = () => {
-    setIsSuccess('добавили пользователя')
+    userId !== 0 ? setIsSuccess('добавили пользователя') : setIsSuccess('')
     setTimeout(() => {
       const lastUser = storeData[storeData.length-1]
       const data = Object.entries(lastUser)
@@ -96,19 +97,22 @@ function UserEditing() {
       setIsRedirect(true)
     }, 1000)
   }
+  const handleReturn = () => {
+    setIsRedirect(true)
+  }
   const handleRemove = () => {
-    setIsSuccess('удалили пользователя')
+    userId !== 0 ? setIsSuccess('удалили пользователя') : setIsSuccess('')
     setTimeout(() => {
-      dispatch(removeUser(state.id))
+      dispatch(removeUser(userId))
       setIsSuccess(null)
       setIsRedirect(true)
     }, 1000)
   }
   const handleChoose = () => {
-    setIsSuccess('изменили пользователя')
+    userId !== 0 ? setIsSuccess('изменили пользователя') : setIsSuccess('')
     setTimeout(() => {
       dispatch(changeUser({
-        [state.id]: {
+        [userId]: {
           name,
           mobile: phone, 
           mail,
@@ -130,8 +134,13 @@ function UserEditing() {
     <section className="home-section">
       <div className="home-content" style={{display: 'flex', flexDirection: 'column'}}>
         <div className={styles.buttonsWrapper}>
-          <Button onClick={isAdd ? handleAdd : handleChoose} className={styles.button} variant="contained">Сохранить</Button>
-          {!isAdd && <Button onClick={handleRemove} className={styles.button} variant="contained">Удалить</Button>} 
+          <div className={styles.main_btns}>
+            <Button onClick={isAdd ? handleAdd : handleChoose} className={styles.button} variant="contained">Сохранить</Button>
+            {!isAdd && <Button onClick={handleRemove} className={styles.button} variant="contained">Удалить</Button>} 
+          </div>
+          <div>
+            <Button onClick={handleReturn} className={styles.button} style={{color: '#9C27B0', borderColor: '#9C27B0'}} variant="outlined">Отмена</Button>
+          </div>
         </div>
         {isSuccess && 
           <div className={styles.success}>

@@ -12,6 +12,7 @@ function InformationForm ({address, setAddress, arrears, setArrears, discount, s
   const currentCurrency = currency.split('-')
   useEffect(() => {
     setMainArreas((Number(currentCurrency[0]) * arrears).toFixed(1))
+    // eslint-disable-next-line
   }, [arrears])
 
   const handleChange = (event) => {

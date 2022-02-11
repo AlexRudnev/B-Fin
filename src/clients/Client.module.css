@@ -1,0 +1,147 @@
+.users__info {
+  font-size: 17px;
+}
+.table_menu{
+  border: 1px solid rgb(108, 123, 156) !important;
+  border-radius: 4px;
+}
+.table__name_wide{
+  display: block;
+}
+.table__name{
+  display: none;
+}
+.table_narrow{
+  font-size: 17px !important;
+}
+.action__btn {
+  font-size: 16px;
+  color: rgb(99, 129, 133);
+  transition: 0.2s;
+}
+.action__btn:hover {
+  cursor: pointer;
+  color: rgb(35, 64, 83);
+}
+.link {
+  color: #000;
+}
+/* USER MODAL */
+.user_modal{
+  display: none;
+}
+.userInfo{
+  display: flex;
+  flex-direction: column;
+  border: 2px solid #374f69;
+  font-size: 18px;
+  word-break: normal;
+}
+.userInfo_actions{
+  display: flex;
+  justify-content: space-between;
+  border-radius: 1px;
+  padding: 6px 20px;
+  border-bottom: 2px solid #374f69;
+}
+.userInfo_name{
+  margin-right: 25px;
+}
+
+.userInfo_params{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  padding-left: 10px;
+  padding-bottom: 14px;
+}
+.userInfo_mobile{
+  border-bottom: 1px solid rgb(114, 114, 114);  
+  width: 90%;
+  margin-bottom: 7px;
+  color: rgb(114, 114, 114);
+}
+.userInfo_mail{
+  border-bottom: 1px solid rgb(114, 114, 114);  
+  color: rgb(114, 114, 114);
+  width: 90%;
+  margin-bottom: 10px;
+}
+.userInfo_duty_wrapper{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.userInfo_dutyName{
+  font-size: 18px;
+  margin-right: 20px;
+}
+.userInfo_duty{
+  font-size: 18px;
+  border-bottom: 1px solid rgb(114, 114, 114);  
+  color: rgb(114, 114, 114);
+  margin-right: 10px;
+  margin-top: -5px;
+  width: 100%;
+}
+.userInfo_currency{
+  font-size: 18px;
+  padding-right: 15px;
+}
+/*  */
+@media(max-width: 767px){
+  .table__name{
+    display: block;
+    font-size: 17px !important;
+  }
+  .table__name:hover{
+    cursor: pointer;
+  }
+  .table__name_wide{
+    display: none;
+  }
+  .user_modal{
+    display: block;
+  }
+  .wrong_row{
+    display: none !important;
+  }
+  .table_wide{
+    display: none !important;
+  }
+  .action__btn:hover {
+    cursor: pointer;
+    color: rgb(35, 64, 83);
+  }
+  .table_menu_item{
+    padding: 10 15px !important;
+    min-height: 32px !important;
+  }
+
+}
+@media(max-width: 420px){
+  .userInfo{
+    font-size: 15px;
+  }
+  .table__name{
+    font-size: 14px !important;
+  }
+  .table_menu_item{
+    padding: 0 5px !important;
+    min-height: 32px !important;
+  }
+  .table_narrow{
+    width: 30px;
+    font-size: 15px !important;
+    padding: 8px 0px !important;
+    padding-right: 10px !important;
+  }
+  .action__btn{
+    font-size: 14px;
+    word-break: break-all !important;
+  }
+  .action__btn:hover {
+    font-size: 14px;
+    cursor: pointer;
+  }
+}
