@@ -29,6 +29,15 @@ import PagePay from './pages/pagesOfHeader/PagePay';
 import PageRetrieve from './pages/pagesOfHeader/PageRetrieve';
 import PageSell from './pages/pagesOfHeader/PageSell';
 
+// справочник
+import PageDirectory from './pages/directory/PageDirectory'
+import PageLegalEntities from './pages/directory/PageLegalEntities'
+import PageСashAndAccounts from './pages/directory/PageСashAndAccounts';
+import PageEmployees from './pages/directory/PageEmployees'
+import PageMeasure from './pages/directory/PageMeasure'
+import PageStorehouse from './pages/directory/PageStorehouse'
+import PageSuppliers from './pages/directory/PageSuppliers'
+
 import PageUserEditing from './pages/PageUserEditing';
 import './App.css';
 
@@ -74,6 +83,17 @@ function App() {
           <Route path="/pay" element={<PagePay />} />
           <Route path="/retrieve" element={<PageRetrieve />} />
           <Route path="/sell" element={<PageSell />} />
+
+          {/* справочник  */}
+          <Route path="/cash_accounts" element={<PageСashAndAccounts />} />
+          <Route path="/directory" element={<PageDirectory />} />
+          <Route path="/employees" element={<PageEmployees />} />
+          <Route path="/legal_entities" element={<PageLegalEntities />} />
+          <Route path="/measure" element={<PageMeasure />} />
+          <Route path="/storehouse" element={<PageStorehouse />} />
+          <Route path="/suppliers" element={<PageSuppliers />} />
+
+
         </Routes>
       </Router>
     </div>

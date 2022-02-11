@@ -13,7 +13,7 @@ export default function Sidebar() {
    }
 
    const signUp = (e) => {
-      e.preventDefault();   
+      e.preventDefault();
       setActive(!isActive);
    }
    return (
@@ -24,7 +24,7 @@ export default function Sidebar() {
                <Header />
             </div>
 
-            <div className="logo-details"> 
+            <div className="logo-details">
                <i className="fas fa-wallet"></i>
                <span className="logo_name">B-Fin</span>
             </div>
@@ -37,7 +37,7 @@ export default function Sidebar() {
                   <ul className="sub-menu blank">
                      <li><Link className="link_name" to="/dashboard">Показатели</Link></li>
                   </ul>
-               </li> 
+               </li>
                <li>
                   <Link to="/allMoves">
                      <i className='bx bx-list-ul'></i>
@@ -93,6 +93,25 @@ export default function Sidebar() {
                   </ul>
                </li>
 
+
+               <li className={isDrop ? "showMenu" : ''}>
+                  <div className="iocn-link">
+                     <Link to="/directory">
+                        <i class='bx bx-library'></i>
+                        <span className="link_name">Справочник</span>
+                     </Link>
+                     <i className='bx bxs-chevron-down arrow' onClick={dropDown}></i>
+                  </div>
+                  <ul className="sub-menu">
+                     <li><Link className="link_name" to="/directory">Справочник</Link></li>
+                     <li><Link to="/legal_entities">Мои юр. лица</Link></li>
+                     <li><Link to="/storehouse">Склады</Link></li>
+                     <li><Link to="/measure">Единицы измерений</Link></li>
+                     <li><Link to="/suppliers">Поставщики</Link></li>
+                     <li><Link to="/employees">Сотрудники</Link></li>
+                     <li><Link to="/cash_accounts">Кассы и счета</Link></li>
+                  </ul>
+               </li>
 
 
                <li className={isDrop ? "showMenu" : ''}>
