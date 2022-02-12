@@ -51,9 +51,10 @@ const userReducer = (state = initialState, action) => {
       )
     case REMOVE_USER:
       const newState = []
-      state.map((elem) => {
+      state.forEach((elem) => {
         const data = Object.entries(elem)
         const id = data[0][0]
+        // eslint-disable-next-line
         if(id != action.payload){
           newState.push(elem)
         }else{
@@ -70,7 +71,7 @@ const userReducer = (state = initialState, action) => {
       const params = action.payload[0]
       const [id, data] = params
       const mainState = []
-      state.map((elem) => {
+      state.forEach((elem) => {
         const user = Object.entries(elem)
         const idOfUser = Number(user[0][0]) 
         if(idOfUser === Number(id)){

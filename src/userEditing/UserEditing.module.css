@@ -4,8 +4,10 @@
   border-radius: 8px;
   padding: 15px 20px;
   display: flex;
+  justify-content: space-between;
   flex-wrap: wrap;
   margin-bottom: 20px;
+  text-align: center;
 }
 .button:first-child{
   margin-right: 15px;
@@ -45,22 +47,58 @@ input::-webkit-inner-spin-button {
   color: rgb(40, 189, 40);
   font-size: 18px;
 }
-@media(max-width: 555px){
+@media(max-width: 470px){
   .buttonsWrapper{
+    display: flex;
     flex-direction: column;
-    
+  }
+  .button:first-child{
+    margin: 0;
+    margin-bottom: 5px;
+  }
+  .button:last-child{
+    margin: 0;
+  }
+  .button{
+    width: 45vw;
+  }
+  .main_btns{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+    margin-bottom: 15px;
+  }
+  /* .buttonsWrapper{
+    flex-direction: column;
   }
   .button{
     width: 45vw;
   }
   .button:first-child{
     margin-bottom: 10px;
+    margin-right: 0;
   }
-}
-@media(max-width: 767px){
-  .boxesWrapper{
+  .main_btns{
     display: flex;
     flex-direction: column;
+    text-align: center;
+    margin-bottom: 15px;
+  } */
+}
+@media(max-width: 767px){
+  body{
+    overflow-x:hidden;
+  }
+  .boxesWrapper{
+    max-width: 85vw;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+  }
+  .buttonsWrapper{
+    max-width: 85vw;
+    margin: 0 auto;
+    margin-bottom: 14px;
   }
   .boxesWrapper__user{
     margin-bottom: 30px;

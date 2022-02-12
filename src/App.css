@@ -36,3 +36,19 @@
     font-size: 26px;
     font-weight: 600;
 }
+
+@media(max-width: 767px){
+    .home-section {
+        min-height: 80vh;
+        left: 0px;
+        top: 130px;
+        margin-top: 28px;
+        width: 100vw;
+    }
+    
+    .sidebar.close~.home-section {
+        left: 0px;
+        width: 100vw;
+        top: 130px;
+    }
+}

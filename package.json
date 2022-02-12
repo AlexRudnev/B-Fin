@@ -17,6 +17,7 @@
         "@testing-library/react": "^12.1.2",
         "@testing-library/user-event": "^13.5.0",
         "awesome-react-icons": "^1.4.8",
+        "axios": "^0.25.0",
         "i": "^0.3.7",
         "lodash": "^4.17.21",
         "npm": "^8.4.0",

@@ -8,7 +8,6 @@ import PageProductsAndServices from './pages/PageProductsAndServices';
 import PageOrdersAndSales from './pages/PageOrdersAndSales';
 import PageMoney from './pages/PageMoney';
 import PagePurchasesAndStorage from './pages/PagePurchasesAndStorage';
-
 import PageReports from './pages/PageReports';
 import PageCosts from './pages/pagesOfReports/PageCosts';
 import PageDebts from './pages/pagesOfReports/PageDebts';
@@ -38,44 +37,49 @@ import PageMeasure from './pages/directory/PageMeasure'
 import PageStorehouse from './pages/directory/PageStorehouse'
 import PageSuppliers from './pages/directory/PageSuppliers'
 
+import PageInvoice from './pages/PageInvoice';
+import PageOrder from './pages/PageOrder';
+import PageImportClients from './pages/PageImportClients';
 import PageUserEditing from './pages/PageUserEditing';
 import './App.css';
-
 import FormpPasswordRecovery from './form-auth/FormpPasswordRecovery';
-
+import { UserIdProvider } from './providers/UserIdProvider';
 
 function App() {
+
   return (
-    <div>
-      <Router>
-        <Routes>
-          <Route path="/registration" element={<FormAuth />} />
-          <Route path="/password-recovery" element={<FormpPasswordRecovery />} />
-          <Route path="/" element={<Landing />} />
-          <Route path="/dashboard" element={<PageDashboard />} />
-          <Route path="/allMoves" element={<PageAllMoves />} />
-          <Route path="/productsAndService" element={<PageProductsAndServices />} />
-          <Route path="/clients" element={<PageClients />} />
-          <Route path="/ordersAndSales" element={<PageOrdersAndSales />} />
-          <Route path="/money" element={<PageMoney />} />
-          <Route path="/purchasesAndStorage" element={<PagePurchasesAndStorage />} />
-          <Route path="/reports" element={<PageReports />} />
-          <Route path="/history" element={<PageHistory />} />
+    <UserIdProvider>
+        <div>
+        <Router>
+          <Routes>
+            <Route path="/registration" element={<FormAuth />} />
+            <Route path="/password-recovery" element={<FormpPasswordRecovery />} />
+            <Route path="/" element={<Landing />} />
+            <Route path="/dashboard" element={<PageDashboard />} />
+            <Route path="/allMoves" element={<PageAllMoves />} />
+            <Route path="/productsAndService" element={<PageProductsAndServices />} />
+            <Route path="/clients" element={<PageClients />} />
+            <Route path="/ordersAndSales" element={<PageOrdersAndSales />} />
+            <Route path="/money" element={<PageMoney />} />
+            <Route path="/purchasesAndStorage" element={<PagePurchasesAndStorage />} /> 
+            <Route path="/reports" element={<PageReports />} />
+            <Route path="/history" element={<PageHistory />} />
 
-          <Route path="/reports" element={<PageReports />} />
-          <Route path="/costs" element={<PageCosts />} />
-          <Route path="/debts" element={<PageDebts />} />
-          <Route path="/financial-result" element={<PageFinancialResult />} />
-          <Route path="/income" element={<PageIncome />} />
-          <Route path="/price-list" element={<PagePriceList />} />
-          <Route path="/products" element={<PageProducts />} />
-          <Route path="/purchases-and-receipts" element={<PagePurchasesAndReceipts />} />
-          <Route path="/reconciliation-acts" element={<PageReconciliationActs />} />
-          <Route path="/report-money" element={<PageReportMoney />} />
-          <Route path="/sales-and-orders" element={<PageSalesAndOrders />} />
+            <Route path="/reports" element={<PageReports />} />
+            <Route path="/costs" element={<PageCosts />} />
+            <Route path="/debts" element={<PageDebts />} />
+            <Route path="/financial-result" element={<PageFinancialResult />} />
+            <Route path="/income" element={<PageIncome />} />
+            <Route path="/price-list" element={<PagePriceList />} />
+            <Route path="/products" element={<PageProducts />} />
+            <Route path="/purchases-and-receipts" element={<PagePurchasesAndReceipts />} />
+            <Route path="/reconciliation-acts" element={<PageReconciliationActs />} />
+            <Route path="/report-money" element={<PageReportMoney />} />
+            <Route path="/sales-and-orders" element={<PageSalesAndOrders />} />
 
-          <Route path="/settings" element={<PageSettings />} />
-          <Route path="/editing" element={<PageUserEditing />} />
+            <Route path="/settings" element={<PageSettings />} />
+            <Route path="/editing" element={<PageUserEditing />} />
+            <Route path="/import_clients" element={<PageImportClients />} /> 
 
           <Route path="/accept" element={<PageAccept />} />
           <Route path="/buy" element={<PageBuy />} />
@@ -92,11 +96,18 @@ function App() {
           <Route path="/measure" element={<PageMeasure />} />
           <Route path="/storehouse" element={<PageStorehouse />} />
           <Route path="/suppliers" element={<PageSuppliers />} />
-
-
+          <Route path="/accept" element={<PageAccept />} />
+          <Route path="/buy" element={<PageBuy />} />
+          <Route path="/inventory" element={<PageInventory />} />
+          <Route path="/pay" element={<PagePay />} />
+          <Route path="/retrieve" element={<PageRetrieve />} />
+          <Route path="/sell" element={<PageSell />} />
+          <Route path="/invoice" element={<PageInvoice />} /> 
+          <Route path="/order" element={<PageOrder />} /> 
         </Routes>
       </Router>
     </div>
+    </UserIdProvider>
   );
 }
 export default App;
