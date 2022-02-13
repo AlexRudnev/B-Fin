@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebookF, faGooglePlusG, faLinkedinIn } from '@fortawesome/free-brands-svg-icons';
+import { faFacebookF, faGooglePlusG } from '@fortawesome/free-brands-svg-icons';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '@mui/material/Button';
@@ -31,7 +31,7 @@ function FormAuth() {
    }
    return (
 
-      <div> 
+      <div>
          <h2>Форма регистрации B-Fin</h2>
          <div className={isActive ? "container right-panel-active" : "container"} id="container">
             <div className="form-container sign-up-container">
@@ -43,9 +43,6 @@ function FormAuth() {
                      </a>
                      <a href="/#" className="social">
                         <FontAwesomeIcon icon={faGooglePlusG} />
-                     </a>
-                     <a href="/#" className="social">
-                        <FontAwesomeIcon icon={faLinkedinIn} />
                      </a>
                   </div>
                   <span>или используйте почту для входа</span>
@@ -64,9 +61,6 @@ function FormAuth() {
                      </a>
                      <a href="/#" className="social">
                         <FontAwesomeIcon icon={faGooglePlusG} />
-                     </a>
-                     <a href="/#" className="social">
-                        <FontAwesomeIcon icon={faLinkedinIn} />
                      </a>
                   </div>
                   <span>или используйте свою почту</span>
@@ -95,6 +89,7 @@ function FormAuth() {
                      </DialogActions>
                   </Dialog>
                   <Link to="/dashboard"><button>Войти</button></Link>
+                  <span className='polit'>Этот сайт защищен reCAPTCHA, а так же <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Политикой конфиденциальности</a> и <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Условиями использования</a> Google</span>
                </form>
             </div>
             <div className="overlay-container">
