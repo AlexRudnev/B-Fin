@@ -190,18 +190,7 @@ export default function Sidebar() {
                         <li>
                            <Link to="/suppliers">Поставщики</Link>
                         </li>
-                        <li>
-                           <Link to="/costs">Расходы</Link>
-                        </li>
-                        <li>
-                           <Link to="/financial-result">Фин. Результат</Link>
-                        </li>
-                        <li>
-                           <Link to="/reconciliation-acts">Акты сверки</Link>
-                        </li>
-                        <li>
-                           <Link to="/price-list">Прайс листы</Link>
-                        </li>
+
                      </ul>
                   </li>
 
