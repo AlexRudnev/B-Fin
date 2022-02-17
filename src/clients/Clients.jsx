@@ -31,8 +31,16 @@ import Grow from "@mui/material/Grow";
 import Popper from "@mui/material/Popper";
 import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
-import useUserId from "../hooks/useUserId";
+import useUserId from "../hooks/useUserId"; 
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
 import { useSelector } from "react-redux";
+// import API from '../api/api';
+
+import phoneImg from './img/phone.png';
+import mailImg from './img/mail.png';
+import dutyImg from './img/duty.png';
 
 import styles from "./Client.module.css";
 
@@ -289,7 +297,21 @@ export default function EnhancedTable() {
   const [rowsPerPage, setRowsPerPage] = React.useState(10);
   const [isRedirect, setIsRedirect] = React.useState(false);
 
-  // All users array rendering here
+
+  // ==========Запрос на сервер=================
+  // ===Нужно раскоментировать код ниже и раскоментировать import API на 39-й строке===
+  // const [rows, setRows] = React.useState([])
+  // const api = new API()
+  // React.useEffect(() => {
+  //    api.getClients().then(data => {
+  //       if (data.status === "error") alert(data.message)
+  //       else setRows(data.message)
+  //    })
+  // }, [])
+  // ============================================
+
+  //  ==========Получение пользователей через redux================= 
+  //  === нужно закоментировать/удалить весь код ниже и import на 38-й строке - import {useSelector}
   const storeData = useSelector((state) => state.userReducer);
   const rows = [];
   storeData.forEach((el) => {
@@ -304,6 +326,7 @@ export default function EnhancedTable() {
       });
     });
   });
+  // ===============================================
 
   const navigate = useNavigate();
 
@@ -321,26 +344,6 @@ export default function EnhancedTable() {
     }
     setSelected([]);
   };
-
-  // const handleClick = (event, name) => {
-  //    const selectedIndex = selected.indexOf(name);
-  //    let newSelected = [];
-
-  //    if (selectedIndex === -1) {
-  //       newSelected = newSelected.concat(selected, name);
-  //    } else if (selectedIndex === 0) {
-  //       newSelected = newSelected.concat(selected.slice(1));
-  //    } else if (selectedIndex === selected.length - 1) {
-  //       newSelected = newSelected.concat(selected.slice(0, -1));
-  //    } else if (selectedIndex > 0) {
-  //       newSelected = newSelected.concat(
-  //          selected.slice(0, selectedIndex),
-  //          selected.slice(selectedIndex + 1),
-  //       );
-  //    }
-
-  //    setSelected(newSelected);
-  // };
 
   const handleChangePage = (event, newPage) => {
     setPage(newPage);
@@ -385,17 +388,17 @@ export default function EnhancedTable() {
   }
 
   // USER
-  const [isOpen, setIsOpen] = React.useState(null);
-  const isUser = Boolean(isOpen);
-  const [userInfo, setUserInfo] = React.useState({});
-  const openUser = (event, name, duty, mail, mobile) => {
-    setIsOpen(event.currentTarget);
-    setUserInfo({name, duty, mail, mobile})
+  const [isOpen, setIsOpen] = React.useState();
+  const openUser = (id) => {
+    if(isOpen === id){
+      closeUser(); 
+    }else{
+      setIsOpen(id);
+    }
   };
   const closeUser = () => {
     setIsOpen(null);
   }
-
 
   return (
     <>
@@ -406,9 +409,10 @@ export default function EnhancedTable() {
               fullWidth
               id="outlined-basic"
               label="Поиск"
-              variant="outlined"
+              variant="outlined" 
+              size="small"
             />
-            <Paper sx={{ width: "100%", mb: 2 }}>
+            <Paper sx={{ width: "100%", mb: 2, mt: 2 }}>
               <EnhancedTableToolbar numSelected={selected.length} />
               <TableContainer>
                 <Table
@@ -435,6 +439,7 @@ export default function EnhancedTable() {
                       .map((row, index) => {
                         const isItemSelected = isSelected(row.name);
                         const labelId = `enhanced-table-checkbox-${index}`;
+
                         return (
                           <TableRow
                             hover
@@ -442,75 +447,71 @@ export default function EnhancedTable() {
                             aria-checked={isItemSelected}
                             tabIndex={-1}
                             key={row.name}
+                            className={styles.table_row}
                           >
-                            <TableCell className="user-editing-icon" padding="checkbox">
+                            <TableCell className={styles.user_editing_icon} padding="checkbox">
                               <i
                                 className="fas fa-pen"
                                 style={{ cursor: "pointer" }}
                                 onClick={() => handleRedirect(row.id)}
                               ></i>
                             </TableCell>
-                            <TableCell component="th" id={labelId} scope="row" padding="none" className={styles.table_narrow}>
+                            <TableCell onClick={() => openUser(row.id)} component="th" id={labelId} scope="row" padding="none" className={styles.table_narrow_name}>
                               <div className={styles.table__name_wide}>{row.name}</div>
-                              <span onClick={(e) => openUser(e, row.name, row.duty, row.mail, row.mobile)} className={styles.table__name}>{row.name}</span>
-                              <Menu
-                                elevation={0}
-                                id="demo-positioned-menu"
-                                aria-labelledby="demo-positioned-button"
-                                anchorEl={isOpen}
-                                open={isUser}
-                                onClose={closeUser}
-                                className={styles.user_modal}
-                                anchorOrigin={{
-                                  vertical: 'top',
-                                  horizontal: 'left',
-                                }}
-                                transformOrigin={{
-                                  vertical: 'top',
-                                  horizontal: 'left',
-                                }}
-                              >
-                                <div className={styles.userInfo}>
-                                  <div className={styles.userInfo_actions}>
-                                    <div className={styles.userInfo_name}>{userInfo.name}</div>
-                                    <div className={styles.userInfo_doc}>
-                                      <div style={{cursor: 'pointer', textAlign: 'center'}} onClick={handleClick}>
-                                        Создать док.<i style={{marginLeft: '2px'}} className="fas fa-angle-down"></i>
-                                      </div>
-                                      <Menu
-                                        elevation={0}
-                                        anchorEl={anchorEl}
-                                        open={open}
-                                        onClose={handleClose}          
-                                      >
-                                        <div className={styles.table_menu}>
-                                          <Link className={styles.link} to="/invoice"><MenuItem className={styles.table_menu_item} onClick={handleClose}>Счёт</MenuItem></Link>
-                                          <Link className={styles.link} to="/sell"><MenuItem className={styles.table_menu_item} onClick={handleClose}>Продажа</MenuItem></Link>
-                                          <Link className={styles.link} to="/order"><MenuItem className={styles.table_menu_item} onClick={handleClose}>Заказы</MenuItem></Link>
-                                          <Link className={styles.link} to="/pay"><MenuItem className={styles.table_menu_item} onClick={handleClose}>Оплата</MenuItem></Link>
+                              <Accordion className={styles.table_accordion}>
+                                <AccordionSummary className={styles.user__name}>
+                                  <div className={styles.accordion__name}>{row.name}</div>
+                                </AccordionSummary>
+                                <AccordionDetails>
+                                  <div style={{marginTop: '10px'}}>
+                                    <div style={{marginBottom: '14px', lineHeight: '1'}} className={styles.row__mobile}>
+                                      <a className={styles.row__mobile__link} href={row.mobile[0] ? `tel:${row.mobile[0]}` : ''}>
+                                        <div style={{display: 'flex', alignItems: 'center'}}>
+                                          <img className={styles.table__icon} src={phoneImg} alt="phone"/><div>
+                                          <span style={{fontSize: '14px'}}>1:&nbsp;</span>
                                         </div>
-                                      </Menu>
+                                        {row.mobile[0] || 'не указан'}</div>
+                                      </a>
+                                    </div>
+                                    <div style={{marginBottom: '14px', lineHeight: '1'}} className={styles.row__mobile}>
+                                    <a className={styles.row__mobile__link} href={row.mobile[1] ? `tel:${row.mobile[1]}` : ''}>
+                                      <div style={{display: 'flex', alignItems: 'center'}}>
+                                        <img className={styles.table__icon} src={phoneImg} alt="phone"/><div>
+                                        <span style={{fontSize: '14px'}}>2:&nbsp;</span>
+                                      </div>
+                                      {row.mobile[1] || 'не указан'}</div>
+                                    </a>
+                                    </div> 
+                                    <div style={{marginBottom: '14px', lineHeight: '0.9'}} className={styles.row__mobile}>
+                                      <div style={{display: 'flex', alignItems: 'center'}}>
+                                        <img className={styles.table__icon} src={mailImg} alt="phone"/>&nbsp;<div>
+                                      </div>
+                                      {row.mail[0] || 'не указана'}</div>
+                                    </div>
+                                    <div style={{marginBottom: '14px', lineHeight: '0.9'}} className={styles.row__mobile}>
+                                      <div style={{display: 'flex', alignItems: 'center'}}>
+                                        <img className={styles.table__icon} src={dutyImg} alt="phone"/>&nbsp;<div>
+                                      </div>
+                                      {row.duty || '0'} UAH</div>
                                     </div>
                                   </div>
-                                  <div className={styles.userInfo_params}>
-                                    <div className={styles.userInfo_mobile}>{userInfo.mobile || 'телефон не указан'}</div>
-                                    <div className={styles.userInfo_mail}>{userInfo.mail || 'почта не указана'}</div>
-                                    <div className={styles.userInfo_duty_wrapper}>
-                                      <span className={styles.userInfo_dutyName}>Долг</span> 
-                                      <span className={styles.userInfo_duty}>{userInfo.duty}</span>
-                                     <span  className={styles.userInfo_currency}>UAH.</span>
-                                     </div>
-                                  </div>
-                                </div>
-                              </Menu>
+                                </AccordionDetails>
+                              </Accordion>
                             </TableCell>
-                            <TableCell className={styles.table_wide} align="right" style={{fontSize: '17px'}}>{row.mobile}</TableCell>
+                            <TableCell className={styles.table_wide} align="right" style={{fontSize: '17px'}}>{row.mobile[0]}</TableCell>
                             <TableCell className={styles.table_wide} align="right" style={{fontSize: '17px'}}>{row.duty}</TableCell>
                             <TableCell align="right" className={styles.table_narrow}>
-                              <div style={styles.narrow__action}>
+                              <div className={styles.table__action__wide}  style={{marginRight: '10px'}}>
                                 <span onClick={handleClick} className={styles.action__btn}>
                                 <i style={{marginRight: '6px'}} className="fas fa-angle-down"></i>
                                   Создать докумуент
+                                </span>
+                              </div>
+                              <div className={styles.table__action__narrow} style={{marginRight: '-6px'}}>
+                                <span onClick={handleClick} className={styles.action__btn}>
+                                  <div>Создать</div>
+                                  <div>докумуент</div>   
+                                  <i style={{marginRight: '6px'}} className="fas fa-angle-down"></i> 
                                 </span>
                               </div>
                               <Menu

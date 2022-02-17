@@ -1,3 +1,4 @@
+import ClickAwayListener from '@mui/material/ClickAwayListener';
 import Avatar from "@mui/material/Avatar";
 import Tooltip from "@mui/material/Tooltip";
 import IconButton from '@mui/material/IconButton';
@@ -12,27 +13,10 @@ import arrowImg from './img/arrow.png';
 import crossImg from './img/cross.png';
 import "./sidebar.css";
 
-// 1) Раскоментировать подключения
-// import axios from 'axios';
-// import { useEffect } from "react";
-
 export default function Sidebar() {
-  
-  // 3) mailOfUser втсавляем на 268 и 272 строке за место "example@mail.ru"
-  // const [mailOfUser, setMailOfUser] = useState('');
-
-  // 2) Раскоментировать запрос
-  // При обновление компонента запрос на сервер(запрос почты)
-  // useEffect(() => {
-  //   axios.get('Ваша ссылка на получение почты')
-  //     .then((result) => {
-  //       const mail = result.data;
-  //       setMailOfUser(mail);
-  //     })
-  // }, [])
-
   const [isActive, setActive] = useState(true);
   const [isDrop, setDrop] = useState(false); 
+  const [isDropDirectory, setIsDropDirectory] = useState(false);
   const [anchorElUser, setAnchorElUser] = useState(null);
   const title = document.title;
   const handleCloseUserMenu = () => {
@@ -41,6 +25,19 @@ export default function Sidebar() {
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
+  const dropDownDirectory = () => { 
+    setIsDropDirectory(!isDropDirectory);
+  };
+  const handleClickAway = (e) => {
+    if(typeof e.target.className === 'string'){
+      const component = (e.target.className).slice(0, 8)
+      if(component !== 'arrowImg'){
+        setActive(true);
+      }
+    }else{
+      setActive(true);
+    }
+  }
   const dropDown = () => { 
     setDrop(!isDrop);
   };
@@ -48,6 +45,28 @@ export default function Sidebar() {
     e.preventDefault();
     setActive(!isActive);
   };
+
+  // const logout = () => {
+  //   const cookies = document.cookie.split(";");
+
+  //   for (let i = 0; i < cookies.length; i++) {
+  //     let cookie = cookies[i];
+  //     let eqPos = cookie.indexOf("=");
+  //     let name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+
+  //     document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT; domain=b-fin.tech";
+  //   }
+  // }
+
+  // if (!document.cookie.length) {
+  //   window.location.href = '/registration'
+  // }
+
+  // let decodeToken = Buffer.from(document.cookie.split("token=")[1], 'base64').toString('ascii');
+
+  // try { decodeToken = JSON.parse(decodeToken.substring(0, decodeToken.length - decodeToken.slice(decodeToken.indexOf("}") + 1).length)); }
+  // catch (e) { logout() }
+
   return (
     <>
       <div className="header__title">
@@ -55,13 +74,14 @@ export default function Sidebar() {
         <span className="page__title">{title}</span>
       </div>
       <Header />
+      <ClickAwayListener onClickAway={(e) => handleClickAway(e)}>
       <div className={isActive ? "sidebar close" : "sidebar"}>
         <div className={isActive ? "burger-menu burger" : "burger-menu cross"}>
           <img src={burgerImg} onClick={signUp} className={isActive ? 'burger-menu__img' : 'icon-hide'} alt="burgerMenu" />
           <img src={crossImg} onClick={signUp} className={!isActive ? "cross-menu__img" : "icon-hide"} alt="cross"/> 
         </div>
         <div className="logo-details">
-          <i className="fas fa-wallet"></i>
+          <i className="fas fa-wallet"></i> 
           <span className="logo_name">B-Fin</span>
         </div>
         <ul className="nav-links">
@@ -90,6 +110,24 @@ export default function Sidebar() {
                     Все движения
                   </Link>
                 </li>
+              </ul>
+            </li>
+            <li className={isDropDirectory ? "showMenu" : ''}>
+              <div className="iocn-link">
+                  <Link to="/directory">
+                    <i className='bx bx-library'></i>
+                    <span className="link_name">Справочник</span>
+                  </Link>
+                  <i className='bx bxs-chevron-down arrow' onClick={dropDownDirectory}></i>
+              </div>
+              <ul className="sub-menu">
+                  <li><Link className="link_name" to="/directory">Справочник</Link></li>
+                  <li><Link to="/legal_entities">Мои юр. лица</Link></li>
+                  <li><Link to="/storehouse">Склады</Link></li>
+                  <li><Link to="/measure">Единицы измерений</Link></li>
+                  <li><Link to="/suppliers">Поставщики</Link></li>
+                  <li><Link to="/employees">Сотрудники</Link></li>
+                  <li><Link to="/cash_accounts">Кассы и счета</Link></li>
               </ul>
             </li>
             <li>
@@ -262,13 +300,16 @@ export default function Sidebar() {
                   onClose={handleCloseUserMenu}
                   >
                   <MenuItem onClick={handleCloseUserMenu}>
+                    {/* <Typography textAlign="center" onClick={logout}>Выйти</Typography> ЗАМЕНИТЬ НА НИЖНЮЮ СТРОКУ */}
                     <Typography textAlign="center">Выйти</Typography>
                   </MenuItem>
                 </Menu>
+                {/* <span className="link_name" style={{wordBreak: 'break-word'}}>{`${decodeToken.email}`}</span> ЗАМЕНИТЬ НА НИЖНЮЮ СТРОКУ*/}
                 <span className="link_name" style={{wordBreak: 'break-word'}}>example@mail.ru</span>
               </Link>
               <ul className="sub-menu blank">
                 <li style={{padding: '6px 0'}}>
+                  {/* <span className="link_mail">{`${decodeToken.email}`}</span> ЗАМЕНИТЬ НА НИЖНЮЮ СТРОКУ*/}
                   <span className="link_mail">example@mail.ru</span>
                 </li>
               </ul>
@@ -276,6 +317,7 @@ export default function Sidebar() {
           </div>
         </ul>
       </div>
-    </>
+      </ClickAwayListener>
+    </ >
   );
 }
