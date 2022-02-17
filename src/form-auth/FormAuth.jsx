@@ -202,8 +202,71 @@ function FormAuth() {
                      </Dialog>
                      {/* <button onClick={login}>Войти</button> ЗАМЕНИТЬ НА СЛЕДУЮЩУЮ СТРОКУ */}
                      <Link to="/dashboard"><button>Войти</button></Link>
+                     <span className='polit'>Этот сайт защищен reCAPTCHA, а так же <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">Политикой конфиденциальности</a> и <a href="https://policies.google.com/terms" target="_blank" rel="noopener noreferrer">Условиями использования</a> Google</span>
                   </form>
                </div>
+
+
+  {/*     <div>
+         <h2>Форма регистрации B-Fin</h2>
+         <div className={isActive ? "container right-panel-active" : "container"} id="container">
+            <div className="form-container sign-up-container">
+               <form action="#">
+                  <h1>Создать аккаунт</h1>
+                  <div className="social-container">
+                     <a href="/#" className="social">
+                        <FontAwesomeIcon icon={faFacebookF} />
+                     </a>
+                     <a href="/#" className="social">
+                        <FontAwesomeIcon icon={faGooglePlusG} />
+                     </a>
+                  </div>
+                  <span>или используйте почту для входа</span>
+                  <input type="text" name="login" placeholder="Логин" />
+                  <input type="email" name="email" placeholder="Почта" />
+                  <input type="password" name="pass" placeholder="Пароль" />
+                  <button>Зарегистрироваться</button>
+               </form>
+            </div>
+            <div className="form-container sign-in-container">
+               <form action="#">
+                  <h1>Войти</h1>
+                  <div className="social-container">
+                     <a href="/#" className="social">
+                        <FontAwesomeIcon icon={faFacebookF} />
+                     </a>
+                     <a href="/#" className="social">
+                        <FontAwesomeIcon icon={faGooglePlusG} />
+                     </a>
+                  </div>
+                  <span>или используйте свою почту</span>
+                  <input type="email" name="email" placeholder="Почта" />
+                  <input type="password" name="pass" placeholder="Пароль" />
+                  <Button variant="text" onClick={handleClickOpen}>Забыли пароль?</Button>
+                  <Dialog open={open} onClose={handleClose}>
+                     <DialogTitle>Восстановлдение пароля</DialogTitle>
+                     <DialogContent>
+                        <DialogContentText>
+                           Для восстановления пароля оставьте свою почту
+                        </DialogContentText>
+                        <TextField
+                           autoFocus
+                           margin="dense"
+                           id="name"
+                           label="Email Address"
+                           type="email"
+                           fullWidth
+                           variant="standard"
+                        />
+                     </DialogContent>
+                     <DialogActions>
+                        <Button onClick={handleClose}>Отмена</Button>
+                        <Button onClick={handleClose}><Link to="/password-recovery">Восстановить</Link></Button>
+                     </DialogActions>
+                  </Dialog>
+                  <Link to="/dashboard"><button>Войти</button></Link>
+               </form>*/}
+
             </div>
             <div className="overlay-container">
                <div className="overlay">

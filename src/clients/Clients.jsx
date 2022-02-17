@@ -97,7 +97,7 @@ const headCells = [
     id: "actions",
     numeric: true,
     disablePadding: false,
-    label: "Действия",
+    label: "Создать документ",
   },
 ];
 
@@ -123,28 +123,28 @@ function EnhancedTableHead(props) {
         </TableCell>
         {headCells.map((headCell) => {
           const isWrongForNarrow = headCell.id === 'duty' || headCell.id === 'mobile'
-          return(
+          return (
             <TableCell
-            className={!isWrongForNarrow ? styles.correct_row : styles.wrong_row} 
-            key={headCell.id}
-            align={headCell.numeric ? "right" : "left"}
-            padding={headCell.disablePadding ? "none" : "normal"}
-            sortDirection={orderBy === headCell.id ? order : false}
-          >
-            <TableSortLabel
-              active={orderBy === headCell.id}
-              direction={orderBy === headCell.id ? order : "asc"}
-              onClick={createSortHandler(headCell.id)}
-              style={{ zIndex: "1", fontSize: '16px'}}
+              className={!isWrongForNarrow ? styles.correct_row : styles.wrong_row}
+              key={headCell.id}
+              align={headCell.numeric ? "right" : "left"}
+              padding={headCell.disablePadding ? "none" : "normal"}
+              sortDirection={orderBy === headCell.id ? order : false}
             >
-              {headCell.label}
-              {orderBy === headCell.id ? (
-                <Box component="span" sx={visuallyHidden}>
-                  {order === "desc" ? "sorted descending" : "sorted ascending"}
-                </Box>
-              ) : null}
-            </TableSortLabel>
-          </TableCell>
+              <TableSortLabel
+                active={orderBy === headCell.id}
+                direction={orderBy === headCell.id ? order : "asc"}
+                onClick={createSortHandler(headCell.id)}
+                style={{ zIndex: "1", fontSize: '16px' }}
+              >
+                {headCell.label}
+                {orderBy === headCell.id ? (
+                  <Box component="span" sx={visuallyHidden}>
+                    {order === "desc" ? "sorted descending" : "sorted ascending"}
+                  </Box>
+                ) : null}
+              </TableSortLabel>
+            </TableCell>
           )
         })}
       </TableRow>
@@ -171,7 +171,7 @@ const EnhancedTableToolbar = (props) => {
   const { setUserId } = useUserId()
 
   const handleAdd = () => {
-    
+
     setUserId("Add");
     setIsRedirect(true);
   };
@@ -388,6 +388,7 @@ export default function EnhancedTable() {
   }
 
   // USER
+
   const [isOpen, setIsOpen] = React.useState();
   const openUser = (id) => {
     if(isOpen === id){
@@ -395,6 +396,14 @@ export default function EnhancedTable() {
     }else{
       setIsOpen(id);
     }
+
+ // const [isOpen, setIsOpen] = React.useState(null);
+ // const isUser = Boolean(isOpen);
+ // const [userInfo, setUserInfo] = React.useState({});
+ // const openUser = (event, name, duty, mail, mobile) => {
+ //   setIsOpen(event.currentTarget);
+ //   setUserInfo({ name, duty, mail, mobile })
+
   };
   const closeUser = () => {
     setIsOpen(null);
@@ -458,6 +467,7 @@ export default function EnhancedTable() {
                             </TableCell>
                             <TableCell onClick={() => openUser(row.id)} component="th" id={labelId} scope="row" padding="none" className={styles.table_narrow_name}>
                               <div className={styles.table__name_wide}>{row.name}</div>
+
                               <Accordion className={styles.table_accordion}>
                                 <AccordionSummary className={styles.user__name}>
                                   <div className={styles.accordion__name}>{row.name}</div>
@@ -469,6 +479,44 @@ export default function EnhancedTable() {
                                         <div style={{display: 'flex', alignItems: 'center'}}>
                                           <img className={styles.table__icon} src={phoneImg} alt="phone"/><div>
                                           <span style={{fontSize: '14px'}}>1:&nbsp;</span>
+
+            //                  <span onClick={(e) => openUser(e, row.name, row.duty, row.mail, row.mobile)} className={styles.table__name}>{row.name}</span>
+            //                  <Menu
+            //                    elevation={0}
+            //                    id="demo-positioned-menu"
+            //                   aria-labelledby="demo-positioned-button"
+            //                    anchorEl={isOpen}
+            //                    open={isUser}
+            //                    onClose={closeUser}
+            //                    className={styles.user_modal}
+            //                    anchorOrigin={{
+            //                      vertical: 'top',
+            //                      horizontal: 'left',
+            //                    }}
+            //                    transformOrigin={{
+            //                      vertical: 'top',
+            //                      horizontal: 'left',
+            //                    }}
+            //                  >
+            //                    <div className={styles.userInfo}>
+            //                      <div className={styles.userInfo_actions}>
+            //                        <div className={styles.userInfo_name}>{userInfo.name}</div>
+            //                        <div className={styles.userInfo_doc}>
+            //                          <div style={{ cursor: 'pointer', textAlign: 'center' }} onClick={handleClick}>
+            //                            Создать док.<i style={{ marginLeft: '2px' }} className="fas fa-angle-down"></i>
+            //                          </div>
+            //                          <Menu
+            //                            elevation={0}
+            //                            anchorEl={anchorEl}
+            //                            open={open}
+            //                            onClose={handleClose}
+            //                          >
+            //                            <div className={styles.table_menu}>
+            //                              <Link className={styles.link} to="/invoice"><MenuItem className={styles.table_menu_item} onClick={handleClose}>Счёт</MenuItem></Link>
+            //                              <Link className={styles.link} to="/sell"><MenuItem className={styles.table_menu_item} onClick={handleClose}>Продажа</MenuItem></Link>
+            //                              <Link className={styles.link} to="/order"><MenuItem className={styles.table_menu_item} onClick={handleClose}>Заказы</MenuItem></Link>
+            //                              <Link className={styles.link} to="/pay"><MenuItem className={styles.table_menu_item} onClick={handleClose}>Оплата</MenuItem></Link>
+
                                         </div>
                                         {row.mobile[0] || 'не указан'}</div>
                                       </a>
@@ -495,16 +543,33 @@ export default function EnhancedTable() {
                                       {row.duty || '0'} UAH</div>
                                     </div>
                                   </div>
+
                                 </AccordionDetails>
                               </Accordion>
                             </TableCell>
                             <TableCell className={styles.table_wide} align="right" style={{fontSize: '17px'}}>{row.mobile[0]}</TableCell>
                             <TableCell className={styles.table_wide} align="right" style={{fontSize: '17px'}}>{row.duty}</TableCell>
+
+      //                            <div className={styles.userInfo_params}>
+      //                              <div className={styles.userInfo_mobile}>{userInfo.mobile || 'телефон не указан'}</div>
+      //                              <div className={styles.userInfo_mail}>{userInfo.mail || 'почта не указана'}</div>
+      //                              <div className={styles.userInfo_duty_wrapper}>
+      //                                <span className={styles.userInfo_dutyName}>Долг</span>
+      //                                <span className={styles.userInfo_duty}>{userInfo.duty}</span>
+      //                                <span className={styles.userInfo_currency}>UAH.</span>
+      //                              </div>
+      //                            </div>
+      //                          </div>
+      //                        </Menu>
+      //                      </TableCell>
+      //                      <TableCell className={styles.table_wide} align="right" style={{ fontSize: '17px' }}>{row.mobile}</TableCell>
+      //                      <TableCell className={styles.table_wide} align="right" style={{ fontSize: '17px' }}>{row.duty}</TableCell>
+
                             <TableCell align="right" className={styles.table_narrow}>
                               <div className={styles.table__action__wide}  style={{marginRight: '10px'}}>
                                 <span onClick={handleClick} className={styles.action__btn}>
-                                <i style={{marginRight: '6px'}} className="fas fa-angle-down"></i>
-                                  Создать докумуент
+                                  <i style={{ marginRight: '6px' }} className="fas fa-angle-down"></i>
+                                  Создать
                                 </span>
                               </div>
                               <div className={styles.table__action__narrow} style={{marginRight: '-6px'}}>
@@ -518,7 +583,7 @@ export default function EnhancedTable() {
                                 elevation={0}
                                 anchorEl={anchorEl}
                                 open={open}
-                                onClose={handleClose}           
+                                onClose={handleClose}
                               >
                                 <div className={styles.table_menu}>
                                   <Link className={styles.link} to="/invoice"><MenuItem className={styles.table_menu_item} onClick={handleClose}>Счёт</MenuItem></Link>
