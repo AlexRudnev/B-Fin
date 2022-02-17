@@ -47,6 +47,15 @@ input::-webkit-inner-spin-button {
   color: rgb(40, 189, 40);
   font-size: 18px;
 }
+.menu_arrow{
+  padding: 0 !important;
+  width: 20px !important;
+  height: 20px !important;
+}
+.menu_arrow:hover{
+  background: none !important;
+}
+
 @media(max-width: 470px){
   .buttonsWrapper{
     display: flex;

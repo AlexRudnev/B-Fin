@@ -26,9 +26,11 @@ import PageBuy from './pages/pagesOfHeader/PageBuy';
 import PageInventory from './pages/pagesOfHeader/PageInventory';
 import PagePay from './pages/pagesOfHeader/PagePay';
 import PageRetrieve from './pages/pagesOfHeader/PageRetrieve';
+
 import PageSell from './pages/pagesOfHeader/PageSell';
 import PagePolitikaKonfidentsialnostiFacebook from './pages/low/PagePolitikaKonfidentsialnostiFacebook'
 import InstructionsForDeletingUserData from './pages/low/InstructionsForDeletingUserData';
+
 
 // справочник
 import PageDirectory from './pages/directory/PageDirectory'
