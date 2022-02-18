@@ -30,6 +30,11 @@ import PageSell from './pages/pagesOfHeader/PageSell';
 import PagePolitikaKonfidentsialnostiFacebook from './pages/low/PagePolitikaKonfidentsialnostiFacebook'
 import InstructionsForDeletingUserData from './pages/low/InstructionsForDeletingUserData';
 
+
+import PageAddProduct from './pages/pagesProductsEditing/PageAddProduct';
+import PageImportOfGoods from './pages/pagesProductsEditing/PageImportOfGoods';
+import PageRevaluation from './pages/pagesProductsEditing/PageRevaluation';
+import PageSavePriceList from './pages/pagesProductsEditing/PageSavePriceList';
 // справочник
 import PageDirectory from './pages/directory/PageDirectory'
 import PageLegalEntities from './pages/directory/PageLegalEntities'
@@ -87,6 +92,12 @@ function App() {
             <Route path="/reconciliation-acts" element={<PageReconciliationActs />} />
             <Route path="/report-money" element={<PageReportMoney />} />
             <Route path="/sales-and-orders" element={<PageSalesAndOrders />} />
+
+            {/*Обработка товаров и услуг*/}
+            <Route path="/add_product" element={<PageAddProduct />} />
+            <Route path="/revaluation" element={<PageRevaluation />} />
+            <Route path="/import_products" element={<PageImportOfGoods />} />
+            <Route path="/save_price_list" element={<PageSavePriceList />} />
 
             {/* Обработка клиентов */}
             <Route path="/editing" element={<PageUserEditing />} />

@@ -10,7 +10,6 @@ import UserForm from './UserFrom';
 import InformationForm from './InformationForm';
 
 import Button from '@mui/material/Button';
-import Sidebar from '../sidebar/Sidebar';
 
 import styles from './UserEditing.module.css'
 
@@ -130,7 +129,6 @@ function UserEditing() {
   }
 
   return <>
-    <Sidebar />
     <section className="home-section">
       <div className="home-content" style={{display: 'flex', flexDirection: 'column'}}>
         <div className={styles.buttonsWrapper}>
