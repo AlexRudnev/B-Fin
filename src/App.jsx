@@ -26,15 +26,19 @@ import PageBuy from './pages/pagesOfHeader/PageBuy';
 import PageInventory from './pages/pagesOfHeader/PageInventory';
 import PagePay from './pages/pagesOfHeader/PagePay';
 import PageRetrieve from './pages/pagesOfHeader/PageRetrieve';
+import PageLegalEntitesEditing from './pages/directory/PageLegalEntitesEditing'
+
 import PageSell from './pages/pagesOfHeader/PageSell';
 import PagePolitikaKonfidentsialnostiFacebook from './pages/low/PagePolitikaKonfidentsialnostiFacebook'
 import InstructionsForDeletingUserData from './pages/low/InstructionsForDeletingUserData';
+
 
 
 import PageAddProduct from './pages/pagesProductsEditing/PageAddProduct';
 import PageImportOfGoods from './pages/pagesProductsEditing/PageImportOfGoods';
 import PageRevaluation from './pages/pagesProductsEditing/PageRevaluation';
 import PageSavePriceList from './pages/pagesProductsEditing/PageSavePriceList';
+
 // справочник
 import PageDirectory from './pages/directory/PageDirectory'
 import PageLegalEntities from './pages/directory/PageLegalEntities'
@@ -48,6 +52,7 @@ import PageInvoice from './pages/PageInvoice';
 import PageOrder from './pages/PageOrder';
 import PageImportClients from './pages/PageImportClients';
 import PageUserEditing from './pages/PageUserEditing';
+import PageSupplierEditing from './pages/directory/PageSupplierEditing'
 import './App.css';
 import FormpPasswordRecovery from './form-auth/FormpPasswordRecovery';
 import { UserIdProvider } from './providers/UserIdProvider';
@@ -102,6 +107,12 @@ function App() {
             {/* Обработка клиентов */}
             <Route path="/editing" element={<PageUserEditing />} />
             <Route path="/import_clients" element={<PageImportClients />} />
+
+            {/* Обработка поставщиков */}
+            <Route path="/editing_supplier" element={<PageSupplierEditing />} />
+
+            {/* Обработка моих юрлиц */}
+            <Route path="/editing_legal_entities" element={<PageLegalEntitesEditing />} />
 
             {/* Действия  */}
             <Route path="/accept" element={<PageAccept />} />
