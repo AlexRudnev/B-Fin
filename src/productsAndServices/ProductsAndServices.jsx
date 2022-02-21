@@ -31,7 +31,7 @@ import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import Grow from "@mui/material/Grow";
 import useUserId from "../hooks/useUserId";
-import { useSelector } from 'react-redux';
+
 
 
 
@@ -221,9 +221,7 @@ const produtsForExample = [
    },
 
 ]
-const options = [
-   'one', 'two', 'three'
- ];
+
 
 function ProductsTableHead(props){
    const { order, orderBy, onRequestSort } = props;
@@ -234,22 +232,12 @@ return(
     <TableHead>
     <TableRow>
       <TableCell padding="checkbox">
-        {/* <Checkbox
-                color="primary"
-                indeterminate={numSelected > 0 && numSelected < rowCount}
-                checked={rowCount > 0 && numSelected === rowCount}
-                onChange={onSelectAllClick}
-                inputProps={{
-                   'aria-label': 'select all desserts',
-                }}
-             /> */}
+        
       </TableCell>
       {headCells.map((headCell) => {
         return(
           <TableCell
           key={headCell.id}
-          /* align={headCell.numeric ? "right" : "left"} */
-          /* padding={headCell.disablePadding ? "none" : "normal"} */
           sortDirection={orderBy === headCell.id ? order : false}
         >
           <TableSortLabel
@@ -294,13 +282,14 @@ const ProductsTableToolbar = (props) => {
    setOpen((prevOpen) => !prevOpen);
  };
   const anchorRef = React.useRef(null);
-   const { setUserId } = useUserId() 
+
 
   const navigate = useNavigate()
   React.useEffect(() => {
      if(isRedirect){
         navigate('/add_product', {state: {id: selectedProductsId}}) 
      }
+     // eslint-disable-next-line
   }, [isRedirect])
   
   const { numSelected } = props;
@@ -423,38 +412,7 @@ function ProductsAndServices() {
 
    const [rowsPerPage, setRowsPerPage] = React.useState(10);
    const [isRedirect, setIsRedirect] = React.useState(false);
-   const [selectedUserId, setSelectedUserId] = React.useState(null)
 
-   /* const storeData = useSelector(state => state.userReducer)*/
-   /* const rows = []  */
-   /* produtsForExample.map((el) => {
-      Object.keys(el).forEach((key) => {
-         const values = el[key]
-         rows.push({id: key, 
-            name: values.name, 
-            remainder: values.remainder, 
-            price: values.price, 
-            measurement: values.measurement,
-            vendorCode: values.vendorCode
-         })
-      })
-   })  */
-   /* produtsForExample.forEach((el) => {
-      Object.keys(el).forEach((key) => {
-        const values = el[key];
-        rows.push({
-         id: values.key,
-         name: values.name, 
-         remainder: values.remainder, 
-         price: values.price, 
-         measurement: values.measurement,
-         vendorCode: values.vendorCode
-        });
-      });
-    }); */
-  
-   /* console.log(produtsForExample)
-   console.log(rows) */
    
 
     const handleRequestSort = (event, property) => {
@@ -488,7 +446,7 @@ function ProductsAndServices() {
       setDense(event.target.checked);
     };
   
-    const isSelected = (name) => selected.indexOf(name) !== -1;
+    
   
     // Avoid a layout jump when reaching the last page with empty rows.
     const emptyRows =
@@ -504,32 +462,12 @@ function ProductsAndServices() {
     const navigate = useNavigate();
     React.useEffect(() => {
       if (isRedirect) {
-        navigate("/add_product'");
+        navigate("/add_product");
       }
       // eslint-disable-next-line
     }, [isRedirect]);
   
-    // ACTIONS 
-    /* const [anchorEl, setAnchorEl] = React.useState(null);
-    const open = Boolean(anchorEl);
-    const handleClick = (event) => {
-      setAnchorEl(event.currentTarget);
-    };
-    const handleClose = () => {
-      setAnchorEl(null);
-    }
-  
-    // USER
-    const [isOpen, setIsOpen] = React.useState(null);
-    const isUser = Boolean(isOpen);
-    const [userInfo, setUserInfo] = React.useState({});
-    const openUser = (event, name, duty, mail, mobile) => {
-      setIsOpen(event.currentTarget);
-      setUserInfo({name, duty, mail, mobile})
-    };
-    const closeUser = () => {
-      setIsOpen(null);
-    } */
+   
    
   return(
   <>
@@ -557,9 +495,7 @@ function ProductsAndServices() {
                   .slice(
                         page * rowsPerPage,
                         page * rowsPerPage + rowsPerPage
-                      ).map((row, /* index */)=>{
-                        /* const isItemSelected = isSelected(row.name);
-                        const labelId = `enhanced-table-checkbox-${index}`; */
+                      ).map((row )=>{     
                return (
                <TableRow
                hover

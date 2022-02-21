@@ -5,8 +5,8 @@ import DocumentTitle from 'react-document-title'
 function PageImportOfGoods() {
   return (
     <DocumentTitle title='B-Fin: Изменить товар'><div>
-      <ImportOfGoods/>
       <Sidebar />
+      <ImportOfGoods/>
     </div></DocumentTitle>
 
   )

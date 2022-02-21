@@ -5,8 +5,8 @@ import DocumentTitle from 'react-document-title'
 function PageRevaluation() {
   return (
     <DocumentTitle title='B-Fin: Изменить товар'><div>
-      <Revaluation/>
       <Sidebar />
+      <Revaluation/>
     </div></DocumentTitle>
 
   )
