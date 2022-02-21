@@ -26,6 +26,7 @@ import PageBuy from './pages/pagesOfHeader/PageBuy';
 import PageInventory from './pages/pagesOfHeader/PageInventory';
 import PagePay from './pages/pagesOfHeader/PagePay';
 import PageRetrieve from './pages/pagesOfHeader/PageRetrieve';
+import PageLegalEntitesEditing from './pages/directory/PageLegalEntitesEditing'
 
 import PageSell from './pages/pagesOfHeader/PageSell';
 import PagePolitikaKonfidentsialnostiFacebook from './pages/low/PagePolitikaKonfidentsialnostiFacebook'
@@ -97,6 +98,9 @@ function App() {
 
             {/* Обработка поставщиков */}
             <Route path="/editing_supplier" element={<PageSupplierEditing />} />
+
+            {/* Обработка моих юрлиц */}
+            <Route path="/editing_legal_entities" element={<PageLegalEntitesEditing />} />
 
             {/* Действия  */}
             <Route path="/accept" element={<PageAccept />} />

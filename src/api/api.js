@@ -83,6 +83,25 @@ class API {
     async removeSuppliers(id) {
         return await this.request("POST", `/suppliers/${id}/remove`);
     }
+    async getLegalEntites() {
+        return await this.request("GET", "/legal_entites");
+    }
+
+    async getLegalEntite(id) {
+        return await this.request("GET", `/legal_entites/${id}`);
+    }
+
+    async addLegalEntites(user) {
+        return await this.request("POST", `/legal_entites/add`, user);
+    }
+
+    async editLegalEntites(id, user) {
+        return await this.request("POST", `/legal_entites/${id}/edit`, user);
+    }
+
+    async removeLegalEntites(id) {
+        return await this.request("POST", `/legal_entites/${id}/remove`);
+    }
 }
 
 
