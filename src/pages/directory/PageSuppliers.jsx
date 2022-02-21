@@ -5,7 +5,7 @@ import Suppliers from '../../directory-components/directory/Suppliers';
 
 const PageSuppliers = () => {
    return (
-      <DocumentTitle title='B-Fin: Справочник'>
+      <DocumentTitle title='B-Fin: Поставщики'>
          <div >
             <Sidebar />
             <Suppliers />

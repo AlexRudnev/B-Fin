@@ -45,6 +45,7 @@ import PageInvoice from './pages/PageInvoice';
 import PageOrder from './pages/PageOrder';
 import PageImportClients from './pages/PageImportClients';
 import PageUserEditing from './pages/PageUserEditing';
+import PageSupplierEditing from './pages/directory/PageSupplierEditing'
 import './App.css';
 import FormpPasswordRecovery from './form-auth/FormpPasswordRecovery';
 import { UserIdProvider } from './providers/UserIdProvider';
@@ -93,6 +94,9 @@ function App() {
             {/* Обработка клиентов */}
             <Route path="/editing" element={<PageUserEditing />} />
             <Route path="/import_clients" element={<PageImportClients />} />
+
+            {/* Обработка поставщиков */}
+            <Route path="/editing_supplier" element={<PageSupplierEditing />} />
 
             {/* Действия  */}
             <Route path="/accept" element={<PageAccept />} />

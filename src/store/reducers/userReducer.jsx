@@ -1,6 +1,6 @@
 import { ADD_USER, REMOVE_USER, CHANGE_USER } from "../constants/actionTypes";
- 
-function createUser(id,name,address,mobile,duty,mail,company,group,discount,notes) {
+
+function createUser(id, name, address, mobile, duty, mail, company, group, discount, notes) {
   return {
     [id]: {
       name,
@@ -17,8 +17,8 @@ function createUser(id,name,address,mobile,duty,mail,company,group,discount,note
 }
 
 const localStorageState = JSON.parse(localStorage.getItem('store'))
-let initialState; 
-if(localStorageState === null){
+let initialState;
+if (localStorageState === null) {
   initialState = [
     createUser(1, 'Дівчинка', 'вул. Богатирська 30', [38635674521, '', ''], 400, ['', '', '']),
     createUser(2, 'Валерій Іванович', 'Русанівські Сади, 11 Лінія, буд. 42', [38635674521, '', ''], 0, ['', '', '']),
@@ -34,19 +34,19 @@ if(localStorageState === null){
     createUser(12, 'Nougat', '', [38635674521, '', ''], 1900, ['', '', '']),
     createUser(13, 'Oreo', '', [38635674521, '', ''], 0, ['', '', '']),
   ]
-}else{
+} else {
   initialState = localStorageState
 }
 
 
 const userReducer = (state = initialState, action) => {
 
-  switch(action.type){
+  switch (action.type) {
     case ADD_USER:
       return (
-        [ 
-        ...state,
-        action.payload 
+        [
+          ...state,
+          action.payload
         ]
       )
     case REMOVE_USER:
@@ -55,12 +55,12 @@ const userReducer = (state = initialState, action) => {
         const data = Object.entries(elem)
         const id = data[0][0]
         // eslint-disable-next-line
-        if(id != action.payload){
+        if (id != action.payload) {
           newState.push(elem)
-        }else{
+        } else {
           return false
         }
-      })  
+      })
       state = newState
       return (
         [
@@ -73,20 +73,20 @@ const userReducer = (state = initialState, action) => {
       const mainState = []
       state.forEach((elem) => {
         const user = Object.entries(elem)
-        const idOfUser = Number(user[0][0]) 
-        if(idOfUser === Number(id)){
-          mainState.push({[idOfUser]: data})
-        }else{
+        const idOfUser = Number(user[0][0])
+        if (idOfUser === Number(id)) {
+          mainState.push({ [idOfUser]: data })
+        } else {
           mainState.push(elem)
         }
-      })  
-      state = mainState  
+      })
+      state = mainState
       return (
         [
           ...state
-        ]  
+        ]
       )
-    default: 
+    default:
       return state;
   }
 

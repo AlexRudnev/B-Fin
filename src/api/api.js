@@ -2,7 +2,7 @@ import config from '../config.json'
 
 
 class API {
-    constructor () {
+    constructor() {
         this.api = `${config.serverLink}/api`
     }
 
@@ -21,19 +21,23 @@ class API {
 
     async registration(username, email, password) {
         return await this.request("POST", "/auth/registration", {
-            username: username, email: email, password: password
+            username: username,
+            email: email,
+            password: password
         });
     }
 
     async login(email, password) {
         return await this.request("POST", "/auth/login", {
-            email: email, password: password
+            email: email,
+            password: password
         });
     }
 
     async changePassword(code, password) {
         return await this.request("POST", "/auth/change-password", {
-            code: code, password: password
+            code: code,
+            password: password
         });
     }
 
@@ -59,6 +63,25 @@ class API {
 
     async removeClient(id) {
         return await this.request("POST", `/clients/${id}/remove`);
+    }
+    async getSuppliers() {
+        return await this.request("GET", "/suppliers");
+    }
+
+    async getSupplier(id) {
+        return await this.request("GET", `/suppliers/${id}`);
+    }
+
+    async addSuppliers(user) {
+        return await this.request("POST", `/suppliers/add`, user);
+    }
+
+    async editSuppliers(id, user) {
+        return await this.request("POST", `/suppliers/${id}/edit`, user);
+    }
+
+    async removeSuppliers(id) {
+        return await this.request("POST", `/suppliers/${id}/remove`);
     }
 }
 
