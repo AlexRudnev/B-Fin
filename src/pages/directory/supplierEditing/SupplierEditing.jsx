@@ -1,15 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'
-import useUserId from '../hooks/useUserId';
+import useUserId from '../../../hooks/useUserId';
 
 import UserForm from './UserFrom';
 import InformationForm from './InformationForm';
 
 import Button from '@mui/material/Button';
-import Sidebar from '../sidebar/Sidebar';
+import Sidebar from '../../../sidebar/Sidebar';
 
 import styles from './UserEditing.module.css'
-import API from '../api/api'
+import API from '../../../api/api'
 
 
 function UserEditing() {
@@ -24,7 +24,7 @@ function UserEditing() {
   const api = new API();
   React.useEffect(() => {
     if (!isAdd) {
-      api.getClient(userId).then(data => {
+      api.getSupplier(userId).then(data => {
         setCurrentUser(data.message)
       })
     }
@@ -34,8 +34,8 @@ function UserEditing() {
 
   // User`s data 
   const [name, setName] = React.useState('');
-  const [phone, setPhone] = React.useState(['', '', '']);
-  const [mail, setMail] = React.useState(['', '', '']);
+  const [phone, setPhone] = React.useState('');
+  const [mail, setMail] = React.useState('');
   const [company, setCompany] = React.useState('');
   const [group, setGroup] = React.useState('');
   // ============================================
@@ -51,7 +51,7 @@ function UserEditing() {
   const navigate = useNavigate()
   React.useEffect(() => {
     if (isRedirect) {
-      navigate('/clients')
+      navigate('/suppliers')
     }
     // eslint-disable-next-line
   }, [isRedirect])
@@ -62,7 +62,7 @@ function UserEditing() {
       const { address, company, discount, duty, group, mail, mobile, name, notes } = currentUser;
       setName(name)
       setPhone(mobile)
-      setMail(mail || ['', '', ''])
+      setMail(mail)
       setCompany(company)
       setGroup(group)
       setAddress(address)
@@ -92,7 +92,7 @@ function UserEditing() {
         notes
       }
 
-      api.addClient(body).then(data => {
+      api.addSuppliers(body).then(data => {
         if (data.status === "error") return alert(data.message)
         setIsSuccess(null)
         setIsRedirect(true)
@@ -103,7 +103,7 @@ function UserEditing() {
   const handleRemove = () => {
     userId !== 0 ? setIsSuccess('удалили пользователя') : setIsSuccess('')
     setTimeout(() => {
-      api.removeClient(userId).then(data => {
+      api.removeSuppliers(userId).then(data => {
         if (data.status === "error") return alert(data.message)
         setIsSuccess(null)
         setIsRedirect(true)
@@ -127,7 +127,7 @@ function UserEditing() {
         notes
       }
 
-      api.editClient(userId, body).then(data => {
+      api.editSuppliers(userId, body).then(data => {
         if (data.status === "error") return alert(data.message)
         setIsSuccess(null)
         setIsRedirect(true)
@@ -147,10 +147,8 @@ function UserEditing() {
         <div className={styles.buttonsWrapper}>
           <div className={styles.main_btns}>
             <Button onClick={isAdd ? handleAdd : handleChoose} className={styles.button} variant="contained">Сохранить</Button>
-            {/* {!isAdd && <Button onClick={handleRemove} className={styles.button} variant="contained">Удалить</Button>} */}
           </div>
           <div>
-            {/* <Button onClick={handleReturn} className={styles.button} style={{ color: '#9C27B0', borderColor: '#9C27B0' }} variant="outlined">Отмена</Button> */}
           </div>
         </div>
         {isSuccess &&

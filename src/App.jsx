@@ -26,11 +26,18 @@ import PageBuy from './pages/pagesOfHeader/PageBuy';
 import PageInventory from './pages/pagesOfHeader/PageInventory';
 import PagePay from './pages/pagesOfHeader/PagePay';
 import PageRetrieve from './pages/pagesOfHeader/PageRetrieve';
+import PageLegalEntitesEditing from './pages/directory/PageLegalEntitesEditing'
 
 import PageSell from './pages/pagesOfHeader/PageSell';
 import PagePolitikaKonfidentsialnostiFacebook from './pages/low/PagePolitikaKonfidentsialnostiFacebook'
 import InstructionsForDeletingUserData from './pages/low/InstructionsForDeletingUserData';
 
+
+
+import PageAddProduct from './pages/pagesProductsEditing/PageAddProduct';
+import PageImportOfGoods from './pages/pagesProductsEditing/PageImportOfGoods';
+import PageRevaluation from './pages/pagesProductsEditing/PageRevaluation';
+import PageSavePriceList from './pages/pagesProductsEditing/PageSavePriceList';
 
 // справочник
 import PageDirectory from './pages/directory/PageDirectory'
@@ -40,12 +47,17 @@ import PageEmployees from './pages/directory/PageEmployees'
 import PageMeasure from './pages/directory/PageMeasure'
 import PageStorehouse from './pages/directory/PageStorehouse'
 import PageSuppliers from './pages/directory/PageSuppliers'
+
 import PageEmployeesEditing from './pages/directory/PageEmployeesEditing';
+
+import PageСurrencies from './pages/directory/PageСurrencies'
+
 
 import PageInvoice from './pages/PageInvoice';
 import PageOrder from './pages/PageOrder';
 import PageImportClients from './pages/PageImportClients';
 import PageUserEditing from './pages/PageUserEditing';
+import PageSupplierEditing from './pages/directory/PageSupplierEditing'
 import './App.css';
 import FormpPasswordRecovery from './form-auth/FormpPasswordRecovery';
 
@@ -94,9 +106,24 @@ function App() {
             <Route path="/report-money" element={<PageReportMoney />} />
             <Route path="/sales-and-orders" element={<PageSalesAndOrders />} />
 
+            {/*Обработка товаров и услуг*/}
+            <Route path="/add_product" element={<PageAddProduct />} />
+            <Route path="/revaluation" element={<PageRevaluation />} />
+            <Route path="/import_products" element={<PageImportOfGoods />} />
+            <Route path="/save_price_list" element={<PageSavePriceList />} />
+
             {/* Обработка клиентов */}
             <Route path="/editing" element={<PageUserEditing />} />
             <Route path="/import_clients" element={<PageImportClients />} />
+
+            {/* Обработка поставщиков */}
+            <Route path="/editing_supplier" element={<PageSupplierEditing />} />
+
+            {/* Обработка моих юрлиц */}
+            <Route path="/editing_legal_entities" element={<PageLegalEntitesEditing />} />
+            {/* Обработка валюты */}
+            <Route path="/currencies" element={<PageСurrencies />} />
+
 
             {/* Действия  */}
             <Route path="/accept" element={<PageAccept />} />

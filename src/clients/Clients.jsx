@@ -1,3 +1,4 @@
+
 import * as React from "react";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -35,8 +36,7 @@ import useUserId from "../hooks/useUserId";
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import { useSelector } from "react-redux";
-// import API from '../api/api';
+import API from '../api/api';
 
 import phoneImg from './img/phone.png';
 import mailImg from './img/mail.png';
@@ -97,7 +97,7 @@ const headCells = [
     id: "actions",
     numeric: true,
     disablePadding: false,
-    label: "Создать документ",
+    label: "Действия",
   },
 ];
 
@@ -299,34 +299,16 @@ export default function EnhancedTable() {
 
 
   // ==========Запрос на сервер=================
-  // ===Нужно раскоментировать код ниже и раскоментировать import API на 39-й строке===
-  // const [rows, setRows] = React.useState([])
-  // const api = new API()
-  // React.useEffect(() => {
-  //    api.getClients().then(data => {
-  //       if (data.status === "error") alert(data.message)
-  //       else setRows(data.message)
-  //    })
-  // }, [])
+  const [rows, setRows] = React.useState([])
+  const api = new API()
+  React.useEffect(() => {
+    api.getClients().then(data => {
+      if (data.status === "error") alert(data.message)
+      else setRows(data.message)
+    })
+    // eslint-disable-next-line 
+  }, [])
   // ============================================
-
-  //  ==========Получение пользователей через redux================= 
-  //  === нужно закоментировать/удалить весь код ниже и import на 38-й строке - import {useSelector}
-  const storeData = useSelector((state) => state.userReducer);
-  const rows = [];
-  storeData.forEach((el) => {
-    Object.keys(el).forEach((key) => {
-      const values = el[key];
-      rows.push({
-        id: key,
-        name: values.name,
-        mobile: values.mobile,
-        mail: values.mail,
-        duty: values.duty
-      });
-    });
-  });
-  // ===============================================
 
   const navigate = useNavigate();
 
@@ -388,7 +370,6 @@ export default function EnhancedTable() {
   }
 
   // USER
-
   const [isOpen, setIsOpen] = React.useState();
   const openUser = (id) => {
     if (isOpen === id) {
@@ -396,14 +377,6 @@ export default function EnhancedTable() {
     } else {
       setIsOpen(id);
     }
-
- // const [isOpen, setIsOpen] = React.useState(null);
- // const isUser = Boolean(isOpen);
- // const [userInfo, setUserInfo] = React.useState({});
- // const openUser = (event, name, duty, mail, mobile) => {
- //   setIsOpen(event.currentTarget);
- //   setUserInfo({ name, duty, mail, mobile })
-
   };
   const closeUser = () => {
     setIsOpen(null);
@@ -467,7 +440,6 @@ export default function EnhancedTable() {
                             </TableCell>
                             <TableCell onClick={() => openUser(row.id)} component="th" id={labelId} scope="row" padding="none" className={styles.table_narrow_name}>
                               <div className={styles.table__name_wide}>{row.name}</div>
-
                               <Accordion className={styles.table_accordion}>
                                 <AccordionSummary className={styles.user__name}>
                                   <div className={styles.accordion__name}>{row.name}</div>
@@ -505,7 +477,6 @@ export default function EnhancedTable() {
                                         {row.duty || '0'} UAH</div>
                                     </div>
                                   </div>
-
                                 </AccordionDetails>
                               </Accordion>
                             </TableCell>
@@ -574,3 +545,4 @@ export default function EnhancedTable() {
     </>
   );
 }
+
