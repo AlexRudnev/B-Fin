@@ -47,6 +47,7 @@ import PageEmployees from './pages/directory/PageEmployees'
 import PageMeasure from './pages/directory/PageMeasure'
 import PageStorehouse from './pages/directory/PageStorehouse'
 import PageSuppliers from './pages/directory/PageSuppliers'
+import PageСurrencies from './pages/directory/PageСurrencies'
 
 import PageInvoice from './pages/PageInvoice';
 import PageOrder from './pages/PageOrder';
@@ -113,6 +114,9 @@ function App() {
 
             {/* Обработка моих юрлиц */}
             <Route path="/editing_legal_entities" element={<PageLegalEntitesEditing />} />
+            {/* Обработка валюты */}
+            <Route path="/currencies" element={<PageСurrencies />} />
+
 
             {/* Действия  */}
             <Route path="/accept" element={<PageAccept />} />

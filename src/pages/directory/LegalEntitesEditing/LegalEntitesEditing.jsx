@@ -47,7 +47,7 @@ function LegalEntitesEditing() {
   const [legal_name, setLegal_name] = React.useState('')
   const [inn, setInn] = React.useState('')
   const [low_system, setLow_system] = React.useState('')
-  const [nds, setNds] = React.useState(false)
+  const [nds, setNds] = React.useState(0)
   const [director, setDirector] = React.useState('')
   // ============================================
 
