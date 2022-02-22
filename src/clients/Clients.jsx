@@ -35,8 +35,7 @@ import useUserId from "../hooks/useUserId";
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import { useSelector } from "react-redux";
-// import API from '../api/api';
+import API from '../api/api';
 
 import phoneImg from './img/phone.png';
 import mailImg from './img/mail.png';
@@ -299,34 +298,16 @@ export default function EnhancedTable() {
 
 
   // ==========Запрос на сервер=================
-  // ===Нужно раскоментировать код ниже и раскоментировать import API на 39-й строке===
-  // const [rows, setRows] = React.useState([])
-  // const api = new API()
-  // React.useEffect(() => {
-  //    api.getClients().then(data => {
-  //       if (data.status === "error") alert(data.message)
-  //       else setRows(data.message)
-  //    })
-  // }, [])
+  const [rows, setRows] = React.useState([])
+  const api = new API()
+  React.useEffect(() => {
+    api.getClients().then(data => {
+      if (data.status === "error") alert(data.message)
+      else setRows(data.message)
+    })
+    // eslint-disable-next-line 
+  }, [])
   // ============================================
-
-  //  ==========Получение пользователей через redux================= 
-  //  === нужно закоментировать/удалить весь код ниже и import на 38-й строке - import {useSelector}
-  const storeData = useSelector((state) => state.userReducer);
-  const rows = [];
-  storeData.forEach((el) => {
-    Object.keys(el).forEach((key) => {
-      const values = el[key];
-      rows.push({
-        id: key,
-        name: values.name,
-        mobile: values.mobile,
-        mail: values.mail,
-        duty: values.duty
-      });
-    });
-  });
-  // ===============================================
 
   const navigate = useNavigate();
 

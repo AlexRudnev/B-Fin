@@ -6,7 +6,7 @@ import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import InputAdornment from '@mui/material/InputAdornment';
 
-function InformationForm ({address, setAddress, arrears, setArrears, discount, setDiscount, notes, setNotes, setMainArreas}) {
+function InformationForm({ address, setAddress, arrears, setArrears, discount, setDiscount, notes, setNotes, setMainArreas }) {
 
   const [currency, setCurrency] = React.useState('1-UAH');
   const currentCurrency = currency.split('-')
@@ -25,13 +25,13 @@ function InformationForm ({address, setAddress, arrears, setArrears, discount, s
 
   return (
     <>
-      <TextField 
-        sx={{marginBottom: '15px'}} id="standard-multiline-flexible" label="Адресс:" multiline maxRows={2} value={address || ''} 
+      <TextField
+        sx={{ marginBottom: '15px' }} id="standard-multiline-flexible" label="Адресс:" multiline maxRows={2} value={address || ''}
         onChange={(e) => setAddress(e.target.value)} variant="standard"
       />
-      <div style={{display:'flex', alignItems: 'center', justifyContent:'space-between', flexWrap: 'wrap'}}>
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap' }}>
         <TextField
-          sx={{marginBottom: '15px'}}
+          sx={{ marginBottom: '15px' }}
           value={arrears || ''}
           onChange={(e) => setArrears(e.target.value)}
           label="Задолженность:"
@@ -59,18 +59,18 @@ function InformationForm ({address, setAddress, arrears, setArrears, discount, s
         </div>
       </div>
       <TextField
-          sx={{marginBottom: '45px', width: '100px'}}
-          value={discount || ''}
-          onChange={(e) => setDiscount(e.target.value)}
-          label="Скидка:"
-          type="number"
-          variant="standard"
-          InputProps={{
-            endAdornment: <InputAdornment position="start">%</InputAdornment>
-          }}
-        />
-      <TextField 
-         id="standard-multiline-flexible" variant="outlined" label="Заметки:" multiline maxRows={4} value={notes || ''} 
+        sx={{ marginBottom: '45px', width: '100px' }}
+        value={discount || ''}
+        onChange={(e) => setDiscount(e.target.value)}
+        label="Скидка:"
+        type="number"
+        variant="standard"
+        InputProps={{
+          endAdornment: <InputAdornment position="start">%</InputAdornment>
+        }}
+      />
+      <TextField
+        id="standard-multiline-flexible" variant="outlined" label="Заметки:" multiline maxRows={4} value={notes || ''}
         onChange={(e) => setNotes(e.target.value)}
       />
     </>
