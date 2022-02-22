@@ -14,7 +14,8 @@
 
 h1 {
     font-weight: bold;
-    margin: 0;
+    /* margin: 0; */
+    text-align: center;
 }
 
 h2 {
@@ -31,6 +32,10 @@ p {
 
 span {
     font-size: 12px;
+}
+
+.polit {
+    margin: 30px 0 0 0;
 }
 
 
@@ -321,7 +326,7 @@ footer a {
 }   
 @media(max-width: 400px){
     h1{
-        font-size: 24px;
+        font-size: 24px; 
     }
     .social-container{
         margin-top: 0px;

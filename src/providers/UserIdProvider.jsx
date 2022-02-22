@@ -12,5 +12,4 @@ export const UserIdProvider = ({children}) => {
       {children}
     </UserIdContext.Provider>
   )
-
 }

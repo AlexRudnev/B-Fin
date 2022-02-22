@@ -31,7 +31,7 @@ import Grow from "@mui/material/Grow";
 import Popper from "@mui/material/Popper";
 import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
-import useUserId from "../hooks/useUserId"; 
+import useUserId from "../hooks/useUserId";
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
@@ -123,28 +123,28 @@ function EnhancedTableHead(props) {
         </TableCell>
         {headCells.map((headCell) => {
           const isWrongForNarrow = headCell.id === 'duty' || headCell.id === 'mobile'
-          return(
+          return (
             <TableCell
-            className={!isWrongForNarrow ? styles.correct_row : styles.wrong_row} 
-            key={headCell.id}
-            align={headCell.numeric ? "right" : "left"}
-            padding={headCell.disablePadding ? "none" : "normal"}
-            sortDirection={orderBy === headCell.id ? order : false}
-          >
-            <TableSortLabel
-              active={orderBy === headCell.id}
-              direction={orderBy === headCell.id ? order : "asc"}
-              onClick={createSortHandler(headCell.id)}
-              style={{ zIndex: "1", fontSize: '16px'}}
+              className={!isWrongForNarrow ? styles.correct_row : styles.wrong_row}
+              key={headCell.id}
+              align={headCell.numeric ? "right" : "left"}
+              padding={headCell.disablePadding ? "none" : "normal"}
+              sortDirection={orderBy === headCell.id ? order : false}
             >
-              {headCell.label}
-              {orderBy === headCell.id ? (
-                <Box component="span" sx={visuallyHidden}>
-                  {order === "desc" ? "sorted descending" : "sorted ascending"}
-                </Box>
-              ) : null}
-            </TableSortLabel>
-          </TableCell>
+              <TableSortLabel
+                active={orderBy === headCell.id}
+                direction={orderBy === headCell.id ? order : "asc"}
+                onClick={createSortHandler(headCell.id)}
+                style={{ zIndex: "1", fontSize: '16px' }}
+              >
+                {headCell.label}
+                {orderBy === headCell.id ? (
+                  <Box component="span" sx={visuallyHidden}>
+                    {order === "desc" ? "sorted descending" : "sorted ascending"}
+                  </Box>
+                ) : null}
+              </TableSortLabel>
+            </TableCell>
           )
         })}
       </TableRow>
@@ -171,7 +171,7 @@ const EnhancedTableToolbar = (props) => {
   const { setUserId } = useUserId()
 
   const handleAdd = () => {
-    
+
     setUserId("Add");
     setIsRedirect(true);
   };
@@ -390,9 +390,9 @@ export default function EnhancedTable() {
   // USER
   const [isOpen, setIsOpen] = React.useState();
   const openUser = (id) => {
-    if(isOpen === id){
-      closeUser(); 
-    }else{
+    if (isOpen === id) {
+      closeUser();
+    } else {
       setIsOpen(id);
     }
   };
@@ -409,7 +409,7 @@ export default function EnhancedTable() {
               fullWidth
               id="outlined-basic"
               label="Поиск"
-              variant="outlined" 
+              variant="outlined"
               size="small"
             />
             <Paper sx={{ width: "100%", mb: 2, mt: 2 }}>
@@ -463,62 +463,60 @@ export default function EnhancedTable() {
                                   <div className={styles.accordion__name}>{row.name}</div>
                                 </AccordionSummary>
                                 <AccordionDetails>
-                                  <div style={{marginTop: '10px'}}>
-                                    <div style={{marginBottom: '14px', lineHeight: '1'}} className={styles.row__mobile}>
+                                  <div style={{ marginTop: '10px' }}>
+                                    <div style={{ marginBottom: '14px', lineHeight: '1' }} className={styles.row__mobile}>
                                       <a className={styles.row__mobile__link} href={row.mobile[0] ? `tel:${row.mobile[0]}` : ''}>
-                                        <div style={{display: 'flex', alignItems: 'center'}}>
-                                          <img className={styles.table__icon} src={phoneImg} alt="phone"/><div>
-                                          <span style={{fontSize: '14px'}}>1:&nbsp;</span>
-                                        </div>
-                                        {row.mobile[0] || 'не указан'}</div>
+                                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                                          <img className={styles.table__icon} src={phoneImg} alt="phone" /><div>
+                                            <span style={{ fontSize: '14px' }}>1:&nbsp;</span>
+                                          </div>
+                                          {row.mobile[0] || 'не указан'}</div>
                                       </a>
                                     </div>
-                                    <div style={{marginBottom: '14px', lineHeight: '1'}} className={styles.row__mobile}>
-                                    <a className={styles.row__mobile__link} href={row.mobile[1] ? `tel:${row.mobile[1]}` : ''}>
-                                      <div style={{display: 'flex', alignItems: 'center'}}>
-                                        <img className={styles.table__icon} src={phoneImg} alt="phone"/><div>
-                                        <span style={{fontSize: '14px'}}>2:&nbsp;</span>
-                                      </div>
-                                      {row.mobile[1] || 'не указан'}</div>
-                                    </a>
-                                    </div> 
-                                    <div style={{marginBottom: '14px', lineHeight: '0.9'}} className={styles.row__mobile}>
-                                      <div style={{display: 'flex', alignItems: 'center'}}>
-                                        <img className={styles.table__icon} src={mailImg} alt="phone"/>&nbsp;<div>
-                                      </div>
-                                      {row.mail[0] || 'не указана'}</div>
+                                    <div style={{ marginBottom: '14px', lineHeight: '1' }} className={styles.row__mobile}>
+                                      <a className={styles.row__mobile__link} href={row.mobile[1] ? `tel:${row.mobile[1]}` : ''}>
+                                        <div style={{ display: 'flex', alignItems: 'center' }}>
+                                          <img className={styles.table__icon} src={phoneImg} alt="phone" /><div>
+                                            <span style={{ fontSize: '14px' }}>2:&nbsp;</span>
+                                          </div>
+                                          {row.mobile[1] || 'не указан'}</div>
+                                      </a>
                                     </div>
-                                    <div style={{marginBottom: '14px', lineHeight: '0.9'}} className={styles.row__mobile}>
-                                      <div style={{display: 'flex', alignItems: 'center'}}>
-                                        <img className={styles.table__icon} src={dutyImg} alt="phone"/>&nbsp;<div>
-                                      </div>
-                                      {row.duty || '0'} UAH</div>
+                                    <div style={{ marginBottom: '14px', lineHeight: '0.9' }} className={styles.row__mobile}>
+                                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                                        <img className={styles.table__icon} src={mailImg} alt="phone" />&nbsp;<div>
+                                        </div>
+                                        {row.mail[0] || 'не указана'}</div>
+                                    </div>
+                                    <div style={{ marginBottom: '14px', lineHeight: '0.9' }} className={styles.row__mobile}>
+                                      <div style={{ display: 'flex', alignItems: 'center' }}>
+                                        <img className={styles.table__icon} src={dutyImg} alt="phone" />&nbsp;<div>
+                                        </div>
+                                        {row.duty || '0'} UAH</div>
                                     </div>
                                   </div>
                                 </AccordionDetails>
                               </Accordion>
                             </TableCell>
-                            <TableCell className={styles.table_wide} align="right" style={{fontSize: '17px'}}>{row.mobile[0]}</TableCell>
-                            <TableCell className={styles.table_wide} align="right" style={{fontSize: '17px'}}>{row.duty}</TableCell>
+                            <TableCell className={styles.table_wide} align="right" style={{ fontSize: '17px' }}>{row.mobile[0]}</TableCell>
+                            <TableCell className={styles.table_wide} align="right" style={{ fontSize: '17px' }}>{row.duty}</TableCell>
                             <TableCell align="right" className={styles.table_narrow}>
-                              <div className={styles.table__action__wide}  style={{marginRight: '10px'}}>
+                              <div className={styles.table__action__wide} style={{ marginRight: '10px' }}>
                                 <span onClick={handleClick} className={styles.action__btn}>
-                                <i style={{marginRight: '6px'}} className="fas fa-angle-down"></i>
-                                  Создать докумуент
+                                  <i style={{ marginRight: '6px' }} className="fas fa-angle-down"></i>
+                                  Создать
                                 </span>
                               </div>
-                              <div className={styles.table__action__narrow} style={{marginRight: '-6px'}}>
+                              <div className={styles.table__action__narrow} style={{ marginRight: '-6px' }}>
                                 <span onClick={handleClick} className={styles.action__btn}>
-                                  <div>Создать</div>
-                                  <div>докумуент</div>   
-                                  <i style={{marginRight: '6px'}} className="fas fa-angle-down"></i> 
+                                  <div>Создать <i style={{ marginRight: '6px' }} className="fas fa-angle-down"></i></div>
                                 </span>
                               </div>
                               <Menu
                                 elevation={0}
                                 anchorEl={anchorEl}
                                 open={open}
-                                onClose={handleClose}           
+                                onClose={handleClose}
                               >
                                 <div className={styles.table_menu}>
                                   <Link className={styles.link} to="/invoice"><MenuItem className={styles.table_menu_item} onClick={handleClose}>Счёт</MenuItem></Link>

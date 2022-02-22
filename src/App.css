@@ -52,11 +52,11 @@
     vertical-align: top !important;
     padding-top: 12px !important;
 }
-.css-6qfsqn-MuiTableCell-root{
-    padding-right: 30px !important;
-}
 .css-6hp17o-MuiList-root-MuiMenu-list{
     padding-top: 0px !important;
+}
+.css-ahj2mt-MuiTypography-root{
+    line-height: 1 !important;
 }
 @media(max-width: 767px){
     .home-section {
@@ -66,7 +66,9 @@
         margin-top: 28px;
         width: 100vw;
     }
-    
+    .css-6qfsqn-MuiTableCell-root{
+        padding-right: 30px !important;
+    }
     .sidebar.close~.home-section {
         left: 0px;
         width: 100vw;

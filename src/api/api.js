@@ -60,6 +60,23 @@ class API {
     async removeClient(id) {
         return await this.request("POST", `/clients/${id}/remove`);
     }
+
+    
+    async getEmployees() {
+        return await this.request("GET", "/employees");
+    }
+    async getEmploye(id) {
+        return await this.request("GET", `/employees/${id}`);
+    }
+    async addEmployees(user) {
+        return await this.request("POST", `/employees/add`, user);
+    }
+    async editEmployees(id, user) {
+        return await this.request("POST", `/employees/${id}/edit`, user);
+    }
+    async removeEmployees(id) {
+        return await this.request("POST", `/employees/${id}/remove`);
+    }
 }
 
 
