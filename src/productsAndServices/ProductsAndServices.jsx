@@ -139,7 +139,7 @@ const produtsForExample = [
 
    },
    {
-      id:"cat",
+      id:"daf",
       name:"Горілка",
       remainder:10,
       price:30,
@@ -148,7 +148,7 @@ const produtsForExample = [
 
    },
    {
-      id:"cat",
+      id:"gdf",
       name:"Горілка",
       remainder:10,
       price:30,
@@ -157,7 +157,7 @@ const produtsForExample = [
 
    },
    {
-      id:"cat",
+      id:"afds",
       name:"Горілка",
       remainder:10,
       price:30,
@@ -166,7 +166,7 @@ const produtsForExample = [
 
    },
    {
-      id:"cat",
+      id:"gas",
       name:"Горілка",
       remainder:10,
       price:30,
@@ -175,7 +175,7 @@ const produtsForExample = [
 
    },
    {
-      id:"cat",
+      id:"hgdad",
       name:"Горілка",
       remainder:10,
       price:30,
@@ -184,7 +184,7 @@ const produtsForExample = [
 
    },
    {
-      id:"cat",
+      id:"hgda",
       name:"Горілка",
       remainder:10,
       price:30,
@@ -193,7 +193,7 @@ const produtsForExample = [
 
    },
    {
-      id:"cat",
+      id:"gasdf",
       name:"Горілка",
       remainder:10,
       price:30,
@@ -202,7 +202,7 @@ const produtsForExample = [
 
    },
    {
-      id:"cat",
+      id:"gdxxc",
       name:"Горілка",
       remainder:10,
       price:30,
@@ -211,14 +211,14 @@ const produtsForExample = [
 
    },
    {
-      id:"cat",
+      id:"gasd",
       name:"Горілка",
       remainder:10,
       price:30,
       measurement:"літр",
       vendorCode:1
 
-   },
+   }, 
 
 ]
 
@@ -500,6 +500,7 @@ function ProductsAndServices() {
                <TableRow
                hover
                role="checkbox"
+               key={row.id}
                >
                   <TableCell className="user-editing-icon" padding="checkbox">
                      <i
@@ -509,7 +510,6 @@ function ProductsAndServices() {
                      ></i>
                   </TableCell>
                   <TableCell
-                     key={row.id}
                      component="th"
                      scope="row"
                      padding="none"
