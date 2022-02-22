@@ -47,7 +47,11 @@ import PageEmployees from './pages/directory/PageEmployees'
 import PageMeasure from './pages/directory/PageMeasure'
 import PageStorehouse from './pages/directory/PageStorehouse'
 import PageSuppliers from './pages/directory/PageSuppliers'
+
+import PageEmployeesEditing from './pages/directory/PageEmployeesEditing';
+
 import PageСurrencies from './pages/directory/PageСurrencies'
+
 
 import PageInvoice from './pages/PageInvoice';
 import PageOrder from './pages/PageOrder';
@@ -56,13 +60,16 @@ import PageUserEditing from './pages/PageUserEditing';
 import PageSupplierEditing from './pages/directory/PageSupplierEditing'
 import './App.css';
 import FormpPasswordRecovery from './form-auth/FormpPasswordRecovery';
+
 import { UserIdProvider } from './providers/UserIdProvider';
+import { EmployeeIdProvider } from './providers/EmployeeIdProvider'; 
 
 function App() {
 
   return (
     <UserIdProvider>
-      <div>
+      <EmployeeIdProvider>
+        <div>
         <Router>
           <Routes>
             {/* Лендинг для рекламы */}
@@ -140,10 +147,28 @@ function App() {
             <Route path="/politika_konfidentsialnosti_dlya_facebook_com" element={<PagePolitikaKonfidentsialnostiFacebook />} />
             <Route path="/instructions-for-deleting-user-data" element={<InstructionsForDeletingUserData />} />
 
-          </Routes>
-        </Router>
-      </div>
-    </UserIdProvider>
+          {/* справочник  */}
+          <Route path="/cash_accounts" element={<PageСashAndAccounts />} />
+          <Route path="/directory" element={<PageDirectory />} />
+          <Route path="/employees" element={<PageEmployees />} />
+          <Route path="/legal_entities" element={<PageLegalEntities />} /> 
+          <Route path="/measure" element={<PageMeasure />} />
+          <Route path="/storehouse" element={<PageStorehouse />} />
+          <Route path="/suppliers" element={<PageSuppliers />} />
+          <Route path="/accept" element={<PageAccept />} />
+          <Route path="/buy" element={<PageBuy />} />
+          <Route path="/inventory" element={<PageInventory />} />
+          <Route path="/pay" element={<PagePay />} />
+          <Route path="/retrieve" element={<PageRetrieve />} />
+          <Route path="/sell" element={<PageSell />} />
+          <Route path="/invoice" element={<PageInvoice />} /> 
+          <Route path="/order" element={<PageOrder />} /> 
+          <Route path="/employees_editing" element={<PageEmployeesEditing />} />
+        </Routes>
+      </Router>
+    </div>
+    </EmployeeIdProvider>
+  </UserIdProvider>
   );
 }
 export default App;

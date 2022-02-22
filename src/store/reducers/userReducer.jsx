@@ -38,7 +38,6 @@ if (localStorageState === null) {
   initialState = localStorageState
 }
 
-
 const userReducer = (state = initialState, action) => {
 
   switch (action.type) {
