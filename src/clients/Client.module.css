@@ -164,9 +164,9 @@
     .table_row:hover .table_accordion {
         background-color: #F5F5F5;
     }
-    /* .table__name_wide {
+    .table__name_wide {
         display: none;
-    } */
+    }
     .user_modal {
         display: block;
     }

@@ -27,14 +27,11 @@ import { TextField } from "@mui/material";
 import Button from "@mui/material/Button";
 // import MenuItem from "@mui/material/MenuItem";
 import useUserId from "../../hooks/useUserId";
-// import Accordion from '@mui/material/Accordion';
-// import AccordionSummary from '@mui/material/AccordionSummary';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
 // import AccordionDetails from '@mui/material/AccordionDetails';
 import API from '../../api/api';
 
-// import phoneImg from '../../clients/img/phone.png';
-// import mailImg from '../../clients/img/mail.png';
-// import dutyImg from '../../clients/img/duty.png';
 
 import styles from "../../clients/Client.module.css";
 
@@ -358,12 +355,12 @@ export default function LegalEntities() {
                                           </TableCell>
                                           <TableCell onClick={() => openUser(row.id)} component="th" id={labelId} scope="row" padding="none" className={styles.table_narrow_name}>
                                              <div className={styles.table__name_wide}>{row.name}</div>
-                                             {/* <Accordion className={styles.table_accordion}>
+                                             <Accordion className={styles.table_accordion}>
                                                 <AccordionSummary className={styles.user__name}>
                                                    <div className={styles.accordion__name}>{row.name}</div>
-                                                </AccordionSummary> */}
-                                             {/* <AccordionDetails>
-                                                   <div style={{ marginTop: '10px' }}>
+                                                </AccordionSummary>
+                                                {/* <AccordionDetails> */}
+                                                {/* <div style={{ marginTop: '10px' }}>
                                                       <div style={{ marginBottom: '14px', lineHeight: '1' }} className={styles.row__mobile}>
                                                          <a className={styles.row__mobile__link} href={row.mobile ? `tel:${row.mobile}` : ''}>
                                                             <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -372,8 +369,8 @@ export default function LegalEntities() {
                                                                </div>
                                                                {row.mobile || 'не указан'}</div>
                                                          </a>
-                                                      </div>
-
+                                                      </div> */}
+                                                {/* 
                                                       <div style={{ marginBottom: '14px', lineHeight: '0.9' }} className={styles.row__mobile}>
                                                          <div style={{ display: 'flex', alignItems: 'center' }}>
                                                             <img className={styles.table__icon} src={mailImg} alt="phone" />&nbsp;<div>
@@ -385,10 +382,10 @@ export default function LegalEntities() {
                                                             <img className={styles.table__icon} src={dutyImg} alt="phone" />&nbsp;<div>
                                                             </div>
                                                             {row.duty || '0'} UAH</div>
-                                                      </div>
-                                                   </div>
-                                                </AccordionDetails> */}
-                                             {/* </Accordion> */}
+                                                      </div> */}
+                                                {/* </div> */}
+                                                {/* </AccordionDetails> */}
+                                             </Accordion>
                                           </TableCell>
                                           {/* <TableCell className={styles.table_wide} align="right" style={{ fontSize: '17px' }}>{row.mobile}</TableCell> */}
                                           {/* <TableCell className={styles.table_wide} align="right" style={{ fontSize: '17px' }}>{row.duty}</TableCell> */}
