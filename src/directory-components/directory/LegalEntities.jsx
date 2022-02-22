@@ -1,10 +1,8 @@
 import * as React from "react";
-// import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
 import { alpha } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-// import Menu from "@mui/material/Menu";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -25,11 +23,9 @@ import FilterListIcon from "@mui/icons-material/FilterList";
 import { visuallyHidden } from "@mui/utils";
 import { TextField } from "@mui/material";
 import Button from "@mui/material/Button";
-// import MenuItem from "@mui/material/MenuItem";
-import useUserId from "../../hooks/useUserId";
 import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
-// import AccordionDetails from '@mui/material/AccordionDetails';
+import useUserId from "../../hooks/useUserId";
 import API from '../../api/api';
 
 
@@ -274,15 +270,6 @@ export default function LegalEntities() {
       // eslint-disable-next-line
    }, [isRedirect]);
 
-   // ACTIONS 
-   // const [anchorEl, setAnchorEl] = React.useState(null);
-   // const open = Boolean(anchorEl);
-   // const handleClick = (event) => {
-   //    setAnchorEl(event.currentTarget);
-   // };
-   // const handleClose = () => {
-   //    setAnchorEl(null);
-   // }
 
    // USER
    const [isOpen, setIsOpen] = React.useState();
@@ -359,60 +346,8 @@ export default function LegalEntities() {
                                                 <AccordionSummary className={styles.user__name}>
                                                    <div className={styles.accordion__name}>{row.name}</div>
                                                 </AccordionSummary>
-                                                {/* <AccordionDetails> */}
-                                                {/* <div style={{ marginTop: '10px' }}>
-                                                      <div style={{ marginBottom: '14px', lineHeight: '1' }} className={styles.row__mobile}>
-                                                         <a className={styles.row__mobile__link} href={row.mobile ? `tel:${row.mobile}` : ''}>
-                                                            <div style={{ display: 'flex', alignItems: 'center' }}>
-                                                               <img className={styles.table__icon} src={phoneImg} alt="phone" /><div>
-                                                                  <span style={{ fontSize: '14px' }}>1:&nbsp;</span>
-                                                               </div>
-                                                               {row.mobile || 'не указан'}</div>
-                                                         </a>
-                                                      </div> */}
-                                                {/* 
-                                                      <div style={{ marginBottom: '14px', lineHeight: '0.9' }} className={styles.row__mobile}>
-                                                         <div style={{ display: 'flex', alignItems: 'center' }}>
-                                                            <img className={styles.table__icon} src={mailImg} alt="phone" />&nbsp;<div>
-                                                            </div>
-                                                            {row.mail || 'не указана'}</div>
-                                                      </div>
-                                                      <div style={{ marginBottom: '14px', lineHeight: '0.9' }} className={styles.row__mobile}>
-                                                         <div style={{ display: 'flex', alignItems: 'center' }}>
-                                                            <img className={styles.table__icon} src={dutyImg} alt="phone" />&nbsp;<div>
-                                                            </div>
-                                                            {row.duty || '0'} UAH</div>
-                                                      </div> */}
-                                                {/* </div> */}
-                                                {/* </AccordionDetails> */}
                                              </Accordion>
                                           </TableCell>
-                                          {/* <TableCell className={styles.table_wide} align="right" style={{ fontSize: '17px' }}>{row.mobile}</TableCell> */}
-                                          {/* <TableCell className={styles.table_wide} align="right" style={{ fontSize: '17px' }}>{row.duty}</TableCell> */}
-                                          {/* <TableCell align="right" className={styles.table_narrow}>
-                                             <div className={styles.table__action__wide} style={{ marginRight: '10px' }}>
-                                                <span onClick={handleClick} className={styles.action__btn}>
-                                                   <i style={{ marginRight: '6px' }} className="fas fa-angle-down"></i>
-                                                   Создать
-                                                </span>
-                                             </div>
-                                             <div className={styles.table__action__narrow} style={{ marginRight: '-6px' }}>
-                                                <span onClick={handleClick} className={styles.action__btn}>
-                                                   <div>Создать <i style={{ marginRight: '6px' }} className="fas fa-angle-down"></i></div>
-                                                </span>
-                                             </div>
-                                             <Menu
-                                                elevation={0}
-                                                anchorEl={anchorEl}
-                                                open={open}
-                                                onClose={handleClose}
-                                             >
-                                                <div className={styles.table_menu}>
-                                                   <Link className={styles.link} to="/buy"><MenuItem className={styles.table_menu_item} onClick={handleClose}>Закупка</MenuItem></Link>
-                                                   <Link className={styles.link} to="/pay"><MenuItem className={styles.table_menu_item} onClick={handleClose}>Оплата</MenuItem></Link>
-                                                </div>
-                                             </Menu>
-                                          </TableCell> */}
                                        </TableRow>
                                     );
                                  })}
@@ -448,5 +383,3 @@ export default function LegalEntities() {
       </>
    );
 }
-
-

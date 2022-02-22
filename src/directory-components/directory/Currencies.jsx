@@ -12,3 +12,4 @@ function Currencies() {
 }
 
 export default Currencies;
+
