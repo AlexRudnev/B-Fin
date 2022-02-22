@@ -26,7 +26,11 @@ import PageBuy from './pages/pagesOfHeader/PageBuy';
 import PageInventory from './pages/pagesOfHeader/PageInventory';
 import PagePay from './pages/pagesOfHeader/PagePay';
 import PageRetrieve from './pages/pagesOfHeader/PageRetrieve';
-import PageSell from './pages/pagesOfHeader/PageSell'; 
+
+import PageSell from './pages/pagesOfHeader/PageSell';
+import PagePolitikaKonfidentsialnostiFacebook from './pages/low/PagePolitikaKonfidentsialnostiFacebook'
+import InstructionsForDeletingUserData from './pages/low/InstructionsForDeletingUserData';
+
 
 // справочник
 import PageDirectory from './pages/directory/PageDirectory'
@@ -56,20 +60,29 @@ function App() {
         <div>
         <Router>
           <Routes>
-            <Route path="/registration" element={<FormAuth />} />
-            <Route path="/password-recovery" element={<FormpPasswordRecovery />} />
+            {/* Лендинг для рекламы */}
             <Route path="/" element={<Landing />} />
+
+            {/* Страницы категорий меню */}
             <Route path="/dashboard" element={<PageDashboard />} />
             <Route path="/allMoves" element={<PageAllMoves />} />
             <Route path="/productsAndService" element={<PageProductsAndServices />} />
             <Route path="/clients" element={<PageClients />} />
             <Route path="/ordersAndSales" element={<PageOrdersAndSales />} />
+            <Route path="/reports" element={<PageReports />} />
             <Route path="/money" element={<PageMoney />} />
-            <Route path="/purchasesAndStorage" element={<PagePurchasesAndStorage />} /> 
+            <Route path="/purchasesAndStorage" element={<PagePurchasesAndStorage />} />
             <Route path="/reports" element={<PageReports />} />
             <Route path="/history" element={<PageHistory />} />
+            <Route path="/settings" element={<PageSettings />} />
+            <Route path="/directory" element={<PageDirectory />} />
 
-            <Route path="/reports" element={<PageReports />} />
+            {/* Регистрация */}
+            <Route path="/registration" element={<FormAuth />} />
+            <Route path="/password-recovery" element={<FormpPasswordRecovery />} />
+
+
+            {/* Отчеты  */}
             <Route path="/costs" element={<PageCosts />} />
             <Route path="/debts" element={<PageDebts />} />
             <Route path="/financial-result" element={<PageFinancialResult />} />
@@ -81,16 +94,31 @@ function App() {
             <Route path="/report-money" element={<PageReportMoney />} />
             <Route path="/sales-and-orders" element={<PageSalesAndOrders />} />
 
-            <Route path="/settings" element={<PageSettings />} />
+            {/* Обработка клиентов */}
             <Route path="/editing" element={<PageUserEditing />} />
-            <Route path="/import_clients" element={<PageImportClients />} /> 
+            <Route path="/import_clients" element={<PageImportClients />} />
 
-          <Route path="/accept" element={<PageAccept />} />
-          <Route path="/buy" element={<PageBuy />} />
-          <Route path="/inventory" element={<PageInventory />} />
-          <Route path="/pay" element={<PagePay />} />
-          <Route path="/retrieve" element={<PageRetrieve />} />
-          <Route path="/sell" element={<PageSell />} />
+            {/* Действия  */}
+            <Route path="/accept" element={<PageAccept />} />
+            <Route path="/buy" element={<PageBuy />} />
+            <Route path="/inventory" element={<PageInventory />} />
+            <Route path="/pay" element={<PagePay />} />
+            <Route path="/retrieve" element={<PageRetrieve />} />
+            <Route path="/sell" element={<PageSell />} />
+            <Route path="/invoice" element={<PageInvoice />} />
+            <Route path="/order" element={<PageOrder />} />
+
+            {/* Справочник  */}
+            <Route path="/cash_accounts" element={<PageСashAndAccounts />} />
+            <Route path="/employees" element={<PageEmployees />} />
+            <Route path="/legal_entities" element={<PageLegalEntities />} />
+            <Route path="/measure" element={<PageMeasure />} />
+            <Route path="/storehouse" element={<PageStorehouse />} />
+            <Route path="/suppliers" element={<PageSuppliers />} />
+
+            {/* Политика безопасности */}
+            <Route path="/politika_konfidentsialnosti_dlya_facebook_com" element={<PagePolitikaKonfidentsialnostiFacebook />} />
+            <Route path="/instructions-for-deleting-user-data" element={<InstructionsForDeletingUserData />} />
 
           {/* справочник  */}
           <Route path="/cash_accounts" element={<PageСashAndAccounts />} />

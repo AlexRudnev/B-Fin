@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import useUserId from '../hooks/useUserId';
 
 import { useDispatch } from 'react-redux';
-import { addUser, removeUser, changeUser } from '../store/actions/index'; 
+import { addUser, removeUser, changeUser } from '../store/actions/index';
 
 import UserForm from './UserFrom';
 import InformationForm from './InformationForm';
@@ -26,9 +26,9 @@ function UserEditing() {
   storeData.forEach((elem) => {
     const data = Object.entries(elem)
     const id = Number(data[0][0])
-    if(id === Number(userId)){
-      currentUser = elem 
-    } 
+    if (id === Number(userId)) {
+      currentUser = elem
+    }
   })
   const dispatch = useDispatch()
   // =========================================
@@ -66,7 +66,7 @@ function UserEditing() {
 
   const navigate = useNavigate()
   React.useEffect(() => {
-    if(isRedirect){
+    if (isRedirect) {
       navigate('/clients')
     }
     // eslint-disable-next-line
@@ -75,9 +75,10 @@ function UserEditing() {
   React.useEffect(() => { 
     if(!isAdd && currentUser){
       //===============Закоментировать/удалить код ниже=================
+
       Object.keys(currentUser).forEach((key) => {
         const values = currentUser[key]
-        const {address, company, discount, duty, group, mail, mobile, name, notes} = values;
+        const { address, company, discount, duty, group, mail, mobile, name, notes } = values;
         setName(name)
         setPhone(mobile)
         setMail(mail || ['', '', ''])
@@ -102,11 +103,41 @@ function UserEditing() {
       // setDiscount(discount)
       // setNotes(notes) 
       // =============================================================== 
+      
     }
     // eslint-disable-next-line
   }, [])
 
+
   // ==========Закоментировать/удалить код ниже=================
+
+//   const handleAdd = () => {
+//     userId !== 0 ? setIsSuccess('добавили пользователя') : setIsSuccess('')
+//     setTimeout(() => {
+//       const lastUser = storeData[storeData.length - 1]
+//       const data = Object.entries(lastUser)
+//       const lastUserId = Number(data[0][0])
+//       dispatch(addUser({
+//         [String(lastUserId + 1)]: {
+//           name,
+//           mobile: phone,
+//           mail,
+//           company,
+//           group,
+//           address,
+//           duty: mainArreas,
+//           discount,
+//           notes
+//         },
+//       }));
+//       setIsSuccess(null)
+//       setIsRedirect(true)
+//     }, 1000)
+//   }
+//   const handleReturn = () => {
+//     setIsRedirect(true)
+//   }
+
   const handleRemove = () => {
     userId !== 0 ? setIsSuccess('удалили пользователя') : setIsSuccess('')
     setTimeout(() => {
@@ -123,17 +154,17 @@ function UserEditing() {
       dispatch(changeUser({
         [userId]: {
           name,
-          mobile: phone, 
+          mobile: phone,
           mail,
           company,
           group,
           address,
           duty: mainArreas,
           discount,
-          notes 
+          notes
         },
       }));
-      setIsSuccess(null)  
+      setIsSuccess(null)
       setIsRedirect(true)
     }, 1000)
   }
@@ -231,50 +262,58 @@ function UserEditing() {
   return <>
     <Sidebar />
     <section className="home-section">
-      <div className="home-content" style={{display: 'flex', flexDirection: 'column'}}>
+      <div className="home-content" style={{ display: 'flex', flexDirection: 'column' }}>
         <div className={styles.buttonsWrapper}>
           <div className={styles.main_btns}>
             <Button onClick={isAdd ? handleAdd : handleChoose} className={styles.button} variant="contained">Сохранить</Button>
-            {!isAdd && <Button onClick={handleRemove} className={styles.button} variant="contained">Удалить</Button>} 
+            {/* {!isAdd && <Button onClick={handleRemove} className={styles.button} variant="contained">Удалить</Button>} */}
           </div>
           <div>
-            <Button onClick={handleReturn} className={styles.button} style={{color: '#9C27B0', borderColor: '#9C27B0'}} variant="outlined">Отмена</Button>
+            {/* <Button onClick={handleReturn} className={styles.button} style={{ color: '#9C27B0', borderColor: '#9C27B0' }} variant="outlined">Отмена</Button> */}
           </div>
         </div>
-        {isSuccess && 
+        {isSuccess &&
           <div className={styles.success}>
             Вы успешно {isSuccess}!
           </div>
         }
 
         <div className={styles.boxesWrapper}>
-          <div className={styles.boxesWrapper__user}> 
-            <UserForm  
-              name={name} 
+          <div className={styles.boxesWrapper__user}>
+            <UserForm
+              name={name}
               setName={setName}
               phone={phone}
-              setPhone={setPhone} 
-              mail={mail} 
-              setMail={setMail} 
-              company={company} 
-              setCompany={setCompany} 
-              group={group} 
+              setPhone={setPhone}
+              mail={mail}
+              setMail={setMail}
+              company={company}
+              setCompany={setCompany}
+              group={group}
               setGroup={setGroup}
             />
           </div>
 
           <div className={styles.boxesWrapper__information}>
-            <InformationForm 
-              address={address} 
-              setAddress={setAddress} 
-              arrears={arrears} 
-              setArrears={setArrears} 
-              discount={discount} 
-              setDiscount={setDiscount} 
-              notes={notes} 
-              setNotes={setNotes}   
-              setMainArreas={setMainArreas}         
+            <InformationForm
+              address={address}
+              setAddress={setAddress}
+              arrears={arrears}
+              setArrears={setArrears}
+              discount={discount}
+              setDiscount={setDiscount}
+              notes={notes}
+              setNotes={setNotes}
+              setMainArreas={setMainArreas}
             />
+          </div>
+        </div>
+        <div className={styles.buttonsWrapper}>
+          <div className={styles.main_btns}>
+            {!isAdd && <Button onClick={handleRemove} className={styles.button} variant="contained">Удалить</Button>}
+          </div>
+          <div>
+            <Button onClick={handleReturn} className={styles.button} style={{ color: '#9C27B0', borderColor: '#9C27B0' }} variant="outlined">Отмена</Button>
           </div>
         </div>
       </div>

@@ -273,11 +273,12 @@ footer a {
         font-size: 23px;
     }
     .container{
-        height: 710px;
+        height: 910px;
+        margin-bottom: 70px;
     }
     .overlay-container {
         position: absolute;
-        top: 355px !important;
+        top: 455px !important; 
         left: 0;
         height: 50%;
         width: 100%;
@@ -326,7 +327,7 @@ footer a {
 }   
 @media(max-width: 400px){
     h1{
-        font-size: 24px; 
+        font-size: 24px;
     }
     .social-container{
         margin-top: 0px;

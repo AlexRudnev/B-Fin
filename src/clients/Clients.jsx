@@ -97,7 +97,7 @@ const headCells = [
     id: "actions",
     numeric: true,
     disablePadding: false,
-    label: "Действия",
+    label: "Создать документ",
   },
 ];
 
@@ -388,6 +388,7 @@ export default function EnhancedTable() {
   }
 
   // USER
+
   const [isOpen, setIsOpen] = React.useState();
   const openUser = (id) => {
     if (isOpen === id) {
@@ -395,6 +396,14 @@ export default function EnhancedTable() {
     } else {
       setIsOpen(id);
     }
+
+ // const [isOpen, setIsOpen] = React.useState(null);
+ // const isUser = Boolean(isOpen);
+ // const [userInfo, setUserInfo] = React.useState({});
+ // const openUser = (event, name, duty, mail, mobile) => {
+ //   setIsOpen(event.currentTarget);
+ //   setUserInfo({ name, duty, mail, mobile })
+
   };
   const closeUser = () => {
     setIsOpen(null);
@@ -458,6 +467,7 @@ export default function EnhancedTable() {
                             </TableCell>
                             <TableCell onClick={() => openUser(row.id)} component="th" id={labelId} scope="row" padding="none" className={styles.table_narrow_name}>
                               <div className={styles.table__name_wide}>{row.name}</div>
+
                               <Accordion className={styles.table_accordion}>
                                 <AccordionSummary className={styles.user__name}>
                                   <div className={styles.accordion__name}>{row.name}</div>
@@ -495,6 +505,7 @@ export default function EnhancedTable() {
                                         {row.duty || '0'} UAH</div>
                                     </div>
                                   </div>
+
                                 </AccordionDetails>
                               </Accordion>
                             </TableCell>
