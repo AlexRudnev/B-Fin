@@ -169,14 +169,16 @@ export default function Sidebar() {
                 <ul className="sub-menu">
                   <li><Link className="link_name" to="/directory">Справочник</Link></li>
                   <li><Link to="/cash_accounts">Кассы и счета</Link></li>
+                  <li><Link to="/banks_details">Банки и реквизиты</Link></li>
                   <li><Link to="/legal_entities">Мои юр. лица</Link></li>
                   <li><Link to="/storehouse">Склады</Link></li>
                   <li><Link to="/suppliers">Поставщики</Link></li>
                   <li><Link to="/employees">Сотрудники</Link></li>
                   <li><Link to="/measure">Единицы измерений</Link></li>
-                  <li><Link to="/measure">Статьи расходов</Link></li>
-                  <li><Link to="/measure">Статьи доходов</Link></li>
+                  <li><Link to="/expenditure">Статьи расходов</Link></li>
+                  <li><Link to="/income_items">Статьи доходов</Link></li>
                   <li><Link to="/currencies">Валюты</Link></li>
+                  <li><Link to="/type_price">Типы цен</Link></li>
                 </ul>
               </li>
               <li className={isDrop ? "showMenu" : ""}>
@@ -188,41 +190,17 @@ export default function Sidebar() {
                   <i className="bx bxs-chevron-down arrow" onClick={dropDown}></i>
                 </div>
                 <ul className="sub-menu">
-                  <li>
-                    <Link className="link_name" to="/reports">
-                      Отчеты
-                    </Link>
-                  </li>
-                  <li>
-                    <Link to="/sales-and-orders">Заказы и продажи</Link>
-                  </li>
-                  <li>
-                    <Link to="/purchases-and-receipts">Заказы поставщикам</Link>
-                  </li>
-                  <li>
-                    <Link to="/products">Товары</Link>
-                  </li>
-                  <li>
-                    <Link to="/debts">Долги</Link>
-                  </li>
-                  <li>
-                    <Link to="/report-money">Деньги</Link>
-                  </li>
-                  <li>
-                    <Link to="/income">Доходы</Link>
-                  </li>
-                  <li>
-                    <Link to="/costs">Расходы</Link>
-                  </li>
-                  <li>
-                    <Link to="/financial-result">Фин. Результат</Link>
-                  </li>
-                  <li>
-                    <Link to="/reconciliation-acts">Акты сверки</Link>
-                  </li>
-                  <li>
-                    <Link to="/price-list">Прайс листы</Link>
-                  </li>
+                  <li><Link className="link_name" to="/reports">Отчеты</Link></li>
+                  <li><Link to="/sales-and-orders">Заказы и продажи</Link></li>
+                  <li><Link to="/purchases-and-receipts">Заказы поставщикам</Link></li>
+                  <li><Link to="/products">Товары</Link></li>
+                  <li><Link to="/debts">Долги</Link></li>
+                  <li><Link to="/report-money">Деньги</Link></li>
+                  <li><Link to="/income">Доходы</Link></li>
+                  <li><Link to="/costs">Расходы</Link></li>
+                  <li><Link to="/financial-result">Фин. Результат</Link></li>
+                  <li><Link to="/reconciliation-acts">Акты сверки</Link></li>
+                  <li><Link to="/price-list">Прайс листы</Link></li>
                 </ul>
               </li>
 

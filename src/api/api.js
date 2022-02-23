@@ -66,7 +66,7 @@ class API {
     }
 
 
-    
+
     async getEmployees() {
         return await this.request("GET", "/employees");
     }
@@ -81,7 +81,7 @@ class API {
     }
     async removeEmployees(id) {
         return await this.request("POST", `/employees/${id}/remove`);
-
+    }
     async getSuppliers() {
         return await this.request("GET", "/suppliers");
     }
