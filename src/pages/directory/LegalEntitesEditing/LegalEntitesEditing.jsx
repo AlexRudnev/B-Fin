@@ -1,18 +1,18 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'
-import useUserId from '../hooks/useUserId';
+import useUserId from '../../../hooks/useUserId';
 
-import UserForm from './UserFrom';
+import LegalEntitesForm from './LegalEntitesForm';
 import InformationForm from './InformationForm';
 
 import Button from '@mui/material/Button';
-import Sidebar from '../sidebar/Sidebar';
+import Sidebar from '../../../sidebar/Sidebar';
 
 import styles from './UserEditing.module.css'
-import API from '../api/api'
+import API from '../../../api/api'
 
 
-function UserEditing() {
+function LegalEntitesEditing() {
   const { userId } = useUserId();
   const [isSuccess, setIsSuccess] = React.useState(null)
 
@@ -20,60 +20,67 @@ function UserEditing() {
   let isAdd = userId === 'Add'
 
   // ========================================
-  const [currentUser, setCurrentUser] = React.useState(null)
+  const [currentLegalEntite, setCurrentLegalEntite] = React.useState(null)
   const api = new API();
   React.useEffect(() => {
     if (!isAdd) {
-      api.getClient(userId).then(data => {
-        setCurrentUser(data.message)
+      api.getLegalEntite(userId).then(data => {
+        setCurrentLegalEntite(data.message)
       })
     }
     // eslint-disable-next-line
   }, [])
   // =========================================
 
-  // User`s data 
+  // Legal Entites data 
   const [name, setName] = React.useState('');
-  const [phone, setPhone] = React.useState(['', '', '']);
-  const [mail, setMail] = React.useState(['', '', '']);
-  const [company, setCompany] = React.useState('');
-  const [group, setGroup] = React.useState('');
+  const [account, setAccount] = React.useState('');
+  const [mobile, setPhone] = React.useState('');
+  const [mail, setMail] = React.useState('');
+  const [address, setAddress] = React.useState('')
+  const [site, setSite] = React.useState('');
+  const [edrpou, setEdrpou] = React.useState('');
+
   // ============================================
 
   // Information data
-  const [mainArreas, setMainArreas] = React.useState(0)
-  const [address, setAddress] = React.useState('')
-  const [arrears, setArrears] = React.useState(0)
-  const [discount, setDiscount] = React.useState('')
-  const [notes, setNotes] = React.useState('')
+  const [legal_name, setLegal_name] = React.useState('')
+  const [inn, setInn] = React.useState('')
+  const [low_system, setLow_system] = React.useState('')
+  const [nds, setNds] = React.useState(0)
+  const [director, setDirector] = React.useState('')
   // ============================================
 
   const navigate = useNavigate()
   React.useEffect(() => {
     if (isRedirect) {
-      navigate('/clients')
+      navigate('/legal_entities')
     }
     // eslint-disable-next-line
   }, [isRedirect])
 
   React.useEffect(() => {
-    if (!isAdd && currentUser) {
+    if (!isAdd && currentLegalEntite) {
       // ==============================================================
-      const { address, company, discount, duty, group, mail, mobile, name, notes } = currentUser;
+      const { address, account, site, mail, mobile, name, edrpou, legal_name, inn, low_system, nds, director } = currentLegalEntite;
       setName(name)
       setPhone(mobile)
-      setMail(mail || ['', '', ''])
-      setCompany(company)
-      setGroup(group)
+      setMail(mail)
       setAddress(address)
-      setArrears(duty)
-      setDiscount(discount)
-      setNotes(notes)
+      setAccount(account)
+      setSite(site)
+      setEdrpou(edrpou)
+      setLegal_name(legal_name)
+      setInn(inn)
+      setLow_system(low_system)
+      setNds(nds)
+      setDirector(director)
+
       // =============================================================== 
 
     }
     // eslint-disable-next-line
-  }, [currentUser])
+  }, [currentLegalEntite])
 
   // ======================================================================
   const handleAdd = () => {
@@ -82,17 +89,20 @@ function UserEditing() {
     setTimeout(() => {
       let body = {
         name,
-        mobile: phone,
+        mobile,
         mail,
-        company,
-        group,
         address,
-        duty: mainArreas,
-        discount,
-        notes
+        account,
+        site,
+        edrpou,
+        legal_name,
+        inn,
+        low_system,
+        nds,
+        director
       }
 
-      api.addClient(body).then(data => {
+      api.addLegalEntites(body).then(data => {
         if (data.status === "error") return alert(data.message)
         setIsSuccess(null)
         setIsRedirect(true)
@@ -103,7 +113,7 @@ function UserEditing() {
   const handleRemove = () => {
     userId !== 0 ? setIsSuccess('удалили пользователя') : setIsSuccess('')
     setTimeout(() => {
-      api.removeClient(userId).then(data => {
+      api.removeLegalEntites(userId).then(data => {
         if (data.status === "error") return alert(data.message)
         setIsSuccess(null)
         setIsRedirect(true)
@@ -117,17 +127,20 @@ function UserEditing() {
     setTimeout(() => {
       let body = {
         name,
-        mobile: phone,
+        mobile,
         mail,
-        company,
-        group,
         address,
-        duty: mainArreas,
-        discount,
-        notes
+        account,
+        site,
+        edrpou,
+        legal_name,
+        inn,
+        low_system,
+        nds,
+        director
       }
 
-      api.editClient(userId, body).then(data => {
+      api.editLegalEntites(userId, body).then(data => {
         if (data.status === "error") return alert(data.message)
         setIsSuccess(null)
         setIsRedirect(true)
@@ -147,10 +160,8 @@ function UserEditing() {
         <div className={styles.buttonsWrapper}>
           <div className={styles.main_btns}>
             <Button onClick={isAdd ? handleAdd : handleChoose} className={styles.button} variant="contained">Сохранить</Button>
-            {/* {!isAdd && <Button onClick={handleRemove} className={styles.button} variant="contained">Удалить</Button>} */}
           </div>
           <div>
-            {/* <Button onClick={handleReturn} className={styles.button} style={{ color: '#9C27B0', borderColor: '#9C27B0' }} variant="outlined">Отмена</Button> */}
           </div>
         </div>
         {isSuccess &&
@@ -161,31 +172,36 @@ function UserEditing() {
 
         <div className={styles.boxesWrapper}>
           <div className={styles.boxesWrapper__user}>
-            <UserForm
+            <LegalEntitesForm
               name={name}
               setName={setName}
-              phone={phone}
+              mobile={mobile}
               setPhone={setPhone}
+              account={account}
+              setAccount={setAccount}
               mail={mail}
               setMail={setMail}
-              company={company}
-              setCompany={setCompany}
-              group={group}
-              setGroup={setGroup}
+              address={address}
+              setAddress={setAddress}
+              site={site}
+              setSite={setSite}
+              edrpou={edrpou}
+              setEdrpou={setEdrpou}
             />
           </div>
 
           <div className={styles.boxesWrapper__information}>
             <InformationForm
-              address={address}
-              setAddress={setAddress}
-              arrears={arrears}
-              setArrears={setArrears}
-              discount={discount}
-              setDiscount={setDiscount}
-              notes={notes}
-              setNotes={setNotes}
-              setMainArreas={setMainArreas}
+              legal_name={legal_name}
+              setLegal_name={setLegal_name}
+              inn={inn}
+              setInn={setInn}
+              low_system={low_system}
+              setLow_system={setLow_system}
+              nds={nds}
+              setNds={setNds}
+              director={director}
+              setDirector={setDirector}
             />
           </div>
         </div>
@@ -202,4 +218,4 @@ function UserEditing() {
   </>
 }
 
-export default UserEditing;
+export default LegalEntitesEditing;
