@@ -58,6 +58,7 @@
 .css-ahj2mt-MuiTypography-root{
     line-height: 1 !important;
 }
+
 @media(max-width: 767px){
     .home-section {
         min-height: 80vh;

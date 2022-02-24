@@ -22,7 +22,7 @@ const EmployeesEditing = () => {
   // ========================================
   const [employee, setEmployee] = React.useState({});
 
-  const [f_name, setF_Name] = React.useState();
+  const [f_name, setF_Name] = React.useState('');
   const [s_name, setS_Name] = React.useState('');
   const [phone, setPhone] = React.useState('');
   const [mail, setMail] = React.useState('');
